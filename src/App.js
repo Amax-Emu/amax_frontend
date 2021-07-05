@@ -27,7 +27,7 @@ function App() {
 
         const response = await Axios.get('http://127.0.0.1:8000/pastraces',{
             params: {
-                offset: 290
+                offset: 0
             }}
             );
 
