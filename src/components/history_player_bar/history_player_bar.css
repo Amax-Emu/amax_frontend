@@ -1,0 +1,25 @@
+.history_player_bar {
+    height: 30px;
+    width: 400px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 2px;
+    display: flex;
+    background-color: darkcyan;
+}
+
+.history_player_bar_player {
+
+
+}
+
+.history_player_bar_mods {
+    margin-left: auto;
+}
+
+.car_name {
+    : left;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,33 @@
+.level_icon {
+    max-width: 15px;
+    margin-right: 2px;
+    margin-left: 5px;
+}
+
+.mod_icon {
+    max-width: 15px;
+}
+
+.level_value {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.player_name {
+    font-size: 18px;
+}
+
+.place_value {
+    font-size: 22px;
+    margin-left: 5px;
+}
+
+.player_component {
+    height: 25px;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 2px;
+    display: flex;
+}
