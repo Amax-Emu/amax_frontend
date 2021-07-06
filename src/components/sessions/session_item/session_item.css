@@ -1,0 +1,35 @@
+.session_item_container {
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: 0.6fr 1.1fr;
+    grid-template-rows: 0.8fr 1.2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "session_info session_info"
+    "players players";
+}
+
+.icon {
+
+}
+
+.session_info {
+    grid-area: session_info;
+
+
+
+
+}
+
+.header_image {
+    width: auto;
+    height: auto;
+    background-image: url('test_back.jpg');
+    background-repeat: no-repeat;
+
+}
+
+.players {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    grid-area: players;
+}

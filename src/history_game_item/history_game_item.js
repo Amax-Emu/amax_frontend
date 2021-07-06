@@ -25,10 +25,12 @@ function history_game_item(data) {
             <Paper elevation={3} className="history_game_item">
                 <div className="race_data_container">
                     <div className="map_icon_container">
-                    <img src="/loc_icons/oval.png" className="location_icon" alt="logo"/>
+                    <img src={"/loc_icons/" + data.location_icon + ".png"} className="location_icon" alt="logo"/>
                     </div>
-                    <div className="map_data">{data.map_name}</div>
-
+                    <div className="location_container">
+                    <div className="map_location_name">{data.location_name}</div>
+                    <div className="map_name">{data.map_name}</div>
+                    </div>
                     <div className="game_data">
                         <p>Laps: {data.laps}</p>
                         <p>Racers: {data.number_of_racers}</p>

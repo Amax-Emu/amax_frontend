@@ -10,6 +10,8 @@
 
 .level_value {
     font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
     margin-right: 5px;
 }
 
@@ -30,4 +32,674 @@
     align-items: center;
     margin: 2px;
     display: flex;
+}
+
+.rank_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    height: 16px;
+    margin-right: -18px;
+    margin-left: -20px;
+}
+
+.rank1 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') 0 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank2 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -64px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank3 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -128px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank4 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -192px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank5 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -256px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank6 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -320px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank7 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -384px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank8 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -448px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank9 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -512px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank10 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -576px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank11 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -640px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank12 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -704px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank13 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -768px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank14 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -832px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank15 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -896px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank16 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -960px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank17 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1024px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank18 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1088px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank19 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1152px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank20 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1216px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank21 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1280px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank22 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1344px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank23 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1406.3px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank24 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1472px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank25 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1537px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank26 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1599px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank27 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1664px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank28 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1728px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank29 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1792px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank30 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1856px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank31 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1920px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank32 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -1984px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank33 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2048px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank34 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2112px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank35 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2177px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank36 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2240px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank37 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2304px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank38 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2368px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank39 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2432px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank40 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2496px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank41 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2560px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank42 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2624px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank43 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2688px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank44 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2752px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank45 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2816px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank46 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2880px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank47 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -2944px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank48 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3008px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank49 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3072px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.rank50 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3136px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend1 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3200px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend2 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3264px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend3 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3328px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend4 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3392px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend5 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3456px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend6 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3520px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend7 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3582px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend8 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3648px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend9 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3712px 0;
+    transform: scale(0.3,0.3);
+
+}
+
+.legend10 {
+    display: inline-block;
+
+    overflow: visible;
+    width: 64px;
+    height: 64px;
+    background: url('rank_icons.png') -3773px 0;
+    transform: scale(0.3,0.3);
+
 }

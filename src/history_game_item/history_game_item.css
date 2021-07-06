@@ -34,9 +34,21 @@
 
 }
 
+.location_container{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: flex-start;
+    align-content: flex-start;
+    width: 40%;
+    font-size: 20px;
+    text-align: left;
+}
 
+.map_name {
 
-.map_data {  }
+}
 
 .game_data{
     font-size: 15px;
@@ -44,4 +56,9 @@
     line-height: 50%;
     margin-left: auto;
     margin-right: 15px;
+}
+
+.map_location_name{
+
+    font-weight: bold;
 }

@@ -40,7 +40,7 @@ function PlayerTable(data) {
                                 {player(data[key].player_name,data[key].finish_pos,data[key].player_level, data[key].player_legend)}
                             </TableCell>
                             <TableCell align="left">{data[key].player_car_name}</TableCell>
-                            <TableCell align="left">{mod_slots(data[key].mod_1_name,data[key].mod_2_name,data[key].mod_3_name)}</TableCell>
+                            <TableCell align="left">{mod_slots(data[key].mod_1_id,data[key].mod_2_id,data[key].mod_3_id,data[key].mod_1_name,data[key].mod_2_name,data[key].mod_3_name)}</TableCell>
                             <TableCell align="left">{data[key].final_state}</TableCell>
                         </TableRow>
                     ))}
