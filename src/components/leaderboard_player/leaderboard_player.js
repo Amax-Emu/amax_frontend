@@ -11,16 +11,18 @@ function return_rank_class(level,legend) {
 function Leaderboard_player(player_name,place,level,legend) {
 return (
     <div className="player_component">
-
+        <div className="rank_wrapper">
             <div className="rank_container">
                 <div className={return_rank_class(level, legend)}/>
             </div>
+        </div>
         <p className="level_value">
             {level}
         </p>
         <p className="player_name">
             {player_name}
         </p>
+
     </div>
 )
 

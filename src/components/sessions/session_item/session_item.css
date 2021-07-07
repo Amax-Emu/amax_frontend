@@ -1,35 +1,84 @@
 .session_item_container {
-    max-width: 400px;
+    max-width: 650px;
+    min-width: 200px;
     display: grid;
     grid-template-columns: 0.6fr 1.1fr;
-    grid-template-rows: 0.8fr 1.2fr;
+    grid-template-rows: 0.8fr auto;
     gap: 0px 0px;
+    margin: 15px;
     grid-template-areas:
     "session_info session_info"
     "players players";
 }
 
+
+.icon_container {
+    grid-area: icon_zone;
+    max-height: 50px;
+    max-width: 50px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: 0.2rem;
+}
 .icon {
+
+    max-height: 50px;
+    max-width: 50px;
 
 }
 
 .session_info {
     grid-area: session_info;
+    background-image: url('banner_1.png');
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 0.3fr 1.7fr;
+    grid-template-areas:
+    "icon_zone session_info_text";
 
+}
 
-
+.session_info_text {
+    grid-area: session_info_text;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 0.2rem;
 
 }
 
 .header_image {
-    width: auto;
-    height: auto;
-    background-image: url('test_back.jpg');
+    position: absolute; /**/
+    top: 0%; /**/
+    left: 0%; /**/
+    margin: 0; /**/
+
+    z-index: -999;
+
+    min-width: 300px;
+    min-height: 60px;
+    background-image: url('banner_1.png');
     background-repeat: no-repeat;
+
 
 }
 
 .players {
+    padding: 0.3rem;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     grid-area: players;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: flex-start;
+    align-items: flex-start;
+}
+
+.player_card{
+    outline: 0.1rem solid dimgrey;
+    border-radius: 0.2rem;
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+    margin: 0.2rem;
 }

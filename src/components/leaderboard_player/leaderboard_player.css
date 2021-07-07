@@ -17,6 +17,7 @@
 
 .player_name {
     font-size: 18px;
+
 }
 
 .place_value {
@@ -26,6 +27,7 @@
 
 .player_component {
     height: 25px;
+
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -40,8 +42,21 @@
     align-items: center;
     overflow: visible;
     height: 16px;
-    margin-right: -18px;
+    margin-right: -20px;
     margin-left: -20px;
+
+}
+
+.rank_wrapper {
+    margin-top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 3px;
+    height: 20px;
+    width: 20px;
+
 }
 
 .rank1 {
