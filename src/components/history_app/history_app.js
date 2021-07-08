@@ -65,9 +65,6 @@ function History_app() {
     return (
 
         <div className="App">
-            <ThemeProvider theme={theme}>
-                <CssBaseline/>
-
             <header className="App-header">
                 {
                     comments.map(comment => {
@@ -93,7 +90,6 @@ function History_app() {
                 containerClassName={'pagination'}
                 activeClassName={'active'}
             />
-            </ThemeProvider>
         </div>
     );
 }

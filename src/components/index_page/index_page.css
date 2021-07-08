@@ -1,0 +1,71 @@
+.main_page_container {
+    max-width: 1400px;
+    padding: 0.3rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 0px 0px;
+    grid-template-areas:
+    "main_index_area secondary_index_area secondary_index_area"
+    "sessions_index_area leaderboard_index_area discord_index_area";
+
+}
+
+.main_index_area {
+    grid-area: main_index_area;
+    min-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.secondary_index_area {
+    grid-area: secondary_index_area;
+}
+
+.sessions_index_area {
+    grid-area: sessions_index_area;
+}
+
+.leaderboard_index_area {
+    grid-area: leaderboard_index_area;
+}
+
+.discord_index_area {
+    grid-area: discord_index_area;
+}
+
+.intro_text_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 650px;
+    height: auto;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.intro_buttons_container {
+    display: flex;
+    max-width: 650px;
+    height: auto;
+    flex-wrap: wrap;
+    justify-items: center;
+    align-items: baseline;
+}
+
+.intro_button {
+    align-items: center;
+    alignment: center;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    background-color: dimgrey;
+    border-radius: 15px;
+    display: flex;
+    justify-items: center;
+}

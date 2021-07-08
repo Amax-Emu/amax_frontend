@@ -1,6 +1,10 @@
 .session_item_container {
     max-width: 650px;
     min-width: 200px;
+    border-radius: 0.3rem;
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
     display: grid;
     grid-template-columns: 0.6fr 1.1fr;
     grid-template-rows: 0.8fr auto;
@@ -14,23 +18,27 @@
 
 .icon_container {
     grid-area: icon_zone;
-    max-height: 50px;
-    max-width: 50px;
+    max-height: 4rem;
+    max-width: 4rem;
     display: flex;
     justify-items: center;
     align-items: center;
     margin: 0.2rem;
+    margin-left: 1.2rem;
 }
 .icon {
 
-    max-height: 50px;
-    max-width: 50px;
+    max-height: 4rem;
+    max-width: 4rem;
 
 }
 
 .session_info {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     grid-area: session_info;
     background-image: url('banner_1.png');
+    border-radius: 0.3rem 0.3rem 0 0 ;
     background-repeat: no-repeat;
     display: grid;
     grid-template-columns: 0.3fr 1.7fr;
@@ -39,11 +47,18 @@
 
 }
 
+.gamemode_info{
+    float: right;
+    text-align: right;
+    line-height: 250%;
+    margin-right: 1rem;
+}
+
 .session_info_text {
     grid-area: session_info_text;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     flex-wrap: wrap;
     padding-top: 0.2rem;
 
@@ -73,6 +88,7 @@
     flex-wrap: wrap;
     justify-items: flex-start;
     align-items: flex-start;
+
 }
 
 .player_card{
