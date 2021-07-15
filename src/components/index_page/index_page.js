@@ -1,8 +1,21 @@
 import "./index_page.css"
 import React from "react";
 import sessions_item from "../sessions/sessions_item/sessions_item";
+import Button from '@material-ui/core/Button';
+import ServerStatus from "../server_status_item/server_status_item"
+import { withStyles } from '@material-ui/core/styles';
 
-
+const StyledButton = withStyles({
+    root: {
+        background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+        boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+    }
+})(Button);
 
 
 export default function Index_App(){
@@ -14,11 +27,13 @@ export default function Index_App(){
                     Just press that button. It's worth it. Trust me.
                     </div>
                     <div className="intro_buttons_container">
-                        <div className="intro_button">A BUTTON</div>
+                        <StyledButton>Primary</StyledButton>
                     </div>
                 </div>
             </div>
-            <div className="secondary_index_area"></div>
+            <div className="secondary_index_area">
+                <ServerStatus />
+            </div>
             <div className="sessions_index_area">
                 {sessions_item('1')}
             </div>

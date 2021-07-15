@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function GetRequestHooks() {
+export default function ServerStatus() {
     const [totalReactPackages,setTotalReactPackages] = useState({
         server_status: null,
         total_online: null,
@@ -18,9 +18,9 @@ export default function GetRequestHooks() {
     console.log(totalReactPackages)
     return (
 
-        <div className="card text-center m-3">
-            <h5 className="card-header">GET Request with React Hooks</h5>
-            <div className="card-body">
+        <div className="card_container">
+            <h5 className="">GET Request with React Hooks</h5>
+            <div className="">
                 Server status: {totalReactPackages.server_status
             ? "Online"
             : "Offline"

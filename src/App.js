@@ -8,18 +8,30 @@ import Home from './components/home/Home';
 //import Contact from './components/Contact';
 //import Error from './components/Error';
 import Navigation from './components/Navigation';
+import ButtonAppBar from "./appbar";
 import index_page from "./components/index_page/index_page"
+import MiniDrawer from "./drawer2"
+import MarerialUIDrawer from "./drawer"
+
+
+
+
+
 
 class App extends Component {
+
 
     render() {
         return (
             <BrowserRouter>
 
                 <div>
+                    <ButtonAppBar/>
+                    <MarerialUIDrawer />
+                    <MiniDrawer />
                     <Navigation />
                     <Switch>
-                        
+
                         <Route path="/" component={Home} exact/>
                         <Route path="/history" component={history}/>
                         <Route path="/index_new" component={index_page}/>
