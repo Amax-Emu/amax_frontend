@@ -30,6 +30,7 @@ class App extends Component {
                     <MarerialUIDrawer />
                     <MiniDrawer />
                     <Navigation />
+                    <div style={{padding:"50px",flexGrow: "1"}}>
                     <Switch>
 
                         <Route path="/" component={Home} exact/>
@@ -38,6 +39,7 @@ class App extends Component {
                         <Route path="/server_status" component={GetRequestAsyncAwait}  />
 
                     </Switch>
+                    </div>
                 </div>
 
             </BrowserRouter>

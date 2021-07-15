@@ -17,6 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -127,10 +129,12 @@ class MiniDrawer extends React.Component {
                     <Divider/>
                     <List>
                         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                            <Link to='/history' style={classes.link}>
                             <ListItem button key={text}>
                                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
                                 <ListItemText primary={text}/>
                             </ListItem>
+                            </Link>
                         ))}
                     </List>
                     <Divider/>
