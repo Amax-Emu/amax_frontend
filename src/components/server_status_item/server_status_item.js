@@ -19,14 +19,14 @@ export default function ServerStatus() {
     return (
 
         <div className="card_container">
-            <h5 className="">GET Request with React Hooks</h5>
+            <h5 className="">Server status</h5>
             <div className="">
                 Server status: {totalReactPackages.server_status
             ? "Online"
             : "Offline"
-            }
-                Server status: {totalReactPackages.total_players}
-                Server status: {totalReactPackages.total_sessions}
+            }<br/>
+                Players online: {totalReactPackages.total_players}<br/>
+                Sessions: {totalReactPackages.total_sessions}
             </div>
         </div>
     );

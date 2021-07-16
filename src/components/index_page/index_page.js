@@ -35,7 +35,7 @@ export default function Index_App(){
                 <ServerStatus />
             </div>
             <div className="sessions_index_area">
-                {sessions_item('1')}
+                <sessions_item/>
             </div>
             <div className="leaderboard_index_area"></div>
             <div className="discord_index_area">
