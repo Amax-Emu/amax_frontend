@@ -1,97 +1,131 @@
 import './App.css';
 import history_game_item from "../../history_game_item/history_game_item";
-import React, {useState, useEffect} from 'react';
-import Axios from 'axios'
-import ReactPaginate from 'react-paginate';
-import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
+import React, { Component} from 'react';
+import GameHistoryService from "../../services/GameHistoryService";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import useMediaQuery from "@material-ui/core/useMediaQuery"
+import PaginationRounded from "@material-ui/lab/Pagination";
 
-function History_app() {
+export default class GameHistoryApp extends Component {
+    constructor(props) {
+        super(props);
+        // this.retrieveHistory = this.retrieveHistory.bind(this);
+        // this.refreshList = this.refreshList.bind(this);
+        this.handlePageChange = this.handlePageChange.bind(this);
+        //this.handlePageSizeChange = this.handlePageSizeChange.bind(this);
 
+        this.state = {
+            PastGames: [],
+            currentIndex: -1,
 
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+            page: 1,
+            count: 0,
+            pageSize: 10,
+        };
+    }
 
-    const theme = React.useMemo(
-        () =>
-            createMuiTheme({
-                palette: {
-                    type: prefersDarkMode ? 'dark' : 'light',
-                },
-            }),
-        [prefersDarkMode],
-    );
+    componentDidMount() {
+        this.InitApp();
+    }
 
-    const [comments, setComments] = useState([])
+    getRequestParams(page, pageSize) {
+        let params = {};
 
+        if (page) {
+            params["page"] = page - 1;
+        }
 
-    let state = {
-        offset: 0,
-    };
+        if (pageSize) {
+            params["size"] = pageSize;
+        }
 
+        return params;
+    }
 
-    useEffect(() => {
+    InitApp() {
+        const { page, pageSize } = this.state;
+        const params = this.getRequestParams(page, 10);
 
-        fetchComments();
+        GameHistoryService.getPage(params.page*pageSize)
+            .then((response) => {
+                const PastGames = response.data.data;
 
-    }, [])
+                this.setState({
+                    PastGames: PastGames,
+                });
+                console.log(response.data.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
 
-    useEffect(() => {
+        GameHistoryService.getTotalPages()
+            .then((response) => {
+                const TotalPages = parseInt(response.data.data/10)+1;
 
-        console.log(comments["data"])
-
-    }, [comments])
-
-    const fetchComments = async () => {
-
-        const response = await Axios.get('http://127.0.0.1:8000/pastraces',{
-            params: {
-                offset: state.offset
-            }}
-            );
-
-        setComments(response.data.data)
+                this.setState({
+                    count: TotalPages,
+                });
+                console.log(response.data.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
 
     }
 
+    handlePageChange(event, value) {
+        this.setState(
+            {
+                page: value,
+            },
+            () => {
+                this.InitApp();
+                this.props.history.replace({ pathname: `/history/${this.state.page}`})
+            }
+        );
+    }
 
 
-    const handlePageClick = (data) => {
-        let selected = data.selected;
-        let offset = Math.ceil(selected * 10);
-        state.offset = offset
-            fetchComments();
-    };
-    return (
+    render() {
 
-        <div className="App">
-            <header className="App-header">
-                {
-                    comments.map(comment => {
+        const {
+            PastGames,
+            currentIndex,
+            page,
+            count,
+            pageSize,
+        } = this.state;
 
-                        return (
-                            <div>
-                                {history_game_item(comment)}
-                            </div>
-                        )
-                    })
+        return(
 
-                }
-            </header>
-            <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
-                breakLabel={'...'}
-                breakClassName={'break-me'}
-                pageCount={10}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={handlePageClick}
-                containerClassName={'pagination'}
-                activeClassName={'active'}
-            />
-        </div>
-    );
-}
+            <div className="App">
+                <header className="App-header">
+                    {
+                        PastGames.map(PastGame => {
 
-export default History_app;
+                            return (
+                                <div>
+                                    {history_game_item(PastGame)}
+                                </div>
+                            )
+                        })
+
+                    }
+                </header>
+                <PaginationRounded
+                    className="my-3"
+                    count={count}
+                    page={page}
+                    siblingCount={1}
+                    boundaryCount={1}
+                    variant="outlined"
+                    shape="rounded"
+                    onChange={this.handlePageChange}
+                />
+            </div>
+
+        )
+    }
+    }
+

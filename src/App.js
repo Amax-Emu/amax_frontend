@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import history from './components/history_app/history_app';
 import session_item from "./components/sessions/session_item/session_item";
 import sessions_item from "./components/sessions/sessions_item/sessions_item";
 import GetRequestAsyncAwait from "./components/server_status_item/server_status_item"
@@ -12,6 +11,7 @@ import ButtonAppBar from "./appbar";
 import index_page from "./components/index_page/index_page"
 import MiniDrawer from "./drawer2"
 import MarerialUIDrawer from "./drawer"
+import GameHistoryApp from "./components/history_app/history_app";
 
 
 
@@ -26,15 +26,16 @@ class App extends Component {
             <BrowserRouter>
 
                 <div>
-                    <ButtonAppBar/>
-                    <MarerialUIDrawer />
-                    <MiniDrawer />
+                    {/*<ButtonAppBar/>*/}
+                    {/*<MarerialUIDrawer />*/}
+                    {/*<MiniDrawer />*/}
                     <Navigation />
                     <div style={{padding:"50px",flexGrow: "1"}}>
                     <Switch>
 
                         <Route path="/" component={Home} exact/>
-                        <Route path="/history" component={history}/>
+                        <Route path="/history" component={GameHistoryApp}/>
+                        <Route path="/history/:historyPage" component={GameHistoryApp}/>
                         <Route path="/index_new" component={index_page}/>
                         <Route path="/server_status" component={GetRequestAsyncAwait}  />
 
