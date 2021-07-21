@@ -5,7 +5,7 @@ import SessionsDataService from "../../../services/SessionsService"
 import GameHistoryService from "../../../services/GameHistoryService";
 
 
-export default class sessions_item extends Component {
+export default class SessionItem extends Component {
     constructor(props) {
         super(props);
         // this.retrieveHistory = this.retrieveHistory.bind(this);

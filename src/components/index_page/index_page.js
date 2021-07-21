@@ -1,6 +1,6 @@
 import "./index_page.css"
 import React from "react";
-import sessions_item from "../sessions/sessions_item/sessions_item";
+import SessionItem from "../sessions/sessions_item/sessions_item";
 import Button from '@material-ui/core/Button';
 import ServerStatus from "../server_status_item/server_status_item"
 import { withStyles } from '@material-ui/core/styles';
@@ -35,7 +35,7 @@ export default function Index_App(){
                 <ServerStatus />
             </div>
             <div className="sessions_index_area">
-                <sessions_item/>
+                <SessionItem/>
             </div>
             <div className="leaderboard_index_area"></div>
             <div className="discord_index_area">
