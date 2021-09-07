@@ -20,17 +20,16 @@ import GameHistoryApp from "./components/history_app/history_app";
 
 class App extends Component {
 
-
     render() {
         return (
-            <BrowserRouter>
 
+            <BrowserRouter>
+                <div className="toolbar" />
                 <div>
-                    {/*<ButtonAppBar/>*/}
-                    {/*<MarerialUIDrawer />*/}
-                    {/*<MiniDrawer />*/}
+
                     <Navigation />
-                    <div style={{padding:"50px",flexGrow: "1"}}>
+                    <div style={{padding:"50px",flexGrow: "1",margin:"50px"}}>
+                        <div className="toolbar" />
                     <Switch>
 
                         <Route path="/" component={Home} exact/>

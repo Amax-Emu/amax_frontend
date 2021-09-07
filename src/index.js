@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
 import {blueGrey} from "@material-ui/core/colors";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import MiniDrawer from "./drawer3";
 const theme = createMuiTheme({
     palette: {
         type: "dark",
@@ -89,7 +90,10 @@ ReactDOM.render(
     <ThemeProvider theme={theme}>
         <CssBaseline />
   <React.StrictMode>
-    <App />
+      <MiniDrawer/>
+
+      <main>    <App /></main>
+
   </React.StrictMode>
     </ThemeProvider>,
   document.getElementById('root')
