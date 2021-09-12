@@ -7,8 +7,9 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import purple from '@material-ui/core/colors/purple';
 import {blueGrey} from "@material-ui/core/colors";
+import PrimarySearchAppBar from "./appbar";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import MiniDrawer from "./drawer3";
+import ResponsiveDrawer from "./drawer3";
 const theme = createMuiTheme({
     palette: {
         type: "dark",
@@ -87,11 +88,15 @@ const useStyles = makeStyles((theme) => ({
 
 
 ReactDOM.render(
+
     <ThemeProvider theme={theme}>
         <CssBaseline />
-  <React.StrictMode>
-      <MiniDrawer/>
-
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        </style>
+        <React.StrictMode>
+        <PrimarySearchAppBar/>
+      <ResponsiveDrawer/>
       <main>    <App /></main>
 
   </React.StrictMode>

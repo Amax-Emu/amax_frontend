@@ -1,4 +1,4 @@
-.level_icon {
+.appbar_level_icon {
     max-width: 15px;
     margin-right: 2px;
     margin-left: 5px;
@@ -8,717 +8,741 @@
     max-width: 15px;
 }
 
-.level_value {
-    font-size: 15px;
+.appbar_level_value {
+    font-family: Ubuntu;
+    font-style: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 20px;
+    padding-bottom: 5px;
+
+    /* identical to box height */
+    text-align: right;
+
+    /* Gray / 100 */
+    color: #E6E6E6;
+
+
     font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 5px;
-    margin-left: 4px;
-}
-
-.player_name {
-    padding-top: 3px;
-    font-size: 18px;
 
 }
 
-.place_value {
-    font-size: 22px;
-    margin-left: 5px;
+.appbar_player_name {
+    /* AiBot */
+    margin-left: 24px;
+    position: static;
+    width: 55px;
+    height: 23px;
+    left: 374px;
+    top: 13.5px;
+
+    /*font-family: Ubuntu;*/
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+
+    /* identical to box height */
+    text-align: right;
+
+    /* Gray / 0 White */
+    color: #FFFFFF;
+
+    text-shadow: 0px 0px 16px rgba(220, 4, 255, 0.4);
+
 }
 
-.player_component {
-    height: 30px;
-    flex-grow: 0;
+
+.appbar_player_component {
+    height: 100%;
+
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     margin: 2px;
     display: flex;
-
-
 }
 
-.rank_container {
+.appbar_rank_container {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: visible;
-    height: 16px;
-    margin-right: -20px;
-    margin-left: -20px;
+    height: 24px;
+    margin-right: -24px;
+    margin-left: -24px;
 
 }
 
-.rank_wrapper {
+.appbar_rank_wrapper {
     margin-top: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-right: 3px;
-    height: 20px;
-    width: 20px;
+    margin-right: -2px;
+    height: 24px;
+    width: 24px;
 
 }
 
-.rank1 {
+.appbar_rank1 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') 0 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank2 {
+.appbar_rank2 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -64px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank3 {
+.appbar_rank3 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -128px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank4 {
+.appbar_rank4 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -192px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank5 {
+.appbar_rank5 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -256px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank6 {
+.appbar_rank6 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -320px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank7 {
+.appbar_rank7 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -384px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank8 {
+.appbar_rank8 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -448px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank9 {
+.appbar_rank9 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -512px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank10 {
+.appbar_rank10 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -576px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank11 {
+.appbar_rank11 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -640px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank12 {
+.appbar_rank12 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -704px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank13 {
+.appbar_rank13 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -768px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank14 {
+.appbar_rank14 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -832px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank15 {
+.appbar_rank15 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -896px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank16 {
+.appbar_rank16 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -960px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank17 {
+.appbar_rank17 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1024px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank18 {
+.appbar_rank18 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1088px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank19 {
+.appbar_rank19 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1152px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank20 {
+.appbar_rank20 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1216px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank21 {
+.appbar_rank21 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1280px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank22 {
+.appbar_rank22 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1344px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank23 {
+.appbar_rank23 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1406.3px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank24 {
+.appbar_rank24 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1472px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank25 {
+.appbar_rank25 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1537px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank26 {
+.appbar_rank26 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1599px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank27 {
+.appbar_rank27 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1664px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank28 {
+.appbar_rank28 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1728px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank29 {
+.appbar_rank29 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1792px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank30 {
+.appbar_rank30 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1856px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank31 {
+.appbar_rank31 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1920px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank32 {
+.appbar_rank32 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -1984px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank33 {
+.appbar_rank33 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2048px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank34 {
+.appbar_rank34 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2112px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank35 {
+.appbar_rank35 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2177px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank36 {
+.appbar_rank36 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2240px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank37 {
+.appbar_rank37 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2304px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank38 {
+.appbar_rank38 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2368px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank39 {
+.appbar_rank39 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2432px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank40 {
+.appbar_rank40 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2496px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank41 {
+.appbar_rank41 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2560px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank42 {
+.appbar_rank42 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2624px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank43 {
+.appbar_rank43 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2688px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank44 {
+.appbar_rank44 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2752px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank45 {
+.appbar_rank45 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2816px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank46 {
+.appbar_rank46 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2880px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank47 {
+.appbar_rank47 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -2944px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank48 {
+.appbar_rank48 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3008px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank49 {
+.appbar_rank49 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3072px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.rank50 {
+.appbar_rank50 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3136px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend1 {
+.appbar_legend1 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3200px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend2 {
+.appbar_legend2 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3264px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend3 {
+.appbar_legend3 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3328px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend4 {
+.appbar_legend4 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3392px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend5 {
+.appbar_legend5 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3456px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend6 {
+.appbar_legend6 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3520px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend7 {
+.appbar_legend7 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3582px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend8 {
+.appbar_legend8 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3648px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend9 {
+.appbar_legend9 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3712px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }
 
-.legend10 {
+.appbar_legend10 {
     display: inline-block;
 
     overflow: visible;
     width: 64px;
     height: 64px;
     background: url('rank_icons.png') -3773px 0;
-    transform: scale(0.3,0.3);
+    transform: scale(0.4,0.4);
 
 }

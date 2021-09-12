@@ -2,40 +2,47 @@
     max-width: 1400px;
     padding: 0.3rem;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
-    "main_index_area secondary_index_area secondary_index_area"
-    "sessions_index_area leaderboard_index_area discord_index_area";
+    "main secondary third";
 
 }
 
-.main_index_area {
-    grid-area: main_index_area;
+.central_widget {
+    grid-area: main;
     min-height: 150px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-items: center;
-    align-items: center;
+
 
 }
 
-.secondary_index_area {
-    grid-area: secondary_index_area;
+.server_status_widget {
+    grid-area: third;
+    margin: 15px;
 }
 
-.sessions_index_area {
-    grid-area: sessions_index_area;
+.sessions_index_widget{
+    align-items: flex-end;
+    margin: 15px;
+    width: 570px;
+    height: 636px;
+    /* Blue/700 (2 L) */
+    background: #304254;
+
+    /* Blue/600 */
+    border: 1px solid #3E5270;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 
-.leaderboard_index_area {
-    grid-area: leaderboard_index_area;
-}
-
-.discord_index_area {
-    grid-area: discord_index_area;
+.discord_index_widget{
+    max-width: 270px;
+    justify-self: flex-end;
 }
 
 .intro_text_container {
@@ -68,4 +75,21 @@
     border-radius: 15px;
     display: flex;
     justify-items: center;
+}
+
+.leaderboard_index_area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: secondary;
+    margin: 15px;
+    width: 270px;
+    height: 600px;
+    /* Blue/700 (2 L) */
+    background: #304254;
+
+    /* Blue/600 */
+    border: 1px solid #3E5270;
+    box-sizing: border-box;
+    border-radius: 8px;
 }

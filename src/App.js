@@ -23,9 +23,9 @@ class App extends Component {
     render() {
         return (
 
-            <BrowserRouter>
+            <BrowserRouter >
                 <div className="toolbar" />
-                <div>
+                <div style={{ marginLeft: 240 }}>
 
                     <Navigation />
                     <div style={{padding:"50px",flexGrow: "1",margin:"50px"}}>
