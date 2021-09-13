@@ -5,14 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import purple from '@material-ui/core/colors/purple';
-import {blueGrey} from "@material-ui/core/colors";
 import PrimarySearchAppBar from "./appbar";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ResponsiveDrawer from "./drawer3";
 const theme = createMuiTheme({
     palette: {
         type: "dark",
+        background: {
+            default: '#202A34',
+            paper: '#2C3845'
+        },
         primary: {
             main: '#2196F3',
         },
