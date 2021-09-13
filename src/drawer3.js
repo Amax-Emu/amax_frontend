@@ -1,20 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import HelpIcon from '@material-ui/icons/Help';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import HistoryIcon from '@material-ui/icons/History';
+import TableChartIcon from '@material-ui/icons/TableChart';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -29,12 +31,6 @@ const useStyles = makeStyles((theme) => ({
             flexShrink: 0,
         },
     },
-    appBar: {
-        [theme.breakpoints.up('sm')]: {
-            width: `calc(100% - ${drawerWidth}px)`,
-            marginLeft: drawerWidth,
-        },
-    },
     menuButton: {
         marginRight: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
@@ -42,7 +38,9 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
+    toolbar: {
+      height: 110,
+    },
     drawerPaper: {
         width: drawerWidth,
     },
@@ -57,31 +55,77 @@ function ResponsiveDrawer(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [open,setOpen] = React.useState(true);
+
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+    const handleClick = () => {
+        setOpen(!open);
+    };
+
     const drawer = (
         <div>
             <div className={classes.toolbar} />
-            <Divider />
+
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button key='Dashboard'>
+                    <ListItemIcon><DashboardIcon/></ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                </ListItem>
+
+
+                <ListItem button key='Games feed'>
+                    <ListItemIcon><HistoryIcon/></ListItemIcon>
+                    <ListItemText primary="Games feed" />
+                </ListItem>
+
+                <ListItem button key='Leaderboards'>
+                    <ListItemIcon><TableChartIcon/></ListItemIcon>
+                    <ListItemText primary="Leaderboards" />
+                </ListItem>
+
+
+                <ListItem button onClick={handleClick}>
+                    <ListItemIcon><TableChartIcon/></ListItemIcon>
+                    <ListItemText primary="Leaderboards" />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                            <ListItemText primary="Starred" />
+                        </ListItem>
+                    </List>
+                </Collapse>
+
+
+
             </List>
-            <Divider />
+            <Divider variant="middle"/>
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+
+                <ListItem button key='how-to-play'>
+                    <ListItemIcon><HelpIcon/></ListItemIcon>
+                    <ListItemText primary="How to play" />
+                </ListItem>
+
+
+                <ListItem button key='news'>
+                    <ListItemIcon><AnnouncementIcon/></ListItemIcon>
+                    <ListItemText primary="News" />
+                </ListItem>
+
+                <ListItem button key='discord'>
+                    <ListItemIcon><TableChartIcon/></ListItemIcon>
+                    <ListItemText primary="Discord server" />
+                </ListItem>
+
+
             </List>
         </div>
     );
