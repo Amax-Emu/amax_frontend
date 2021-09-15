@@ -11,7 +11,7 @@ export default function ServerStatus() {
 
     useEffect(() => {
         // GET request using axios inside useEffect React hook
-        axios.get('http://api.amax-emu.com/server_status')
+        axios.get('http://api.amax-emu.com/data/server_status')
             .then(response => setTotalReactPackages(response.data.data));
 
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
