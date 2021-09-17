@@ -3,6 +3,11 @@ import { useAuthStore } from "./stores"
 import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import set_discord_token from "./discord_auth"
 import get_user_data from "./user_data"
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AmaxAppBar from "./compositions/appbar/index"
+
 
 function main() {
     const auth = useAuthStore()
@@ -19,10 +24,32 @@ function main() {
 export function App() {
 
     const auth = useAuthStore()
+    auth.signIn()
+    const theme = createTheme({
+        palette: {
+          type: 'dark',
+          background: {
+            default: '#202A34',
+            paper: '#2C3845'
+        },
+        primary: {
+            main: '#2196F3',
+        },
+        secondary: {
+            main: '#f44336',
+        },
+        },
+      });
 
     return (
+        <ThemeProvider theme={theme}>
+        <CssBaseline/>
         <Router>
         <div>
+
+        <AmaxAppBar/>
+
+
         <nav>
             <Link to="/">Home</Link>
             <Link to="/user">User data</Link>
@@ -36,6 +63,7 @@ export function App() {
         </Switch>
         </div>
         </Router>
+        </ThemeProvider>
     )
 }
 

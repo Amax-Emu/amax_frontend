@@ -8,7 +8,7 @@ function user_data_getter() {
 
     headers["Authorization"] = `Bearer ${auth.user.token}`;
     
-    fetch("http://127.0.0.1:8000/auth/user", {headers,})    
+    fetch("http://127.0.0.1:8000/players/@me", {headers,})    
     .then((response) => response.json())
     .then((responseData) => {
       console.log(responseData);
