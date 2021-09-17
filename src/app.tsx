@@ -41,6 +41,9 @@ export function App() {
         },
       });
 
+      // You cannot access hooks before initialization iirc
+      React.useEffect(() => { auth.signIn() }, [])
+
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline/>
@@ -48,7 +51,6 @@ export function App() {
         <div>
 
         <AmaxAppBar/>
-
 
         <nav>
             <Link to="/">Home</Link>

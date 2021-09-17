@@ -28,7 +28,18 @@ const useStyles = makeStyles({
     },
 });
 
-export default function CustomizedProgressBars(exp_value: number) {
+// Wrong. so very wrong.
+// export default function CustomizedProgressBars(exp_value: number) {
+//     const classes = useStyles();
+//     return (
+//         <div className={classes.root}>
+//             <BorderLinearProgress variant="determinate" value={exp_value} />
+//         </div>
+//     );
+// }
+
+// Fix:
+export default function CustomizedProgressBars({exp_value}: {exp_value: number}) {
     const classes = useStyles();
     return (
         <div className={classes.root}>

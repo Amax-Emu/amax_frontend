@@ -88,24 +88,28 @@ async function get_data(token:string) {
 export default function AmaxAppBar() {
 
     const auth = useAuthStore()
+    auth.signIn()
     const classes = useStyles();
-    let player_format: MePlayerData
-    let [player_data, setData] = React.useState(player_format);
+    let [player_data, setData] = React.useState<MePlayerData | undefined>(undefined);
 
-    React.useEffect(async () => {
-        const result = await fetch("http://127.0.0.1:8000/players/@me", {
+    // Lucas:
+    // Functions passed to useEffect cannot be async.
+    React.useEffect(() => {
+      async function todoFindABetterNameLol() {
+        const resp = await fetch("http://127.0.0.1:8000/players/@me", {
 
-            method: 'GET',
+          method: 'GET',
 
-            headers: {
-                'content-type': 'application/json;charset=UTF-8',
-                'Authorization': `Bearer ${token}`
-            },
-        });
+          headers: {
+              'content-type': 'application/json;charset=UTF-8',
+              'Authorization': `Bearer ${auth.user.token}`
+          },
+        })
+        setData(await resp.json())
+      }
 
-        setData(await result.json());
-    }, []);
-
+      todoFindABetterNameLol().catch(() => {})
+    }, [])
 
   return (
       <div className={classes.root}>
@@ -117,10 +121,11 @@ export default function AmaxAppBar() {
                   <Typography variant="h6" className={classes.title}>
                       News
                   </Typography>
+                  {/* Added a questionmark in front of the . for type safety xoxo */}
+                  {player_data?.leveling
+                  ? <UserStats user_level={player_data.leveling.level} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
+                  : <Button color="inherit">Login</Button>
 
-                  {auth.user
-                      ? UserStats(player_data.leveling.level, player_data.leveling.legend, player_data.leveling.fans, player_data.leveling.fans_levelup_percent, player_data.stats.playerName)
-                      : <Button color="inherit">Login</Button>
                   }
               </Toolbar>
           </AppBar>

@@ -11,7 +11,7 @@ function return_rank_class(level: number,legend: number) {
     }
 }
 
-export default function UserStats(user_level: number,user_legend: number,user_exp: number, user_exp_percent: number,user_name: string){
+export default function UserStats({user_level, user_legend, user_exp, user_exp_percent, user_name}: {user_level: number,user_legend: number,user_exp: number, user_exp_percent: number,user_name: string}){
 
     return (
         <div className="appbar_player_component">
@@ -23,7 +23,9 @@ export default function UserStats(user_level: number,user_legend: number,user_ex
             <p className="appbar_level_value">
                 {user_level}
             </p>
-            {CustomizedProgressBars(user_exp_percent)}
+            { /* This is wrong */ }
+            {/* CustomizedProgressBars(user_exp_percent) */}
+            <CustomizedProgressBars exp_value={user_exp_percent} />
             <p className="appbar_player_name">
                 {user_name}
             </p>
