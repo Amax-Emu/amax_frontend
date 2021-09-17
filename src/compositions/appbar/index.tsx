@@ -85,43 +85,47 @@ async function get_data(token:string) {
   }
   
 
-
 export default function AmaxAppBar() {
-  const classes = useStyles();
-  const auth = useAuthStore()
-  
-  let player_level: number
-  let player_legend: number
-  let player_name: string
-  let player_exp: number
-  let player_exp_prc: number
 
-  get_data(auth.user.token).then(response_data =>{
-  console.log(response_data)
-  player_level = response_data.stats.statLevel
-  player_legend = response_data.stats.statLegend
-  player_name = response_data.stats.playerName
-  player_exp = response_data.leveling.fans
-  player_exp_prc = response_data.leveling.fans_levelup_percent
-}
-  )
-    console.log(player_name)
+    const auth = useAuthStore()
+    const classes = useStyles();
+    let player_format: MePlayerData
+    let [player_data, setData] = React.useState(player_format);
+
+    React.useEffect(async () => {
+        const result = await fetch("http://127.0.0.1:8000/players/@me", {
+
+            method: 'GET',
+
+            headers: {
+                'content-type': 'application/json;charset=UTF-8',
+                'Authorization': `Bearer ${token}`
+            },
+        });
+
+        setData(await result.json());
+    }, []);
+
+
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          {auth.user
-           ? UserStats(player_level,player_legend,player_exp,player_exp_prc,player_name)
-           : <Button color="inherit">Login</Button>
-            }          
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+      <div className={classes.root}>
+          <AppBar position="static">
+              <Toolbar>
+                  <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                      <MenuIcon/>
+                  </IconButton>
+                  <Typography variant="h6" className={classes.title}>
+                      News
+                  </Typography>
+
+                  {auth.user
+                      ? UserStats(player_data.leveling.level, player_data.leveling.legend, player_data.leveling.fans, player_data.leveling.fans_levelup_percent, player_data.stats.playerName)
+                      : <Button color="inherit">Login</Button>
+                  }
+              </Toolbar>
+          </AppBar>
+      </div>
+
+  )
+
 }
