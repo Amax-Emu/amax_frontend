@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import UserStats from "../../components/appbar/player_stats";
 import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
-
+import TransitionsModal from "../../components/register_modal/index";
 
 export interface MePlayerData {
     stats:            Stats;
@@ -122,6 +122,7 @@ export default function AmaxAppBar() {
                   <Typography variant="h6" className={classes.title}>
                       News
                   </Typography>
+                  <TransitionsModal/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
                   ? <UserStats user_level={player_data.leveling.level} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
