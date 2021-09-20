@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import UserStats from "../../components/appbar/player_stats";
+import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 
 
 export interface MePlayerData {
@@ -25,7 +26,7 @@ export interface Friend {
 
 export interface FriendsPurposes {
     outcoming: string[];
-    icnoming:  string[];
+    incoming:  string[];
 }
 
 export interface Leveling {
@@ -127,6 +128,14 @@ export default function AmaxAppBar() {
                   : <Button color="inherit">Login</Button>
 
                   }
+
+                  {/* Added a questionmark in front of the . for type safety xoxo */}
+                  {player_data?.leveling
+                      ? <PlayerAvatar url="https://amax-emu.com/static/img/profile.png" badge_count={player_data.friends_purposes.incoming.length} friends_incoming={player_data.friends_purposes.incoming}/>
+                      : <></>
+
+                  }
+
               </Toolbar>
           </AppBar>
       </div>

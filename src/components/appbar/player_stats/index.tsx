@@ -3,6 +3,8 @@ import './appbar_player.css';
 import CustomizedProgressBars from './expirience_bar';
 
 
+
+
 function return_rank_class(level: number,legend: number) {
     if (legend > 0) {
         return 'appbar_legend' + legend
@@ -29,6 +31,7 @@ export default function UserStats({user_level, user_legend, user_exp, user_exp_p
             <p className="appbar_player_name">
                 {user_name}
             </p>
+
 
         </div>
     )

@@ -33,7 +33,7 @@ export function App() {
             paper: '#2C3845'
         },
         primary: {
-            main: '#2196F3',
+            main: '#3E5270',
         },
         secondary: {
             main: '#f44336',
