@@ -7,7 +7,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AmaxAppBar from "./compositions/appbar/index"
-
+import PermanentDrawerLeft from "./compositions/drawer";
 
 function main() {
     const auth = useAuthStore()
@@ -51,7 +51,7 @@ export function App() {
         <div>
 
         <AmaxAppBar/>
-
+        <PermanentDrawerLeft/>
         <nav>
             <Link to="/">Home</Link>
             <Link to="/user">User data</Link>

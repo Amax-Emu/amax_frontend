@@ -57,6 +57,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+        width: `calc(100% - 240px)`,
+        marginLeft: 240
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -126,7 +128,7 @@ export default function AmaxAppBar() {
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
                   ? <UserStats user_level={player_data.leveling.level} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
-                  : <Button color="inherit">Login</Button>
+                  : <Button color="inherit" href="http://127.0.0.1:8000/auth/login">Login</Button>
 
                   }
 
