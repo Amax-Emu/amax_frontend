@@ -30,5 +30,5 @@
   },
   "scripts": {
     "dev": "parcel ./src/index.html --port 3000"
-  }
+    }
 }
