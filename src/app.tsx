@@ -47,6 +47,7 @@ export function App() {
       React.useEffect(() => { auth.signIn() }, [])
 
     return (
+
         <ThemeProvider theme={theme}>
         <CssBaseline/>
         <Router>

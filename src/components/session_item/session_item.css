@@ -36,6 +36,7 @@
 }
 
 .session_info {
+    background-position: right;
     padding-top: 1rem;
     padding-bottom: 1rem;
     grid-area: session_info;

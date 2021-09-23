@@ -3,6 +3,9 @@ import PlayerBar from "../player_bar";
 import PeopleIcon from '@material-ui/icons/People';
 import {Session} from "../../compositions/sessions";
 import './session_item.css'
+import icons from "./icons/*.png"
+import header from "./headers/*.png"
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function GetGametypeData(game_mode_id:string) {
     switch (game_mode_id) {
@@ -50,12 +53,26 @@ function GetGametypeData(game_mode_id:string) {
 
 
 export default function SessionItem({data}:{data: Session}) {
-
+    //console.log(icons);
     const mediadata = GetGametypeData(data.gameType)
+
+    const GameStatus = () => {
+        render (
+        if (data.isInProgress === 1) {
+                <a className="server_status">Online</a>
+                <div className="server_header_lamp"/>
+
+        } else {
+            return (
+                <a className="server_status">Online</a>
+            <div className="server_header_lamp_offline"/>
+        )
+        }
+    )}
 
     return (
         <div className="session_item_container">
-            <div className="session_info" style={{backgroundImage: "url('/banners/" + mediadata.header_image +"')"}} >
+            <div className="session_info" style={{backgroundImage: "url('/headers/" + mediadata.header_image +"')"}} >
 
 
                 <div className="icon_container">
@@ -70,6 +87,9 @@ export default function SessionItem({data}:{data: Session}) {
                                 {(data.totalSlots - data.availableSlots) + "/" + data.totalSlots}
                             </div>
                         </div>
+                    </div>
+                    <div className="game_progress_led">
+
                     </div>
                 </div>
             </div>
