@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useAuthStore } from "../../stores/authStore"
+import { useAuthStore } from "../../stores"
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -125,7 +125,7 @@ export default function AmaxAppBar() {
                   <TransitionsModal/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
-                  ? <UserStats user_level={player_data.leveling.level} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
+                  ? <UserStats user_level={player_data.leveling.level+1} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
                   : <Button color="inherit">Login</Button>
 
                   }
