@@ -3,8 +3,11 @@ import PlayerBar from "../player_bar";
 import PeopleIcon from '@material-ui/icons/People';
 import {Session} from "../../compositions/sessions";
 import './session_item.css'
+// @ts-ignore
 import icons from "./icons/*.png"
-import header from "./headers/*.png"
+// @ts-ignore
+import headers from "./headers/*.png"
+
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 function GetGametypeData(game_mode_id:string) {
@@ -12,15 +15,15 @@ function GetGametypeData(game_mode_id:string) {
         case "community_event" :{
         return {
             name: "Community Events",
-            icon: "community_events_icon.png",
+            icon: icons.community_events_icon,
             header_image: "header.png"
         }
     }
         case "team_racing":{
             return {
                 name: "Team Racing",
-                icon: "team_racing_icon.png",
-                header_image: "team_racing_banner.png"
+                icon: icons.team_racing_icon,
+                header_image: headers.team_racing_header
             }
         }
 
@@ -35,8 +38,8 @@ function GetGametypeData(game_mode_id:string) {
         case "skirmish_racing":{
             return {
                 name: "Skirmish Racing",
-                icon: "skirmish_racing_icon.png",
-                header_image: "skirmish_racing_header.png"
+                icon: icons.skirmish_racing_icon,
+                header_image: headers.skirmish_racing_header
             }
         }
 
@@ -53,30 +56,37 @@ function GetGametypeData(game_mode_id:string) {
 
 
 export default function SessionItem({data}:{data: Session}) {
-    //console.log(icons);
+    console.log(icons);
     const mediadata = GetGametypeData(data.gameType)
 
     const GameStatus = () => {
-        render (
         if (data.isInProgress === 1) {
-                <a className="server_status">Online</a>
-                <div className="server_header_lamp"/>
+            return(
+            <>
+                <>
+                    <a className="game_in_progress">In progress</a>
+                    <div className="led_in_progress"/>
+                </>
+            </>
+            )
 
         } else {
             return (
-                <a className="server_status">Online</a>
-            <div className="server_header_lamp_offline"/>
+                <>
+                <a className="game_in_progress">In lobby</a>
+
+                </>
         )
         }
-    )}
+    }
 
     return (
         <div className="session_item_container">
-            <div className="session_info" style={{backgroundImage: "url('/headers/" + mediadata.header_image +"')"}} >
+            <div className="session_info" style={{backgroundImage: "url('" + mediadata.header_image +"')"}} >
 
 
                 <div className="icon_container">
-                    <img className="icon" src={"/icons/" + mediadata.icon}/>
+                    <img className="icon" src={mediadata.icon}/>
                 </div>
                 <div className="session_info_text">
                     <div className="gamemode_info">
@@ -88,8 +98,8 @@ export default function SessionItem({data}:{data: Session}) {
                             </div>
                         </div>
                     </div>
-                    <div className="game_progress_led">
-
+                    <div className="lobby_status_container">
+                        <GameStatus/>
                     </div>
                 </div>
             </div>

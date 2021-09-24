@@ -9,7 +9,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AmaxAppBar from "./compositions/appbar/index"
 import PermanentDrawerLeft from "./compositions/drawer";
 import SessionsWidget from "./compositions/sessions";
-
+import ServerStatus from "./compositions/serverstatus";
+import FullWidthTabs from "./compositions/leaderboard_widget";
+import {Container} from "@material-ui/core";
 
 function main() {
     const auth = useAuthStore()
@@ -59,20 +61,27 @@ export function App() {
         <nav>
             <Link to="/">Home</Link>
             <Link to="/user">User data</Link>
-            <Link to="/sessiosn_test">Sessions</Link>
+            <Link to="/sessions_test">Sessions</Link>
+            <Link to="/status_test">Status</Link>
+            <Link to="/leaderboards_widget_test">Leaderboards widget</Link>
 
         </nav>
         <a href="http://127.0.0.1:8000/auth/login">Login with discord</a>
+            <Container maxWidth="sm">
         <Switch>
             <Route exact path="/" component={main} />
             <Route exact path="/user" component={get_user_data} />
             <Route exact path="/discord_auth" component={set_discord_token} />
-            <Route exact path="/sessiosn_test" component={SessionsWidget} />
+            <Route exact path="/sessions_test" component={SessionsWidget} />
+            <Route exact path="/status_test" component={ServerStatus} />
+            <Route exact path="/leaderboards_widget_test" component={FullWidthTabs} />
         </Switch>
+            </Container>
         </div>
         </div>
         </Router>
         </ThemeProvider>
+
     )
 }
 

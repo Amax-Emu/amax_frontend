@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         spinner: {
             display: 'flex',
-            alignItems: "center",
-            alignSelf: "center",
+            marginLeft: "calc(50% - 25px)",
+            marginTop: "50%",
             '& > * + *': {
                 marginLeft: theme.spacing(2),
             },
@@ -73,9 +73,12 @@ export default function SessionsWidget() {
                 <SessionItem key={session_data.sessionId} data = {session_data}/>
             )
         } else {
-            return ( <div className={classes.spinner}>
+            return (
+                <div className={classes.spinner}>
                 <CircularProgress />
-            </div>)
+            </div>
+
+            )
         }
     }
 
@@ -98,6 +101,7 @@ export default function SessionsWidget() {
         getSessionsData().catch(() => {
         })
     }, [])
+
 
 
     return (
