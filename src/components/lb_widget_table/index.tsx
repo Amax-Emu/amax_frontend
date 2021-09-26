@@ -63,24 +63,6 @@ function createData(name: string, code: string, population: number, size: number
     return { name, code, population, size, density };
 }
 
-const rows = [
-    createData('India', 'IN', 1324171354, 3287263),
-    createData('China', 'CN', 1403500365, 9596961),
-    createData('Italy', 'IT', 60483973, 301340),
-    createData('United States', 'US', 327167434, 9833520),
-    createData('Canada', 'CA', 37602103, 9984670),
-    createData('Australia', 'AU', 25475400, 7692024),
-    createData('Germany', 'DE', 83019200, 357578),
-    createData('Ireland', 'IE', 4857000, 70273),
-    createData('Mexico', 'MX', 126577691, 1972550),
-    createData('Japan', 'JP', 126317000, 377973),
-    createData('France', 'FR', 67022000, 640679),
-    createData('United Kingdom', 'GB', 67545757, 242495),
-    createData('Russia', 'RU', 146793744, 17098246),
-    createData('Nigeria', 'NG', 200962417, 923768),
-    createData('Brazil', 'BR', 210147125, 8515767),
-];
-
 const useStyles = makeStyles({
     root: {
         width: '100%',
@@ -88,6 +70,9 @@ const useStyles = makeStyles({
     container: {
         maxHeight: 440,
     },
+    datacell: {
+        borderBottom: "none"
+    }
 });
 
 export default function StickyHeadTable() {
@@ -117,14 +102,14 @@ export default function StickyHeadTable() {
         if (severLeaderboardDataFlag) {
 
                 const temp = serverLeaderboardData.data.map((row,index) =>
-                    <TableRow key={row.PlayerId}>
-                        <TableCell component="th" scope="row">
+                    <TableRow  key={row.PlayerId}>
+                        <TableCell className={classes.datacell} component="th" scope="row">
                             {index+1}
                         </TableCell>
-                        <TableCell component="th" scope="row">
+                        <TableCell className={classes.datacell} component="th" scope="row">
                             <PlayerBar player_name={row.bdPlayerName} place={0} legend={row.statLegend} level={row.statLevel}/>
                         </TableCell>
-                        <TableCell align="right">{row.statFans}</TableCell>
+                        <TableCell className={classes.datacell}  align="right">{row.statFans}</TableCell>
                     </TableRow>
 
                 )
@@ -140,7 +125,7 @@ export default function StickyHeadTable() {
 
     return (
 
-                <Table stickyHeader aria-label="sticky table">
+                <Table stickyHeader padding="none" size="small" aria-label="sticky table">
                     <TableBody>
                         <TableBodyData/>
                     </TableBody>

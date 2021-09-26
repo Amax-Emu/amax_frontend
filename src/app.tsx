@@ -10,7 +10,7 @@ import AmaxAppBar from "./compositions/appbar/index"
 import PermanentDrawerLeft from "./compositions/drawer";
 import SessionsWidget from "./compositions/sessions";
 import ServerStatus from "./compositions/serverstatus";
-import FullWidthTabs from "./compositions/leaderboard_widget";
+import LeaderboardsWidget from "./compositions/leaderboard_widget";
 import {Container} from "@material-ui/core";
 
 function main() {

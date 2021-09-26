@@ -29,13 +29,13 @@ interface Column {
 }
 
 const columns: Column[] = [
-    { id: 'pos', label: 'Pos.', minWidth: 10 },
-    { id: 'playername', label: 'Player', minWidth: 100 },
+    { id: 'pos', label: 'Pos.', minWidth: 10 ,align: 'left',},
+    { id: 'playername', label: 'Player', minWidth: 100,align: 'center' },
     {
         id: 'value',
         label: 'Value',
         minWidth: 10,
-        align: 'right',
+        align: 'center',
     }
 ];
 
@@ -69,7 +69,7 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.palette.background.paper,
-        width: 500,
+        width: 300,
     },
         tableHeader: {
             width: '100%',
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         },
 }));
 
-export default function FullWidthTabs() {
+export default function LeaderboardsWidget() {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
