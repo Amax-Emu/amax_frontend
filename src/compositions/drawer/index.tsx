@@ -67,7 +67,7 @@ export default function PermanentDrawerLeft() {
                     <div className={classes.toolbar} />
 
                     <List>
-                        <ListItem button key='Dashboard' onClick={auth.signIn}>
+                        <ListItem button key='Dashboard' onClick={auth.signIn} href="/Dashboard">
                             <ListItemIcon><DashboardIcon/></ListItemIcon>
                             <ListItemText primary="Dashboard" />
                         </ListItem>

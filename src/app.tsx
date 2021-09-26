@@ -12,6 +12,7 @@ import SessionsWidget from "./compositions/sessions";
 import ServerStatus from "./compositions/serverstatus";
 import LeaderboardsWidget from "./compositions/leaderboard_widget";
 import {Container} from "@material-ui/core";
+import Dashboard from "./compositions/dashboard";
 
 function main() {
     const auth = useAuthStore()
@@ -64,6 +65,7 @@ export function App() {
             <Link to="/sessions_test">Sessions</Link>
             <Link to="/status_test">Status</Link>
             <Link to="/leaderboards_widget_test">Leaderboards widget</Link>
+            <Link to="/Dashboard">Dashboard</Link>
 
         </nav>
         <a href="http://127.0.0.1:8000/auth/login">Login with discord</a>
@@ -74,7 +76,8 @@ export function App() {
             <Route exact path="/discord_auth" component={set_discord_token} />
             <Route exact path="/sessions_test" component={SessionsWidget} />
             <Route exact path="/status_test" component={ServerStatus} />
-            <Route exact path="/leaderboards_widget_test" component={FullWidthTabs} />
+            <Route exact path="/leaderboards_widget_test" component={LeaderboardsWidget} />
+            <Route exact path="/Dashboard" component = {Dashboard} />
         </Switch>
             </Container>
         </div>

@@ -1,0 +1,11 @@
+.dashboard_container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "first second third";
+}
+.column1_container { grid-area: first; }
+.column2_container { grid-area: second; }
+.column3_container { grid-area: third; }
