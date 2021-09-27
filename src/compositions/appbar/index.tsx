@@ -128,7 +128,7 @@ export default function AmaxAppBar() {
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
                   ? <UserStats user_level={player_data.leveling.level+1} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
-                  : <Button className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >Login with discord</Button>
+                  : <Button href="http://127.0.0.1:8000/auth/login" className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >Login with discord</Button>
 
                   }
 

@@ -20,7 +20,7 @@ function main() {
     return ( 
         <>
             {auth.user 
-                ? <h1>Hello {auth.user.token}</h1>
+                ? <h1>2 Hello {auth.user.token}</h1>
                 : <button onClick={auth.signIn}>Sign In</button>
             }
         </>
@@ -68,6 +68,7 @@ export function App() {
             <Link to="/leaderboards_widget_test">Leaderboards widget</Link>
             <Link to="/Dashboard">Dashboard</Link>
             <Link to="/news">News</Link>
+            <Link to="/discord">=DISCORD=</Link>
 
         </nav>
         <a href="http://127.0.0.1:8000/auth/login">Login with discord</a>
@@ -75,6 +76,7 @@ export function App() {
         <Switch>
             <Route exact path="/" component={main} />
             <Route exact path="/user" component={get_user_data} />
+            <Route exact path="/discord" component={set_discord_token} />
             <Route exact path="/discord_auth" component={set_discord_token} />
             <Route exact path="/sessions_test" component={SessionsWidget} />
             <Route exact path="/status_test" component={ServerStatus} />

@@ -26,7 +26,7 @@ export default function get_user_data() {
     let user_data_request = {}
     user_data_getter()
     return (
-        <h1></h1>
+        <h1>Logged in</h1>
 
 
     )

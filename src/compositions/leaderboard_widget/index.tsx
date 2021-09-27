@@ -68,10 +68,12 @@ function a11yProps(index: any) {
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
-        backgroundColor: theme.palette.background.paper,
+            backgroundColor: "#304254",
         width: 300,
-        margin: 15
+        maxWidth: 500,
+        borderRadius: 8
     },
+    top: {borderRadius: "8px 8px 0px 0px"},
         tableHeader: {
             width: '100%',
         },
@@ -111,7 +113,7 @@ export default function LeaderboardsWidget() {
 
         <div className={classes.root}>
 
-            <AppBar position="static" color="default">
+            <AppBar className={classes.top} position="static" color="default">
                 <Tabs
                     value={value}
                     onChange={handleChange}

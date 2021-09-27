@@ -43,7 +43,7 @@ export default function TransitionsModal() {
 
     return (
         <div>
-            <Button color="secondary" classNames={classes.button} onClick={handleOpen}>
+            <Button color="secondary" className={classes.button} onClick={handleOpen}>
         react-transition-group
         </Button>
         <Modal

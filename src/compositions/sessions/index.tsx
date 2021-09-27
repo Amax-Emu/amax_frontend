@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
             alignItems: "flex-end",
-            margin: 15,
             minWidth: 400,
             // height: 636,
             /* Blue/700 (2 L) */
@@ -106,11 +105,13 @@ export default function SessionsWidget() {
 
     return (
         <>
+            <div>
             <a className="session_item_name">Active sessions</a>
         <div className={classes.root}>
 
             <RenderSessions/>
         </div>
+            </div>
         </>
 
     )

@@ -54,6 +54,7 @@ export default function PermanentDrawerLeft() {
         setOpen(!open);
     };
     //className={classes.nested}
+    //onClick={auth.signIn}
     return (
             <Drawer
                 className={classes.drawer}
@@ -67,7 +68,7 @@ export default function PermanentDrawerLeft() {
                     <div className={classes.toolbar} />
 
                     <List>
-                        <ListItem button key='Dashboard' onClick={auth.signIn} href="/Dashboard">
+                        <ListItem button key='Dashboard' href="/Dashboard">
                             <ListItemIcon><DashboardIcon/></ListItemIcon>
                             <ListItemText primary="Dashboard" />
                         </ListItem>
