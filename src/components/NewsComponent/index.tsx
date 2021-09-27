@@ -39,7 +39,6 @@ export default function DiscordNewsComponent({data}:{data: DiscordNews}) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <img src={"https://via.placeholder.com/350x150"}/>
             <Typography>
         <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]} >{data.text}</ReactMarkdown>
             </Typography>

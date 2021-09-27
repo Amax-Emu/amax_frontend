@@ -58,6 +58,7 @@ export enum Type {
 export interface Reaction {
     count: number;
     url:   string;
+    text: string;
 }
 
 
