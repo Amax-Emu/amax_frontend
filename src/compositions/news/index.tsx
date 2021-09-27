@@ -89,7 +89,9 @@ export default function NewsPage() {
     return (
         <>
         {discordNewsFlag
-                ? <DiscordNewsComponent data={discordNewsData.data[0]}/>
+                ? discordNewsData.data.map((NewsItemData) =>
+                    <DiscordNewsComponent data={NewsItemData}/>
+                    )
                 : <div>none</div>        }
         </>
     )

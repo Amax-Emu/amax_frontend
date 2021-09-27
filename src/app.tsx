@@ -71,7 +71,7 @@ export function App() {
 
         </nav>
         <a href="http://127.0.0.1:8000/auth/login">Login with discord</a>
-            <Container maxWidth="sm">
+            <Container disableGutters={true} maxWidth="lg">
         <Switch>
             <Route exact path="/" component={main} />
             <Route exact path="/user" component={get_user_data} />

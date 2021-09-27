@@ -12,15 +12,15 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
             alignItems: "flex-end",
             margin: 15,
-            width: 570,
-            height: 636,
+            minWidth: 400,
+            // height: 636,
             /* Blue/700 (2 L) */
-            background: "#304254",
+            // background: "#304254",
 
             /* Blue/600 */
-            border: "1px solid #3E5270",
-            boxSizing: "border-box",
-            borderRadius: 8,
+            // border: "1px solid #3E5270",
+            // boxSizing: "border-box",
+            // borderRadius: 8,
         },
         menuButton: {
             marginRight: theme.spacing(2),
@@ -105,9 +105,13 @@ export default function SessionsWidget() {
 
 
     return (
+        <>
+            <a className="session_item_name">Active sessions</a>
         <div className={classes.root}>
+
             <RenderSessions/>
         </div>
+        </>
 
     )
 }

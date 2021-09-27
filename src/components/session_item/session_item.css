@@ -1,11 +1,11 @@
 .session_item_container {
-    max-width: 700px;
+    /*max-width: 700px;*/
     min-width: 200px;
     border: 1px solid #3E5270;
     box-sizing: border-box;
     border-radius: 8px;
     margin: 24px 0px;
-
+    background: #304254;
 
     display: grid;
     grid-template-columns: 0.6fr 1.1fr;
@@ -17,6 +17,25 @@
     "players players";
 }
 
+.session_item_name{
+
+    margin-left: 15px;
+    margin-top: 10px;
+    flex-grow: 0;
+    align-self: flex-start;
+
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+
+    /* identical to box height */
+    text-align: right;
+
+    /* Gray / 100 */
+    color: #E6E6E6;
+}
 
 .icon_container {
     grid-area: icon_zone;

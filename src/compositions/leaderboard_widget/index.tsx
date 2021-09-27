@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     root: {
         backgroundColor: theme.palette.background.paper,
         width: 300,
+        margin: 15
     },
         tableHeader: {
             width: '100%',
@@ -77,6 +78,14 @@ const useStyles = makeStyles((theme: Theme) => ({
         container: {
             maxHeight: 440,
         },
+    widgetName: {
+        alignSelf: "flex-start",
+fontStyle: "normal",
+fontWeight: "bold",
+fontSize: 32,
+lineHeight: "122%",
+color: "#E6E6E6",
+    },
 }));
 
 export default function LeaderboardsWidget() {
@@ -97,7 +106,11 @@ export default function LeaderboardsWidget() {
     }
 
     return (
+        <div>
+            <a className={classes.widgetName}>Top 10</a>
+
         <div className={classes.root}>
+
             <AppBar position="static" color="default">
                 <Tabs
                     value={value}
@@ -138,6 +151,7 @@ export default function LeaderboardsWidget() {
                 <TabPanel value={value} index={2} dir={theme.direction}>
                     Item Three
                 </TabPanel>
+        </div>
         </div>
     );
 }

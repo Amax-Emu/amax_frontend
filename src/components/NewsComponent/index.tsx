@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
             maxWidth: 700,
             padding: 32,
             background: "#2C3845",
-
-
+            margin: 4,
             borderRadius: 4,
         },
         menuButton: {

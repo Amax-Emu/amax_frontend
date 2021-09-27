@@ -1,11 +1,19 @@
 .dashboard_container {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: min-content 1fr;
     gap: 0px 0px;
     grid-template-areas:
+    "main-widget main-widget third"
     "first second third";
+    width: 100%;
+    height: 100%;
+    justify-items: center;
 }
-.column1_container { grid-area: first; }
+.main_widget_container { grid-area: main-widget;
+    place-self: center stretch;}
+.column1_container { grid-area: first;
+    justify-items: stretch;}
 .column2_container { grid-area: second; }
 .column3_container { grid-area: third; }
