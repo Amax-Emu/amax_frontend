@@ -125,7 +125,7 @@ export default function PlayerAvatar({url, badge_count, friends_incoming}: {url:
                     aria-haspopup="true">
 
             <Badge badgeContent={badge_count} color="secondary">
-                <Avatar variant="square" className={classes.square} src="" >
+                <Avatar variant="square" className={classes.square} src={url} >
                     N
                 </Avatar>
             </Badge>
