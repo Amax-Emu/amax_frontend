@@ -12,8 +12,6 @@ export interface ServerStatus {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            flexGrow: 1,
-            alignItems: "flex-end",
             margin: 15,
             width: 570,
             height: 636,
