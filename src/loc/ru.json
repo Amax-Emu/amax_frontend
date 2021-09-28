@@ -1,20 +1,39 @@
 {
-  "intro_welcome_header": "Добро пожаловать на сайт Amax Emu!",
-  "intro_welcome_description": "Я люблю Блюр.",
-  "sessions_widget_header": "Текущие сессии",
-  "sessions_widget": {
-    "status": {
-      "inprogress": "В процессе",
-      "inlobby": "В лобби"
+    "intro_welcome_description": "Я люблю Блюр.",
+    "sessions_widget_header": "Текущие сессии",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "В процессе",
+            "inlobby": "В лобби"
+        },
+        "gamemode": {
+            "skirmish": "Скирмиш рейсинг",
+            "drivingschool": "Школа вождения",
+            "powerupracing": "Power-up racing",
+            "teamracing": "Командный заезд",
+            "motormash": "Motor Mash",
+            "communityevent": "Community events",
+            "worldtour": "World tour"
+        }
     },
-    "gamemode": {
-      "skirmish": "Скирмиш рейсинг",
-      "drivingschool": "Школа вождения",
-      "powerupracing": "Power-up racing",
-      "teamracing": "Командный заезд",
-      "motormash": "Motor Mash",
-      "communityevent": "Community events",
-      "worldtour": "World tour"
+    "leaderboard_widget": {
+        "header": "Топ 10",
+        "position": "№",
+        "player": "Игрок",
+        "value": " ",
+        "fans": "Фанатов",
+        "driving_score": "Очки вождения",
+        "legend": "Уровень Легенды"
+    },
+    "server_status_widget": {
+        "server_status": "Статус сервера",
+        "offline": "Не в сети",
+        "online": "В сети",
+        "players": "Игроков:",
+        "sessions": "Сессий:"
+    },
+    "appbar": {
+        "login_discord": "Авторизировать через Discord",
+        "profile": "Профиль"
     }
-  }
 }
