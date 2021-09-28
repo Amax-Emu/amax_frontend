@@ -5,6 +5,7 @@ import {MePlayerData} from "../appbar";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import SessionItem from "../../components/session_item";
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -63,6 +64,7 @@ export interface PlayersList {
 
 export default function SessionsWidget() {
     const classes = useStyles();
+    const { t, i18n } = useTranslation()
     let [session_data, setData] = React.useState<SessionsData | undefined>(undefined);
     let [dataRequested, setRequestStatus] = React.useState(false);
 
@@ -106,7 +108,7 @@ export default function SessionsWidget() {
     return (
         <>
             <div>
-            <a className="session_item_name">Active sessions</a>
+            <a className="session_item_name">{t('sessions_widget_header')}</a>
         <div className={classes.root}>
 
             <RenderSessions/>

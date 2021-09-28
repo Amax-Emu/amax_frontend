@@ -7,21 +7,24 @@ import './session_item.css'
 import icons from "./icons/*.png"
 // @ts-ignore
 import headers from "./headers/*.png"
+import { useTranslation } from 'react-i18next'
 
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 function GetGametypeData(game_mode_id:string) {
+    const { t, i18n } = useTranslation()
+    console.log(t("sessions_widget.gamemode"))
     switch (game_mode_id) {
         case "community_event" :{
         return {
-            name: "Community Events",
+            name: t("sessions_widget.gamemode.communityevent"),
             icon: icons.community_events_icon,
             header_image: "header.png"
         }
     }
         case "team_racing":{
             return {
-                name: "Team Racing",
+                name: t('sessions_widget.gamemode.teamracing'),
                 icon: icons.team_racing_icon,
                 header_image: headers.team_racing_header
             }
@@ -37,7 +40,7 @@ function GetGametypeData(game_mode_id:string) {
 
         case "skirmish_racing":{
             return {
-                name: "Skirmish Racing",
+                name: t("sessions_widget.gamemode.skirmish"),
                 icon: icons.skirmish_racing_icon,
                 header_image: headers.skirmish_racing_header
             }
@@ -56,7 +59,7 @@ function GetGametypeData(game_mode_id:string) {
 
 
 export default function SessionItem({data}:{data: Session}) {
-    console.log(icons);
+    const { t, i18n } = useTranslation()
     const mediadata = GetGametypeData(data.gameType)
 
     const GameStatus = () => {
@@ -64,7 +67,7 @@ export default function SessionItem({data}:{data: Session}) {
             return(
             <>
                 <>
-                    <a className="game_in_progress">In progress</a>
+                    <a className="game_in_progress">{t('sessions_widget.status.inprogress')}</a>
                     <div className="led_in_progress"/>
                 </>
             </>
@@ -73,7 +76,7 @@ export default function SessionItem({data}:{data: Session}) {
         } else {
             return (
                 <>
-                <a className="game_in_progress">In lobby</a>
+                <a className="game_in_progress">{t('sessions_widget.status.inlobby')}</a>
 
                 </>
         )

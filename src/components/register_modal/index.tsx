@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
         },
         button:{
-            backgroundColor: "red"
+            backgroundColor: "deepblue"
         },
         paper: {
             backgroundColor: theme.palette.background.paper,

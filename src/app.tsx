@@ -14,6 +14,7 @@ import LeaderboardsWidget from "./compositions/leaderboard_widget";
 import {Container} from "@material-ui/core";
 import Dashboard from "./compositions/dashboard";
 import DiscordNews from "./compositions/news";
+import "./i18n"
 
 function main() {
     const auth = useAuthStore()

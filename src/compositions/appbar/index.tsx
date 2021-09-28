@@ -11,6 +11,7 @@ import UserStats from "../../components/appbar/player_stats";
 import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 import TransitionsModal from "../../components/register_modal/index";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import LanguageSelector from "../../components/appbar/language_switcher";
 
 export interface MePlayerData {
     stats:            Stats;
@@ -124,6 +125,7 @@ export default function AmaxAppBar() {
                   <Typography variant="h6" className={classes.title}>
                       News
                   </Typography>
+                  <LanguageSelector/>
                   <TransitionsModal/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
