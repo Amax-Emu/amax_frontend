@@ -14,6 +14,7 @@ import LeaderboardsWidget from "./compositions/leaderboard_widget";
 import {Container} from "@material-ui/core";
 import Dashboard from "./compositions/dashboard";
 import DiscordNews from "./compositions/news";
+import CreateBlurAccountForm from "./compositions/register_form";
 import "./i18n"
 
 function main() {
@@ -70,10 +71,11 @@ export function App() {
             <Link to="/Dashboard">Dashboard</Link>
             <Link to="/news">News</Link>
             <Link to="/discord">=DISCORD=</Link>
+            <Link to="/register"> =MAKE BLUR ACC= </Link>
 
         </nav>
         <a href="http://127.0.0.1:8000/auth/login">Login with discord</a>
-            <Container disableGutters={true} maxWidth="lg">
+            <Container disableGutters={true} maxWidth="xl">
         <Switch>
             <Route exact path="/" component={main} />
             <Route exact path="/user" component={get_user_data} />
@@ -84,6 +86,7 @@ export function App() {
             <Route exact path="/leaderboards_widget_test" component={LeaderboardsWidget} />
             <Route exact path="/Dashboard" component = {Dashboard} />
             <Route exact path="/news" component = {DiscordNews} />
+            <Route exact path="/register" component = {CreateBlurAccountForm} />
         </Switch>
             </Container>
         </div>
