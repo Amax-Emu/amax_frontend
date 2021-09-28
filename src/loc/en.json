@@ -16,5 +16,25 @@
       "communityevent": "Community events",
       "worldtour": "World tour"
     }
+  },
+  "leaderboard_widget": {
+    "header": "Top 10",
+    "position": "Pos.",
+    "player": "Player",
+    "value": "Value",
+    "fans": "Fans",
+    "driving_score": "Driving score",
+    "legend": "Legend"
+  },
+  "server_status_widget": {
+    "server_status": "Server status",
+    "offline": "Offline",
+    "online": "Online",
+    "players": "Players online:",
+    "sessions": "Sessions:"
+  },
+  "appbar": {
+    "login_discord": "Login with Discord",
+    "profile": "Profile"
   }
 }

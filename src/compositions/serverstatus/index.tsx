@@ -2,6 +2,7 @@ import * as React from "react"
 import './server_status_item.css';
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
+import { useTranslation } from 'react-i18next'
 
 export interface ServerStatus {
     server_status: string,
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function ServerStatus() {
-
+    const { t, i18n } = useTranslation()
     const classes = useStyles();
     const [serverStatusData,setserverStatusData] = React.useState<ServerStatus | undefined>(undefined);
     const [severDataFlag,setseverDataFlag] = React.useState(false)
@@ -68,9 +69,9 @@ export default function ServerStatus() {
     const ServerStatusLabel = () => {
             if (severDataFlag) {
                 if (serverStatusData.server_status) {
-                    return ("Online")
+                    return ( t("server_status_widget.online") )
                 } else {
-                    return ("Offline")
+                    return (t("server_status_widget.offline"))
                 }
             } else {
                 return ("")
@@ -104,7 +105,7 @@ export default function ServerStatus() {
                 return (
                     <>
                         <div className="card_item">
-                            <div className="card_item_name">Players online:</div>
+                            <div className="card_item_name">{t("server_status_widget.players")}</div>
                             <div className="card_item_value">
                                 {serverStatusData.server_status
                                     ? serverStatusData.total_players
@@ -114,7 +115,7 @@ export default function ServerStatus() {
                         </div>
                         <br/>
                         <div className="card_item">
-                            <div className="card_item_name">Sessions:</div>
+                            <div className="card_item_name">{t("server_status_widget.sessions")}</div>
                             <div className="card_item_value">
                                 {serverStatusData.server_status
                                     ? serverStatusData.total_sessions

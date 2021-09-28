@@ -12,6 +12,7 @@ import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 import TransitionsModal from "../../components/register_modal/index";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import LanguageSelector from "../../components/appbar/language_switcher";
+import { useTranslation } from 'react-i18next'
 
 export interface MePlayerData {
     stats:            Stats;
@@ -81,6 +82,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 function DiscordIcon() {
     const classes = useStyles();
+
     return (
         <SvgIcon className={classes.DiscordIcon}>
             <path d="M9.828 10.068C9.144 10.068 8.604 10.668 8.604 11.4C8.604 12.132 9.156 12.732 9.828 12.732C10.512 12.732 11.052 12.132 11.052 11.4C11.064 10.668 10.512 10.068 9.828 10.068ZM14.208 10.068C13.524 10.068 12.984 10.668 12.984 11.4C12.984 12.132 13.536 12.732 14.208 12.732C14.892 12.732 15.432 12.132 15.432 11.4C15.432 10.668 14.892 10.068 14.208 10.068Z"/>
@@ -90,7 +92,7 @@ function DiscordIcon() {
 }
 
 export default function AmaxAppBar() {
-
+    const { t, i18n } = useTranslation()
     const auth = useAuthStore()
     auth.signIn()
     const classes = useStyles();
@@ -123,14 +125,14 @@ export default function AmaxAppBar() {
                       <MenuIcon/>
                   </IconButton>
                   <Typography variant="h6" className={classes.title}>
-                      News
+
                   </Typography>
                   <LanguageSelector/>
                   <TransitionsModal/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
                   ? <UserStats user_level={player_data.leveling.level+1} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
-                  : <Button href="http://127.0.0.1:8000/auth/login" className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >Login with discord</Button>
+                  : <Button href="http://127.0.0.1:8000/auth/login" className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
 
                   }
 

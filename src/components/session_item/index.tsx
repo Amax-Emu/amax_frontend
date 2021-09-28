@@ -8,12 +8,10 @@ import icons from "./icons/*.png"
 // @ts-ignore
 import headers from "./headers/*.png"
 import { useTranslation } from 'react-i18next'
-
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 function GetGametypeData(game_mode_id:string) {
     const { t, i18n } = useTranslation()
-    console.log(t("sessions_widget.gamemode"))
     switch (game_mode_id) {
         case "community_event" :{
         return {

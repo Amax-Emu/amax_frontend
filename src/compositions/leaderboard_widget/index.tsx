@@ -11,7 +11,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import StickyHeadTable from "../../components/lb_widget_table";
 import Table from '@material-ui/core/Table';
-
+import { useTranslation } from 'react-i18next'
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -27,18 +27,6 @@ interface Column {
     align?: 'right';
     format?: (value: number) => string;
 }
-
-const columns: Column[] = [
-    { id: 'pos', label: 'Pos.', minWidth: 10 ,align: 'left',},
-    { id: 'playername', label: 'Player', minWidth: 100,align: 'center' },
-    {
-        id: 'value',
-        label: 'Value',
-        minWidth: 10,
-        align: 'center',
-    }
-];
-
 function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
 
@@ -91,6 +79,7 @@ color: "#E6E6E6",
 }));
 
 export default function LeaderboardsWidget() {
+    const { t, i18n } = useTranslation()
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
@@ -107,9 +96,21 @@ export default function LeaderboardsWidget() {
 
     }
 
+    const columns: Column[] = [
+
+        { id: 'pos', label: t("leaderboard_widget.position"), minWidth: 10 ,align: 'left',},
+        { id: 'playername', label: t("leaderboard_widget.player"), minWidth: 100,align: 'center' },
+        {
+            id: 'value',
+            label: t("leaderboard_widget.value"),
+            minWidth: 10,
+            align: 'center',
+        }
+    ];
+
     return (
         <div>
-            <a className={classes.widgetName}>Top 10</a>
+            <a className={classes.widgetName}>{t("leaderboard_widget.header")}</a>
 
         <div className={classes.root}>
 
@@ -122,7 +123,7 @@ export default function LeaderboardsWidget() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Fans" {...a11yProps(0)} />
+                    <Tab label={t("leaderboard_widget.fans")} {...a11yProps(0)} />
                     <Tab label="Item Two" {...a11yProps(1)} />
                     <Tab label="Item Three" {...a11yProps(2)} />
                 </Tabs>
