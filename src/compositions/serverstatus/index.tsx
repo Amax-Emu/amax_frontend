@@ -138,7 +138,7 @@ export default function ServerStatus() {
     return (
         <div className ="server_status_widget_container">
             <div className="server_header">
-                <a className="server_status_header">Server status</a>
+                <a className="server_status_header">{t("server_status_widget.server_status")}</a>
                 <a className="server_status">
                     <ServerStatusLabel/>
                 </a>
