@@ -1,5 +1,6 @@
 import * as React from "react"
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import { NavLink } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import Hidden from '@material-ui/core/Hidden';
@@ -13,10 +14,13 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import HistoryIcon from '@material-ui/icons/History';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
+import {MenuItem} from "@material-ui/core";
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+// @ts-ignore
+import AmaxLogo from "./amax_logo.png"
 
 const drawerWidth = 240;
 
@@ -24,6 +28,21 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             display: 'flex',
+        },
+        logo: {
+            display: "flex",
+            justifyItems: "center",
+            allignItems: "center",
+            marginTop: 5,
+            marginLeft: 6,
+            marginRight: 6,
+            width: `calc(${drawerWidth}px - 20px)`
+        },
+        logoImage: {
+            justifySelf: "center",
+            alignItems: "center",
+            alignSelf: "center",
+
         },
         appBar: {
             width: `calc(100% - ${drawerWidth}px)`,
@@ -65,13 +84,21 @@ export default function PermanentDrawerLeft() {
                 anchor="left"
             >
                 <div>
-                    <div className={classes.toolbar} />
+                    <div className={classes.toolbar}>
+                        <div className={classes.logo}>
+                            <NavLink to={"/"}>
+                        <img className={classes.logo} src={AmaxLogo} />
+                            </NavLink>
+                        </div>
+                    </div>
 
                     <List>
-                        <ListItem button key='Dashboard' href="/Dashboard">
+                        <NavLink to={"/Dashboard"}>
+                        <MenuItem button key='Dashboard'>
                             <ListItemIcon><DashboardIcon/></ListItemIcon>
                             <ListItemText primary="Dashboard" />
-                        </ListItem>
+                        </MenuItem>
+                        </NavLink>
 
 
                         <ListItem button key='Games feed'>

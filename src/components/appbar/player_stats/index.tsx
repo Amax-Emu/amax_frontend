@@ -1,6 +1,6 @@
 import * as React from "react"
 import './appbar_player.css';
-import CustomizedProgressBars from './expirience_bar';
+import PlayerExpBar from './expirience_bar';
 
 
 
@@ -27,7 +27,7 @@ export default function UserStats({user_level, user_legend, user_exp, user_exp_p
             </p>
             { /* This is wrong */ }
             {/* CustomizedProgressBars(user_exp_percent) */}
-            <CustomizedProgressBars exp_value={user_exp_percent} />
+            <PlayerExpBar exp_value={user_exp_percent} />
             <p className="appbar_player_name">
                 {user_name}
             </p>

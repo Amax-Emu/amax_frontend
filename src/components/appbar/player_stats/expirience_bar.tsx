@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 // }
 
 // Fix:
-export default function CustomizedProgressBars({exp_value}: {exp_value: number}) {
+export default function PlayerExpBar({exp_value}: {exp_value: number}) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
