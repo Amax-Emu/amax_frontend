@@ -7,6 +7,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import SessionItem from "../../components/session_item";
 import { useTranslation } from 'react-i18next'
 
+const { AMAX_API_URL } = process.env;
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -87,7 +89,7 @@ export default function SessionsWidget() {
     // Functions passed to useEffect cannot be async.
     React.useEffect(() => {
         async function getSessionsData() {
-            const resp = await fetch("http://127.0.0.1:8000/sessions", {
+            const resp = await fetch(AMAX_API_URL + "/sessions", {
 
                 method: 'GET',
 

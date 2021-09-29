@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown'
 import DiscordNewsComponent from "../../components/NewsComponent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+const { AMAX_API_URL } = process.env;
+
 export interface DiscordNewsData{
     data: DiscordNews[];
 }
@@ -70,7 +72,7 @@ export default function NewsPage() {
 
     React.useEffect(() => {
         async function getDiscordNews() {
-            const resp = await fetch("http://127.0.0.1:8000/data/news", {
+            const resp = await fetch(AMAX_API_URL + "/data/news", {
 
                 method: 'GET',
 

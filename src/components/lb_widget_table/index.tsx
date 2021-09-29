@@ -9,6 +9,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import PlayerBar from "../player_bar";
 
+const { AMAX_API_URL } = process.env;
+
 interface Column {
     id: 'pos' | 'playername' | 'value';
     label: string;
@@ -82,7 +84,7 @@ export default function StickyHeadTable() {
 
     React.useEffect(() => {
         async function getServerData() {
-            const resp = await fetch("http://127.0.0.1:8000/leaderboards/multiplayer", {
+            const resp = await fetch(AMAX_API_URL + "/leaderboards/multiplayer", {
 
                 method: 'GET',
 

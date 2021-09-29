@@ -4,6 +4,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import { useTranslation } from 'react-i18next'
 
+const { AMAX_API_URL } = process.env;
+
 export interface ServerStatus {
     server_status: string,
     total_players: number,
@@ -49,7 +51,7 @@ export default function ServerStatus() {
 
     React.useEffect(() => {
         async function getServerData() {
-            const resp = await fetch("http://127.0.0.1:8000/data/server_status", {
+            const resp = await fetch(AMAX_API_URL + "/data/server_status", {
 
                 method: 'GET',
 
