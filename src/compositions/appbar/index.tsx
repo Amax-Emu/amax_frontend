@@ -14,6 +14,8 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import LanguageSelector from "../../components/appbar/language_switcher";
 import { useTranslation } from 'react-i18next'
 
+const { AMAX_API_URL } = process.env;
+
 export interface MePlayerData {
     stats:            Stats;
     leveling:         Leveling;
@@ -102,8 +104,7 @@ export default function AmaxAppBar() {
     // Functions passed to useEffect cannot be async.
     React.useEffect(() => {
       async function todoFindABetterNameLol() {
-        const resp = await fetch("http://127.0.0.1:8000/players/@me", {
-
+        const resp = await fetch(AMAX_API_URL + "/players/@me", {
           method: 'GET',
 
           headers: {
@@ -132,7 +133,7 @@ export default function AmaxAppBar() {
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {player_data?.leveling
                   ? <UserStats user_level={player_data.leveling.level+1} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
-                  : <Button href="http://127.0.0.1:8000/auth/login" className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
+                  : <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
 
                   }
 

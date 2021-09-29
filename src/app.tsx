@@ -17,6 +17,8 @@ import DiscordNews from "./compositions/news";
 import CreateBlurAccountForm from "./compositions/register_form";
 import "./i18n"
 
+const { AMAX_API_URL } = process.env;
+
 function main() {
     const auth = useAuthStore()
     return ( 
@@ -74,7 +76,7 @@ export function App() {
             <Link to="/register"> =MAKE BLUR ACC= </Link>
 
         </nav>
-        <a href="http://127.0.0.1:8000/auth/login">Login with discord</a>
+        <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
             <Container disableGutters={true} maxWidth="xl">
         <Switch>
             <Route exact path="/" component={main} />
