@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useAuthStore } from "./stores"
-import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import set_discord_token from "./discord_auth"
 import get_user_data from "./user_data"
 import useMediaQuery from '@material-ui/core/useMediaQuery';
