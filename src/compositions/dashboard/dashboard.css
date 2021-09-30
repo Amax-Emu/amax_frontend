@@ -9,8 +9,21 @@
     "first second third";
     width: 100%;
     height: 100%;
-    justify-items: center;
+    place-items: center;
 }
+
+@media (max-width: 850px) {
+    .dashboard_container {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content min-content min-content;
+        grid-template-areas:
+        "main-widget"
+        "first"
+        "second"
+        "third";
+    }
+}
+
 .main_widget_container { grid-area: main-widget;
     place-self: center stretch;}
 .column1_container { grid-area: first;

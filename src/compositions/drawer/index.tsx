@@ -70,6 +70,9 @@ const useStyles = makeStyles((theme: Theme) =>
             borderRadius: 4,
             marginTop: "0.5em",
             marginBottom: "0.5em",
+            "&$selected": {       // this is to refer to the prop provided by M-UI
+                backgroundColor: "#3E5270", // updated backgroundColor
+            },
         },
         menulist: {
             padding: 24
@@ -120,19 +123,19 @@ export default function PermanentDrawerLeft() {
                         </NavLink>
 
                         <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-                        <ListItem button key='Games feed' classes = {{root: classes.menuitem, selected: classes.selected}}>
+                        <MenuItem button key='Games feed' classes = {{root: classes.menuitem, selected: classes.selected}}>
                             <ListItemIcon><HistoryIcon/></ListItemIcon>
                             <ListItemText primary="Games feed" />
-                        </ListItem>
+                        </MenuItem>
                         </NavLink>
 
 
                         <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-                            <ListItem button onClick={handleClick} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                            <MenuItem button onClick={handleClick} classes = {{root: classes.menuitem, selected: classes.selected}}>
                             <ListItemIcon><TableChartIcon/></ListItemIcon>
                             <ListItemText primary="Leaderboards" />
                             {open ? <ExpandLess /> : <ExpandMore />}
-                        </ListItem>
+                        </MenuItem>
                         </NavLink>
 
                         <Collapse in={open} timeout="auto" unmountOnExit>

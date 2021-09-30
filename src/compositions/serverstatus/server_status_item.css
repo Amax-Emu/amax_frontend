@@ -29,7 +29,7 @@
 
 .server_status_widget_container{
     margin: 5px;
-    width: 270px;
+    min-width: 270px;
 }
 
 .card_item{
@@ -132,7 +132,7 @@
 .server_header{
     display: flex;
     flex-direction: row;
-    width: 270px;
+    width: 100%;
     align-items: center;
 }
 

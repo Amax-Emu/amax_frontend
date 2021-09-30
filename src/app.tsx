@@ -16,6 +16,7 @@ import Dashboard from "./compositions/dashboard";
 import DiscordNews from "./compositions/news";
 import CreateBlurAccountForm from "./compositions/register_form";
 import "./i18n"
+import {useUserDataStore} from "./stores/userdataStore";
 
 const { AMAX_API_URL } = process.env;
 
@@ -34,7 +35,9 @@ function main() {
 export function App() {
 
     const auth = useAuthStore()
+    const user = useUserDataStore()
     auth.signIn()
+    user.getData()
     const theme = createTheme({
         palette: {
           type: 'dark',
@@ -61,21 +64,23 @@ export function App() {
         <Router>
         <div>
 
-        <AmaxAppBar/>
+
         <PermanentDrawerLeft/>
         <div style={{marginLeft: "240px"}}>
-        <nav>
-            <Link to="/">Home</Link>
-            <Link to="/user">User data</Link>
-            <Link to="/sessions_test">Sessions</Link>
-            <Link to="/status_test">Status</Link>
-            <Link to="/news">News</Link>
-            <Link to="/discord">=DISCORD=</Link>
-            <Link to="/register"> =MAKE BLUR ACC= </Link>
 
-        </nav>
-        <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
             <Container disableGutters={true} maxWidth="xl">
+                <AmaxAppBar/>
+                <nav>
+                    <Link to="/">Home</Link>
+                    <Link to="/user">User data</Link>
+                    <Link to="/sessions_test">Sessions</Link>
+                    <Link to="/status_test">Status</Link>
+                    <Link to="/news">News</Link>
+                    <Link to="/discord">=DISCORD=</Link>
+                    <Link to="/register"> =MAKE BLUR ACC= </Link>
+
+                </nav>
+                <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
         <Switch>
             <Route exact path="/" component={main} />
             <Route exact path="/user" component={get_user_data} />

@@ -13,57 +13,19 @@ import TransitionsModal from "../../components/register_modal/index";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import LanguageSelector from "../../components/appbar/language_switcher";
 import { useTranslation } from 'react-i18next'
-
+import {UserData, useUserDataStore} from "../../stores/userdataStore";
+import CircularProgress from "@material-ui/core/CircularProgress";
 const { AMAX_API_URL } = process.env;
 
-export interface MePlayerData {
-    stats:            Stats;
-    leveling:         Leveling;
-    friends:          Friend[];
-    friends_purposes: FriendsPurposes;
-}
-
-export interface Friend {
-    name:     string;
-    isOnline: boolean;
-    status:   string;
-}
-
-export interface FriendsPurposes {
-    outcoming: string[];
-    incoming:  string[];
-}
-
-export interface Leveling {
-    level:                number;
-    legend:               number;
-    fans:                 number;
-    fans_levelup_percent: number;
-}
-
-export interface Stats {
-    playerName:      string;
-    statLevel:       number;
-    statFansCurrent: number;
-    statRaceTime:    number;
-    statDriverScore: number;
-    statTop3:        number;
-    statRaces:       number;
-    statFirst:       number;
-    statHits:        number;
-    statFired:       number;
-    statWrecked:     number;
-    statLegend:      number;
-    statLegendTime:  number;
-}
 
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-        width: `calc(100% - 240px)`,
-        marginLeft: 240
+        // width: `calc(100% - 240px)`,
+        width: "auto",
+        //marginLeft: 240
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -78,6 +40,14 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "24px",
           height: "24px",
           viewBox: "0 0 12 12"
+      },
+      spinner: {
+          display: 'flex',
+          marginLeft: "calc(50% - 25px)",
+          marginTop: "20px",
+          '& > * + *': {
+              marginLeft: theme.spacing(2),
+          }
       }
   }),
 );
@@ -96,27 +66,29 @@ function DiscordIcon() {
 export default function AmaxAppBar() {
     const { t, i18n } = useTranslation()
     const auth = useAuthStore()
-    auth.signIn()
+    const user = useUserDataStore()
+    user.getData()
     const classes = useStyles();
-    let [player_data, setData] = React.useState<MePlayerData | undefined>(undefined);
+
+    const ServerStatusLabel = () => {
+        if (auth.user.token !== undefined) {
+            if (user.userData?.amax_account !== undefined) {
+                return ( "!1111111")
+            } else {
+                return ("222222222222")
+            }
+        } else {
+            return(
+                <div className={classes.spinner}>
+                    <CircularProgress/>
+                </div>
+            )
+        }
+
+    }
 
     // Lucas:
     // Functions passed to useEffect cannot be async.
-    React.useEffect(() => {
-      async function todoFindABetterNameLol() {
-        const resp = await fetch(AMAX_API_URL + "/players/@me", {
-          method: 'GET',
-
-          headers: {
-              'content-type': 'application/json;charset=UTF-8',
-              'Authorization': `Bearer ${auth.user.token}`
-          },
-        })
-        setData(await resp.json())
-      }
-
-      todoFindABetterNameLol().catch(() => {})
-    }, [])
 
   return (
       <div className={classes.root}>
@@ -130,17 +102,17 @@ export default function AmaxAppBar() {
                   </Typography>
                   <LanguageSelector/>
                   <TransitionsModal/>
+                  <ServerStatusLabel/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
-                  {player_data?.leveling
-                  ? <UserStats user_level={player_data.leveling.level+1} user_legend={player_data.leveling.legend} user_exp={player_data.leveling.fans} user_exp_percent={player_data.leveling.fans_levelup_percent} user_name={player_data.stats.playerName} />
-                  : <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
-
+                  {user.userData?.amax_account !== undefined
+                  ? <UserStats user_level={user.userData.amax_player_data.leveling.level+1} user_legend={user.userData.amax_player_data.leveling.legend} user_exp={user.userData.amax_player_data.leveling.fans} user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent} user_name={user.userData.amax_player_data.stats.playerName} />
+                  : <></>
                   }
 
                   {/* Added a questionmark in front of the . for type safety xoxo */}
-                  {player_data?.leveling
-                      ? <PlayerAvatar url="https://amax-emu.com/static/img/profile.png" badge_count={player_data.friends_purposes.incoming.length} friends_incoming={player_data.friends_purposes.incoming}/>
-                      : <></>
+                  {user.userData?.amax_account !== undefined
+                      ? <PlayerAvatar url="https://amax-emu.com/static/img/profile.png" badge_count={user.userData.amax_player_data.friends_purposes.incoming.length} friends_incoming={user.userData.amax_player_data.friends_purposes.incoming}/>
+                      : <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
 
                   }
 
