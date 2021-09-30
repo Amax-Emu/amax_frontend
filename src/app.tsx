@@ -69,8 +69,6 @@ export function App() {
             <Link to="/user">User data</Link>
             <Link to="/sessions_test">Sessions</Link>
             <Link to="/status_test">Status</Link>
-            <Link to="/leaderboards_widget_test">Leaderboards widget</Link>
-            <Link to="/Dashboard">Dashboard</Link>
             <Link to="/news">News</Link>
             <Link to="/discord">=DISCORD=</Link>
             <Link to="/register"> =MAKE BLUR ACC= </Link>
@@ -85,7 +83,7 @@ export function App() {
             <Route exact path="/discord_auth" component={set_discord_token} />
             <Route exact path="/sessions_test" component={SessionsWidget} />
             <Route exact path="/status_test" component={ServerStatus} />
-            <Route exact path="/leaderboards_widget_test" component={LeaderboardsWidget} />
+            <Route exact path="/leaderboards" component={LeaderboardsWidget} />
             <Route exact path="/Dashboard" component = {Dashboard} />
             <Route exact path="/news" component = {DiscordNews} />
             <Route exact path="/register" component = {CreateBlurAccountForm} />

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import Hidden from '@material-ui/core/Hidden';
@@ -62,10 +62,29 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.background.default,
             padding: theme.spacing(3),
         },
+        selected: {
+            backgroundColor: "#3E5270",
+            borderRadius: 4
+        },
+        menuitem:{
+            borderRadius: 4,
+            marginTop: "0.5em",
+            marginBottom: "0.5em",
+        },
+        menulist: {
+            padding: 24
+        }
     }),
 );
 
 export default function PermanentDrawerLeft() {
+    const location = useLocation();
+
+    const activeRoute = (routeName: any) => {
+
+        return location.pathname === routeName ? true : false;
+    }
+
     const auth = useAuthStore()
     const classes = useStyles();
     const [open,setOpen] = React.useState(true);
@@ -92,31 +111,29 @@ export default function PermanentDrawerLeft() {
                         </div>
                     </div>
 
-                    <List>
-                        <NavLink to={"/Dashboard"}>
-                        <MenuItem button key='Dashboard'>
+                    <List className={classes.menulist}>
+                        <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                        <MenuItem button key='Dashboard' selected={activeRoute("/Dashboard")} classes = {{root: classes.menuitem, selected: classes.selected}}>
                             <ListItemIcon><DashboardIcon/></ListItemIcon>
                             <ListItemText primary="Dashboard" />
                         </MenuItem>
                         </NavLink>
 
-
-                        <ListItem button key='Games feed'>
+                        <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                        <ListItem button key='Games feed' classes = {{root: classes.menuitem, selected: classes.selected}}>
                             <ListItemIcon><HistoryIcon/></ListItemIcon>
                             <ListItemText primary="Games feed" />
                         </ListItem>
-
-                        <ListItem button key='Leaderboards'>
-                            <ListItemIcon><TableChartIcon/></ListItemIcon>
-                            <ListItemText primary="Leaderboards" />
-                        </ListItem>
+                        </NavLink>
 
 
-                        <ListItem button onClick={handleClick}>
+                        <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                            <ListItem button onClick={handleClick} classes = {{root: classes.menuitem, selected: classes.selected}}>
                             <ListItemIcon><TableChartIcon/></ListItemIcon>
                             <ListItemText primary="Leaderboards" />
                             {open ? <ExpandLess /> : <ExpandMore />}
                         </ListItem>
+                        </NavLink>
 
                         <Collapse in={open} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
