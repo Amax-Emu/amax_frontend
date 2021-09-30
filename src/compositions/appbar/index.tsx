@@ -68,6 +68,7 @@ export default function AmaxAppBar() {
     const auth = useAuthStore()
     const user = useUserDataStore()
     user.getData()
+    console.log(user.userData)
     const classes = useStyles();
 
     const ServerStatusLabel = () => {
