@@ -1,5 +1,6 @@
 import './leaderboard_player.css';
 import * as React from "react"
+import {NavLink} from "react-router-dom";
 
 function return_rank_class(level,legend) {
     if (legend > 0) {
@@ -20,9 +21,11 @@ export default function PlayerBar({player_name,place,level,legend}: {player_name
     <p className="level_value">
         {level+1}
         </p>
+            <NavLink to={"/profile/"+player_name} style={{color: 'white',textDecoration: 'none'}} activeStyle={{textDecoration: 'none'}}>
         <p className="player_name">
         {player_name}
         </p>
+            </NavLink>
 
         </div>
 )

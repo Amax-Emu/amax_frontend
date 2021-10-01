@@ -130,7 +130,7 @@ export default function PermanentDrawerLeft() {
                         </NavLink>
 
 
-                        <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                        <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}>
                             <MenuItem button onClick={handleClick} classes = {{root: classes.menuitem, selected: classes.selected}}>
                             <ListItemIcon><TableChartIcon/></ListItemIcon>
                             <ListItemText primary="Leaderboards" />

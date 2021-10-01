@@ -17,6 +17,7 @@ import DiscordNews from "./compositions/news";
 import CreateBlurAccountForm from "./compositions/register_form";
 import "./i18n"
 import {useUserDataStore} from "./stores/userdataStore";
+import PlayerProfile from "./compositions/PlayerProfile";
 
 const { AMAX_API_URL } = process.env;
 
@@ -92,6 +93,7 @@ export function App() {
             <Route exact path="/Dashboard" component = {Dashboard} />
             <Route exact path="/news" component = {DiscordNews} />
             <Route exact path="/register" component = {CreateBlurAccountForm} />
+            <Route exact path="/profile/:profileName" component = {PlayerProfile} />
         </Switch>
             </Container>
         </div>
