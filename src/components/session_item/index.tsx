@@ -17,7 +17,7 @@ function GetGametypeData(game_mode_id:string) {
         return {
             name: t("sessions_widget.gamemode.communityevent"),
             icon: icons.community_events_icon,
-            header_image: "header.png"
+            header_image: headers.community_event_header
         }
     }
         case "team_racing":{
@@ -30,9 +30,9 @@ function GetGametypeData(game_mode_id:string) {
 
         case "powered_up_racing":{
             return {
-                name: "Powered-up Racing",
-                icon: "powered_up_racing.png",
-                header_image: "powered_up_racing_header.png"
+                name: t("sessions_widget.gamemode.powered_up_racing"),
+                icon: icons.powered_up_icon,
+                header_image: headers.power_up_racing_header
             }
         }
 
@@ -46,9 +46,41 @@ function GetGametypeData(game_mode_id:string) {
 
         case "motor_mash":{
             return {
-                name: "Motor Mash",
-                icon: "game_mode_icon.png",
-                header_image: "header.png"
+                name: t("sessions_widget.gamemode.motor_mash"),
+                icon: icons.motor_mash_icon,
+                header_image: headers.motor_mash_header
+            }
+        }
+
+        case "team_motor_mash":{
+            return {
+                name: t("sessions_widget.gamemode.team_motor_mash"),
+                icon: icons.team_motor_mash_icon,
+                header_image: headers.team_motor_mash_header
+            }
+        }
+
+        case "world_tour":{
+            return {
+                name: t("sessions_widget.gamemode.world_tour"),
+                icon: icons.world_tour_icon,
+                header_image: headers.world_tour_header
+            }
+        }
+
+        case "driving_school":{
+            return {
+                name: t("sessions_widget.gamemode.driving_school"),
+                icon: icons.default_icon,
+                header_image: headers.driving_school_header
+            }
+        }
+
+        case "hardcore_racing":{
+            return {
+                name: t("sessions_widget.gamemode.hardcore_racing"),
+                icon: icons.hardcore_racing_icon,
+                header_image: headers.hardcore_racing_header
             }
         }
     }
