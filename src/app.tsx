@@ -48,7 +48,9 @@ export function App() {
     const classes = useStyles();
     const auth = useAuthStore()
     const user = useUserDataStore()
+    console.log("LOGGIN IN IN APP.JS")
     auth.signIn()
+    console.log("GETTING USER DATA IN APP.JS")
     user.getData()
     const theme = createTheme({
         palette: {

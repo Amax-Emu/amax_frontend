@@ -74,14 +74,15 @@ export const useUserDataStore = create<Store>((set, get) => {
         userData: undefined,
         getData: async () => {
             const auth = useAuthStore()
-            if (auth.user !== undefined) {
+            if (auth.user === undefined) {
+                return
+            } else {
                 if (get().userData !== undefined) {
-                    // console.log("User is defined")
+                    console.log("User is defined")
                     return
                 }
-                return
             }
-
+            console.log("GETTING USER DATA")
             const resp = await fetch(AMAX_API_URL + "/players/@me", {
                 method: 'GET',
 
@@ -91,11 +92,13 @@ export const useUserDataStore = create<Store>((set, get) => {
                 },
             })
             const temp = await resp.json()
-
+            console.log("GOT USER DATA")
             set({
                 userData: temp
             }
             )
+
+            console.log("SET USER DATA")
         },
 }})
 
