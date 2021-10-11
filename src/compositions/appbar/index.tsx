@@ -17,15 +17,18 @@ import {UserData, useUserDataStore} from "../../stores/userdataStore";
 import CircularProgress from "@material-ui/core/CircularProgress";
 const { AMAX_API_URL } = process.env;
 
-
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
-        // width: `calc(100% - 240px)`,
-        width: "auto",
-        //marginLeft: 240
+        marginLeft: 0,
+        width: `calc(100% - 0px)`,
+        [theme.breakpoints.up('sm')]: {
+            width: `calc(100% - 240px)`,
+            marginLeft: 240,
+            flexShrink: 0,
+        },
+
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -52,6 +55,8 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+
+
 function DiscordIcon() {
     const classes = useStyles();
 
@@ -64,12 +69,17 @@ function DiscordIcon() {
 }
 
 export default function AmaxAppBar() {
+    const [mobileOpen, setMobileOpen] = React.useState(false);
     const { t, i18n } = useTranslation()
     const auth = useAuthStore()
     const user = useUserDataStore()
     user.getData()
     console.log(user.userData)
     const classes = useStyles();
+
+    function handleDrawerToggle() {
+        setMobileOpen(!mobileOpen)
+    }
 
     const ServerStatusLabel = () => {
         if (auth.user.token !== undefined) {
@@ -95,6 +105,7 @@ export default function AmaxAppBar() {
       <div className={classes.root}>
           <AppBar position="static">
               <Toolbar>
+
                   <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                       <MenuIcon/>
                   </IconButton>

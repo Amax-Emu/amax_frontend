@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import set_discord_token from "./discord_auth"
 import get_user_data from "./user_data"
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import {createTheme, makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AmaxAppBar from "./compositions/appbar/index"
 import PermanentDrawerLeft from "./compositions/drawer";
@@ -18,6 +18,7 @@ import CreateBlurAccountForm from "./compositions/register_form";
 import "./i18n"
 import {useUserDataStore} from "./stores/userdataStore";
 import PlayerProfile from "./compositions/PlayerProfile";
+import ResponsiveDrawer from "./compositions/drawer/drawer2";
 
 const { AMAX_API_URL } = process.env;
 
@@ -33,8 +34,18 @@ function main() {
     )
 }
 
-export function App() {
+const useStyles = makeStyles(theme => ({
+    root: {
+        marginLeft: 0,
+        [theme.breakpoints.up('sm')]: {
+            marginLeft: 240,
+            flexShrink: 0,
+        },
+    },
+}))
 
+export function App() {
+    const classes = useStyles();
     const auth = useAuthStore()
     const user = useUserDataStore()
     auth.signIn()
@@ -53,6 +64,7 @@ export function App() {
             main: '#f44336',
         },
         },
+
       });
 
       // You cannot access hooks before initialization iirc
@@ -65,12 +77,12 @@ export function App() {
         <Router>
         <div>
 
-
-        <PermanentDrawerLeft/>
-        <div style={{marginLeft: "240px"}}>
+        <ResponsiveDrawer/>
+        {/*<PermanentDrawerLeft/>*/}
+        <div className={classes.root}>
 
             <Container disableGutters={true} maxWidth="xl">
-                <AmaxAppBar/>
+                {/*<AmaxAppBar/>*/}
                 <nav>
                     <Link to="/">Home</Link>
                     <Link to="/user">User data</Link>
