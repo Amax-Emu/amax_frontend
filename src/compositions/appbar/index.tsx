@@ -83,11 +83,7 @@ export default function AmaxAppBar() {
 
     const ServerStatusLabel = () => {
         if (auth.user.token !== undefined) {
-            if (user.userData?.amax_account !== undefined) {
-                return ( "!1111111")
-            } else {
-                return ("222222222222")
-            }
+            return (<></>)
         } else {
             return(
                 <div className={classes.spinner}>

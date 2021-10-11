@@ -14,6 +14,41 @@ import FormControl from '@material-ui/core/FormControl';
 import {Typography} from "@material-ui/core";
 import FormLabel from '@material-ui/core/FormLabel';
 import * as Yup from 'yup';
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
+const eula_text = `
+
+## Amax Emu End User Agreement
+
+### TL:DR
+- Don't be a jerk
+- 1 account per person
+- Don't cheat
+- Don't edit account data
+- Don't mess up with leaderboards data (account boosting, match-fixing, etc.)
+
+### Full version
+
+#### Conduct
+ 1. Don’t be annoying, disrespectful or rude to any players. 
+ 2. No conduct that abuses other players or disrupts their in-game experience is permitted. This includes constant air-breaking and mobbing.
+
+#### Accounts
+
+* 1 person is limited to 1 in-game account.
+*  Account names may not be obscene, vulgar or offensive.
+* Alteration of in-game account data with 3rd party tools is prohibited, unless explicitly permitted.
+* Car paint jobs editing is permitted 
+* Car wraps (livery) edits are permitted 
+ 
+#### Gameplay
+ 
+ 1. No conduct that constitutes cheating, hacking, or exploiting of game conditions for unintended advantage is permitted. Keep game fun and fair for everyone.
+ 2. All strategies and tactics are considered valid unless explicitly prohibited. This includes usage of Drift mod, legendary cars and Bribe.
+ 3. Respect less experienced players. Helping new players experience the game is essential to the future health of the community.
+ 4.
+ `
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -102,11 +137,9 @@ export default function CreateBlurAccountForm() {
 
                 <div>
                     <Typography>
-                        <ul>
-                        <li><h2>Don't do this</h2></li>
-                            <li>And this</li>
-                            <li>And definitely not this </li>
-                        </ul>
+                        <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]} >
+                            {eula_text}
+                        </ReactMarkdown>
                     </Typography>
                 </div>
 
