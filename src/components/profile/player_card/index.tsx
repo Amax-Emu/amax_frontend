@@ -2,6 +2,7 @@ import * as React from "react"
 import Avatar from "@material-ui/core/Avatar";
 import LevelIcons from "./level_icons/*.png"
 import {createStyles, makeStyles, Theme, withStyles} from '@material-ui/core/styles';
+import PlayerExpBar from "../../appbar/player_stats/expirience_bar";
 
 function GetLevelClass(level:number,legend:number) {
     if (legend >0){
@@ -119,6 +120,12 @@ export default function PlayerCard({playerName,playerLevel,playerLegend, playerC
     const classes = useStyles();
     const level_class = GetLevelClass(playerLevel,playerLegend)
     const img_src = LevelIcons[level_class]
+    console.log(playerLevelupExp)
+    console.log(playerCurrentExp)
+    const percent = playerLevelupExp / 100
+    const percent2 = playerCurrentExp / percent
+
+    console.log(percent2)
 
     return(
         <div className={classes.root}>
@@ -129,7 +136,10 @@ export default function PlayerCard({playerName,playerLevel,playerLegend, playerC
                 <div className={classes.data_container}>
                     <h1>{playerName}</h1>
                     <img src={img_src}/>
-                    <h6>Level {playerLevel}</h6>
+
+
+
+                    <PlayerExpBar exp_value={Math.round(percent2)}/>
                 </div>
             </div>
 

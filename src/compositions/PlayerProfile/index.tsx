@@ -8,14 +8,36 @@ import * as moment from "moment";
 
 const { AMAX_API_URL } = process.env;
 
-export interface PlayerData {
+export interface AmaxGeneralUserData {
     error:     boolean;
     error_msg: string;
     data:      Data;
 }
 
 export interface Data {
-    playerId:        number;
+    amaxPlayerData: AmaxPlayerData;
+    banData:        BanData;
+    player_name:    string;
+    isOnline:       boolean;
+    status:         number;
+    isGameBanned:   boolean;
+}
+
+export interface AmaxPlayerData {
+    amaxPastGames:    string;
+    amaxLevelingData: AmaxLevelingData;
+    amaxStatsData:    AmaxStatsData;
+}
+
+export interface AmaxLevelingData {
+    level:       number;
+    legend:      number;
+    fansTotal:   number;
+    fansCurrent: number;
+    fansNeeded:  number;
+}
+
+export interface AmaxStatsData {
     statLevel:       number;
     statFans:        number;
     statRaceTime:    number;
@@ -28,8 +50,14 @@ export interface Data {
     statWrecked:     number;
     statLegend:      number;
     statLegendTime:  number;
-    timestamp:       string;
 }
+
+export interface BanData {
+    ban_reason: string;
+    ban_start: string;
+    ban_end: string;
+}
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -104,7 +132,7 @@ export default function PlayerProfile () {
     let  {profileName} = useParams<{profileName: string}>();
     const { t, i18n } = useTranslation()
     const classes = useStyles();
-    const [targetPlayerData,settargetPlayerData] = React.useState<PlayerData | undefined>(undefined);
+    const [targetPlayerData,settargetPlayerData] = React.useState<AmaxGeneralUserData | undefined>(undefined);
     const [severDataFlag,setseverDataFlag] = React.useState(false)
 
     React.useEffect(() => {
@@ -130,24 +158,21 @@ export default function PlayerProfile () {
     return (
         <>
             {severDataFlag
-                ? <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.statFans} playerLevel={targetPlayerData.data.statLevel+1} playerLegend={targetPlayerData.data.statLegend} playerLevelupExp={targetPlayerData.data.statFans} playerPfpUrl={"123"}/>
-                : <a>Loading</a>
-            }
+                ? (<div>
+                    <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent} playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1} playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend} playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded} playerPfpUrl={"123"}/>
+                    <SingleStatWidget statName={"Fans"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFans}/>
+                    <SingleStatWidget statName={"Driver Score"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statDriverScore}/>
+                    <SingleStatWidget statName={"Total races"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaces}/>
+                    <SingleStatWidget statName={"First"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFirst}/>
+                    <SingleStatWidget statName={"Top 3"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statTop3}/>
+                    <SingleStatWidget statName={"Fired"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFired}/>
+                    <SingleStatWidget statName={"statWrecked"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statWrecked}/>
 
-            {severDataFlag ? (
-                <>
-                <SingleStatWidget statName={"Fans"} value={targetPlayerData.data.statFans}/>
-                <SingleStatWidget statName={"Driver Score"} value={targetPlayerData.data.statDriverScore}/>
-                <SingleStatWidget statName={"Total races"} value={targetPlayerData.data.statRaces}/>
-                <SingleStatWidget statName={"First"} value={targetPlayerData.data.statFirst}/>
-                <SingleStatWidget statName={"Top 3"} value={targetPlayerData.data.statTop3}/>
-                <SingleStatWidget statName={"Fired"} value={targetPlayerData.data.statFired}/>
-                <SingleStatWidget statName={"statWrecked"} value={targetPlayerData.data.statWrecked}/>
+                    <SingleStatWidget statName={"statRaceTime"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaceTime}/>
+                    </div>
 
-                    <SingleStatWidget statName={"statRaceTime"} value={targetPlayerData.data.statRaceTime}/>
-                </>
 
-                            ):( <a>Loading</a>)
+                ) : ( <a>Loading</a> )
             }
         </>
 );
