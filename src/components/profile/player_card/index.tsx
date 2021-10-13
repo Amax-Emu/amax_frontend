@@ -80,7 +80,12 @@ function GetLevelClass(level:number,legend:number) {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-
+            margin: "1em"
+        },data_container2:{
+            display: 'flex',
+            alignItems: 'flex-start',
+            flexDirection: "column",
+            marginLeft:"1em"
         },
         container:{
             display: "grid",
@@ -90,18 +95,23 @@ const useStyles = makeStyles((theme: Theme) =>
     gridTemplateAreas:
     "'avatar data'",
 },
-        avatar_container: { gridArea: "avatar" },
+        avatar_container: { gridArea: "avatar",display: "flex",            alignItems: 'center',
+            justifyContent: "center" },
 data_container: { gridArea: "data",
-marginLeft:"1em"},
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: "row",
+},
         avatar:{
             width: "5em",
             height: "5em",
-            display: 'flex',
-            alignItems: 'center',
+
+
         },
         menuButton: {
             marginRight: theme.spacing(2),
         },
+
         title: {
             flexGrow: 1,
         },
@@ -112,6 +122,10 @@ marginLeft:"1em"},
             '& > * + *': {
                 marginLeft: theme.spacing(2),
             },
+        },
+        rank_icon: {
+            width: "5em",
+            height: "5em"
         }
     }),
 );
@@ -133,16 +147,29 @@ export default function PlayerCard({playerName,playerLevel,playerLegend, playerC
             <div className={classes.avatar_container}>
                 <Avatar  variant="square" className={classes.avatar} src="https://amax-emu.com/static/img/profile.png"/>
             </div>
+            <div className={classes.data_container2}>
+                <a style={{fontWeight: "bold",fontSize:"32px",lineHeight: "37px"}}>{playerName}</a>
                 <div className={classes.data_container}>
-                    <h1>{playerName}</h1>
-                    <img src={img_src}/>
+                    <img className={classes.rank_icon} src={img_src}/>
 
+                    <div>
+                        <a>Level {playerLevel}</a>
+                        <br/>
+                        <a>Legend {playerLegend}</a>
+
+                    </div>
+                </div>
 
 
                     <PlayerExpBar exp_value={Math.round(percent2)}/>
-                </div>
+                        <a style={{marginTop: "0.3em"}}>{playerCurrentExp}/{playerLevelupExp}</a>
+
+
+
+
             </div>
 
+        </div>
         </div>
     )
 }

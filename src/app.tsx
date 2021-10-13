@@ -97,7 +97,7 @@ export function App() {
                 </nav>
                 <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
         <Switch>
-            <Route exact path="/" component={main} />
+            <Route exact path="/" component={Dashboard} />
             <Route exact path="/user" component={get_user_data} />
             <Route exact path="/discord" component={set_discord_token} />
             <Route exact path="/discord_auth" component={set_discord_token} />

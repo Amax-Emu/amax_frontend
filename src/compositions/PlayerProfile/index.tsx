@@ -90,11 +90,47 @@ const useStyles = makeStyles((theme: Theme) =>
         CustomIcon: {
             width: "24px",
             height: "24px",
-            viewBox: "0 0 24 24"
+            viewBox: "0 0 24 24",
+            // boxShadow: "inset 0px 0px 4px rgba(120, 179, 233, 0.6)",
+            // filter: "drop-shadow(0px 0px 20px rgba(4, 90, 255, 0.9))"
         },
         sswidget_container:{
-            display: 'flex',
-            flexDirection: "column"
+            display: 'inline-flex',
+            flex: "0 1 auto",
+            flexBasis: "33.33%",
+            flexDirection: "column",
+            flexWrap: 'wrap',
+            width: "33%",
+            fontFamily: "Ubuntu",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "16px",
+            lineHeight: "155%",
+            marginTop: "1em",
+            marginBottom: "1em",
+
+            /* identical to box height, or 25px */
+
+            /* Blue / 50 */
+            color: "#92929F",
+
+        },
+        sswidget_icon_value:{
+            display: "flex",
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: "center",
+            fontWeight: "bold",
+            color: "#E6E6E6",
+        },
+        sswidgets_container:{
+            display: "flex",
+            maxWidth: "600px",
+            maxHeight: "180px",
+            flexWrap: 'wrap',
+            flexDirection: "column",
+            margin: "1em"
+
         }
     }),
 );
@@ -119,11 +155,13 @@ function SingleStatWidget({statName,value}:{statName: string,value:(number|strin
         value2 = moment.utc(moment.duration(value, 'seconds').asMilliseconds()).format('HH:mm:ss')
     }
     return (
-        <div>
-        <DiscordIcon/> <a>{statName}</a> <a>{value2}</a>
         <div className={classes.sswidget_container}>
+            <div className={classes.sswidget_icon_value}>
+        <DiscordIcon/>  <a style={{marginLeft: "0.3em"}}>{value2}</a>
+            </div>
 
-        </div>
+            <a>{statName}</a>
+
         </div>
     )
 }
@@ -160,7 +198,8 @@ export default function PlayerProfile () {
             {severDataFlag
                 ? (<div>
                     <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent} playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1} playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend} playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded} playerPfpUrl={"123"}/>
-                    <SingleStatWidget statName={"Fans"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFans}/>
+                        <div className = {classes.sswidgets_container}>
+                        <SingleStatWidget statName={"Fans"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFans}/>
                     <SingleStatWidget statName={"Driver Score"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statDriverScore}/>
                     <SingleStatWidget statName={"Total races"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaces}/>
                     <SingleStatWidget statName={"First"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFirst}/>
@@ -169,6 +208,7 @@ export default function PlayerProfile () {
                     <SingleStatWidget statName={"statWrecked"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statWrecked}/>
 
                     <SingleStatWidget statName={"statRaceTime"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaceTime}/>
+                        </div>
                     </div>
 
 
