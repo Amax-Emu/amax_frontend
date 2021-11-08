@@ -80,25 +80,27 @@ export const useUserDataStore = create<Store>((set, get) => {
                 if (get().userData !== undefined) {
                     console.log("User is defined")
                     return
+                } else {
+                    console.log("GETTING USER DATA")
+                    const resp = await fetch(AMAX_API_URL + "/players/@me", {
+                        method: 'GET',
+
+                        headers: {
+                            'content-type': 'application/json;charset=UTF-8',
+                            'Authorization': `Bearer ${auth.user.token}`
+                        },
+                    })
+                    const temp = await resp.json()
+                    console.log("GOT USER DATA")
+                    set({
+                            userData: temp
+                        }
+                    )
+
+                    console.log("SET USER DATA")
                 }
             }
-            console.log("GETTING USER DATA")
-            const resp = await fetch(AMAX_API_URL + "/players/@me", {
-                method: 'GET',
 
-                headers: {
-                    'content-type': 'application/json;charset=UTF-8',
-                    'Authorization': `Bearer ${auth.user.token}`
-                },
-            })
-            const temp = await resp.json()
-            console.log("GOT USER DATA")
-            set({
-                userData: temp
-            }
-            )
-
-            console.log("SET USER DATA")
         },
 }})
 

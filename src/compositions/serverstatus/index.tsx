@@ -71,9 +71,9 @@ export default function ServerStatus() {
     const ServerStatusLabel = () => {
             if (severDataFlag) {
                 if (serverStatusData.server_status) {
-                    return ( t("server_status_widget.online") )
+                    return ( t("server_status_widget.offline") )
                 } else {
-                    return (t("server_status_widget.offline"))
+                    return (t("server_status_widget.online"))
                 }
             } else {
                 return ("")
@@ -83,9 +83,8 @@ export default function ServerStatus() {
     }
 
     const LedContent = () => {
-
         if (severDataFlag) {
-            if (serverStatusData.server_status) {
+            if (serverStatusData.data.server_status) {
                 return (
                     <div className="server_header_lamp"/>
                 )
@@ -102,15 +101,14 @@ export default function ServerStatus() {
     }
 
     const CardContent = () => {
-
         if (severDataFlag) {
                 return (
                     <>
                         <div className="card_item">
                             <div className="card_item_name">{t("server_status_widget.players")}</div>
                             <div className="card_item_value">
-                                {serverStatusData.server_status
-                                    ? serverStatusData.total_players
+                                {serverStatusData.data.server_status
+                                    ? serverStatusData.data.total_players
                                     : "Nan"
                                 }
                             </div>
@@ -119,8 +117,8 @@ export default function ServerStatus() {
                         <div className="card_item">
                             <div className="card_item_name">{t("server_status_widget.sessions")}</div>
                             <div className="card_item_value">
-                                {serverStatusData.server_status
-                                    ? serverStatusData.total_sessions
+                                {serverStatusData.data.server_status
+                                    ? serverStatusData.data.total_sessions
                                     : "Nan"
                                 }
                             </div>
@@ -136,13 +134,12 @@ export default function ServerStatus() {
             }
 
     }
-
     return (
         <div className ="server_status_widget_container">
             <div className="server_header">
                 <a className="server_status_header">{t("server_status_widget.server_status")}</a>
                 <a className="server_status">
-                    <ServerStatusLabel/>
+                    {<ServerStatusLabel/>}
                 </a>
                 <LedContent/>
 
