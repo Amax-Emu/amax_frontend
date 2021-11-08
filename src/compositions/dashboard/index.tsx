@@ -13,9 +13,13 @@ export default function Dashboard() {
 
     return (
         <div className="dashboard_container">
-            <div className = "main_widget_container">
-                <IntroWidget/>
-            </div>
+
+            {auth.signIn
+                ?<div className = "main_widget_container">
+                    <IntroWidget/>
+                </div>
+                :<></>
+            }
             <div className = "column1_container">
             <SessionsWidget/>
             </div >

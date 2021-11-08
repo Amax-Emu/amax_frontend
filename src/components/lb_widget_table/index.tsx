@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import PlayerBar from "../player_bar";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 const { AMAX_API_URL } = process.env;
 
@@ -15,7 +16,7 @@ interface Column {
     id: 'pos' | 'playername' | 'value';
     label: string;
     minWidth?: number;
-    align?: 'right';
+    align?: 'center';
     format?: (value: number) => string;
 }
 
@@ -48,7 +49,7 @@ const columns: Column[] = [
         id: 'value',
         label: 'Value',
         minWidth: 10,
-        align: 'right',
+        align: 'center',
     }
 ];
 
@@ -77,14 +78,28 @@ const useStyles = makeStyles({
     }
 });
 
-export default function StickyHeadTable() {
+function GetCellData({sortTypeName,playerData}:{sortTypeName: string, playerData: LeaderboardRecord}) {
+    const classes = useStyles();
+    switch (sortTypeName) {
+        case 'sortType':
+            return <TableCell className={classes.datacell}  align="right">{playerData.statFans}</TableCell>
+        case 'statDriverScore':
+            return <TableCell className={classes.datacell}  align="right">{playerData.statDriverScore}</TableCell>
+        case 'statLegend':
+            return <TableCell className={classes.datacell}  align="right">{playerData.statLegend}</TableCell>
+        default:
+            return <TableCell className={classes.datacell}  align="right">{playerData.statFans}</TableCell>
+    }
+}
+
+export default function StickyHeadTable({sortType}:{sortType: string}) {
     const classes = useStyles();
     const [serverLeaderboardData,setserverStatusData] = React.useState<LeaderboardData | undefined>(undefined);
     const [severLeaderboardDataFlag,setLeaderboardDataFlag] = React.useState(false)
 
     React.useEffect(() => {
         async function getServerData() {
-            const resp = await fetch(AMAX_API_URL + "/leaderboards/multiplayer", {
+            const resp = await fetch(AMAX_API_URL + "/leaderboards/multiplayer"+"?sortby=" + sortType, {
 
                 method: 'GET',
 
@@ -108,10 +123,10 @@ export default function StickyHeadTable() {
                         <TableCell className={classes.datacell} component="th" scope="row">
                             {index+1}
                         </TableCell>
-                        <TableCell className={classes.datacell} component="th" scope="row">
+                        <TableCell className={classes.datacell} component="th" scope="row" align="center">
                             <PlayerBar player_name={row.bdPlayerName} place={0} legend={row.statLegend} level={row.statLevel}/>
                         </TableCell>
-                        <TableCell className={classes.datacell}  align="right">{row.statFans}</TableCell>
+                        <GetCellData sortTypeName={sortType} playerData={row}/>
                     </TableRow>
 
                 )

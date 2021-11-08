@@ -19,6 +19,7 @@ import "./i18n"
 import {useUserDataStore} from "./stores/userdataStore";
 import PlayerProfile from "./compositions/PlayerProfile";
 import ResponsiveDrawer from "./compositions/drawer/drawer2";
+import BigSessions from "./sessions_big";
 
 const { AMAX_API_URL } = process.env;
 
@@ -88,7 +89,7 @@ export function App() {
                 <nav>
                     <Link to="/">Home</Link>
                     <Link to="/user">User data</Link>
-                    <Link to="/sessions_test">Sessions</Link>
+                    <Link to="/sessions">BigSessions</Link>
                     <Link to="/status_test">Status</Link>
                     <Link to="/news">News</Link>
                     <Link to="/discord">=DISCORD=</Link>
@@ -101,7 +102,7 @@ export function App() {
             <Route exact path="/user" component={get_user_data} />
             <Route exact path="/discord" component={set_discord_token} />
             <Route exact path="/discord_auth" component={set_discord_token} />
-            <Route exact path="/sessions_test" component={SessionsWidget} />
+            <Route exact path="/sessions" component={BigSessions} />
             <Route exact path="/status_test" component={ServerStatus} />
             <Route exact path="/leaderboards" component={LeaderboardsWidget} />
             <Route exact path="/Dashboard" component = {Dashboard} />

@@ -1,10 +1,8 @@
 import * as React from "react"
 import "./sessions_item.css";
-import {useAuthStore} from "../../stores";
-import {MePlayerData} from "../appbar";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import SessionItem from "../../components/session_item";
+import SessionItem from "../components/session_item";
 import { useTranslation } from 'react-i18next'
 
 const { AMAX_API_URL } = process.env;
@@ -65,7 +63,7 @@ export interface PlayersList {
     statLegend:   number;
 }
 
-export default function SessionsWidget() {
+export default function BigSessions() {
     const classes = useStyles();
     const { t, i18n } = useTranslation()
     let [session_data, setData] = React.useState<SessionsData | undefined>(undefined);
@@ -109,11 +107,14 @@ export default function SessionsWidget() {
 
 
     return (
-            <div className={classes.root}>
+        <>
+            <div>
             <a className="session_item_name">{t('sessions_widget_header')}</a>
-        <div >
+        <div className={classes.root}>
             <RenderSessions/>
         </div>
             </div>
+        </>
+
     )
 }

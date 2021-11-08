@@ -14,6 +14,8 @@ import FormControl from '@material-ui/core/FormControl';
 import {Typography} from "@material-ui/core";
 import FormLabel from '@material-ui/core/FormLabel';
 import * as Yup from 'yup';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
@@ -99,6 +101,8 @@ const validationSchema =
         acceptEULA: Yup.bool().oneOf([true], 'Accept Terms is required')
     });
 
+
+
 export default function CreateBlurAccountForm() {
     const classes = useStyles();
     const { register, handleSubmit,formState:{ errors } } = useForm({
@@ -106,14 +110,26 @@ export default function CreateBlurAccountForm() {
     });
     const [value, setValue] = React.useState('female');
 
+    const [state, setState] = React.useState({
+        checkedA: true,
+        checkedB: true,
+        checkedF: true,
+        checkedG: true,
+    });
+
     const handleChange = (event) => {
         setValue(event.target.value);
+    };
+
+    const handleChange2 = (event) => {
+        setState({ ...state, [event.target.name]: event.target.checked });
     };
 
     const onSubmit = data => console.log(data);
 
     return (
         <Container>
+            <h1>Create new Amax Emu account</h1>
             <form  className={classes.root} onSubmit={handleSubmit(onSubmit)}>
                 <TextField {...register("username")} id="outlined-basic" label="Login" variant="outlined" className={classes.textfield}
                            helperText={errors.username?.message}
@@ -130,6 +146,7 @@ export default function CreateBlurAccountForm() {
                 <div>
                 <FormLabel component="legend">Account type</FormLabel>
                 <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+                    <a>{!!errors?.accountType}</a>
                     <FormControlLabel className={classes.selectWide} value="1" control={<Radio />} label="Normal account" />
                     <FormControlLabel className={classes.selectWide} value="0" control={<Radio />} label="Fully unlocked account" />
                 </RadioGroup>
@@ -142,7 +159,17 @@ export default function CreateBlurAccountForm() {
                         </ReactMarkdown>
                     </Typography>
                 </div>
-
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={state.checkedB}
+                            onChange={handleChange2}
+                            name="checkedB"
+                            color="primary"
+                        />
+                    }
+                    label="Primary"
+                />
 
                 <input type="submit" />
             </form>

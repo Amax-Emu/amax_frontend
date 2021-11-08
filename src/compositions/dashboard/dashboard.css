@@ -9,7 +9,8 @@
     "first second third";
     width: 100%;
     height: 100%;
-    place-items: center;
+
+
 }
 
 @media (max-width: 850px) {
@@ -25,8 +26,16 @@
 }
 
 .main_widget_container { grid-area: main-widget;
-    place-self: center stretch;}
+    place-self: center stretch;
+    padding: 1em;}
 .column1_container { grid-area: first;
-    justify-items: stretch;}
-.column2_container { grid-area: second; }
-.column3_container { grid-area: third; }
+    justify-items: stretch;
+    justify-self: center;
+width: 100%;
+padding: 1em;}
+.column2_container { grid-area: second;
+    justify-self: center;
+    padding: 1em;}
+.column3_container { grid-area: third;
+    justify-self: center;
+    padding: 1em;}
