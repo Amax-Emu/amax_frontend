@@ -21,6 +21,10 @@ import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import remarkGfm from 'remark-gfm'
+import axios from 'axios';
+import {useAuthStore} from "../../stores";
+
+const {AMAX_API_URL} = process.env;
 
 const eula_text = `
 
@@ -73,7 +77,18 @@ const useStyles = makeStyles((theme: Theme) =>
             //color: "black",
             //width: '400px',
             margin: theme.spacing(1),
-        }
+        },
+        registerButton: {
+            //backgroundColor: "lightblue",
+            //color: "black",
+            //width: '400px',
+            //margin: theme.spacing(1),
+        }, successIcon: {
+            backgroundColor: 'green',
+        },
+        errorIcon: {
+            backgroundColor: 'red',
+        },
     }));
 
 type BlurPlayerSubmitForm = {
@@ -82,6 +97,13 @@ type BlurPlayerSubmitForm = {
     accountType: number;
     acceptEULA: boolean;
 };
+
+type response = {
+    success: boolean;
+    msg: string;
+    accountName: string;
+}
+
 
 const validationSchema =
     Yup.object().shape({
@@ -104,7 +126,7 @@ const validationSchema =
         accountType: Yup.string()
             .required('Select your account type').nullable()
             .oneOf(["1", "0"], 'Selected account type is invalid').nullable(),
-        acceptEULA: Yup.bool().oneOf([true], 'Accept Terms is required')
+        acceptEULA: Yup.boolean().oneOf([true], 'Accept Terms is required')
     });
 
 
@@ -113,19 +135,65 @@ export default function CreateBlurAccountForm() {
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(validationSchema)
     });
+    const auth = useAuthStore()
+    const [serverResponse, setResponse] = React.useState<response | undefined>(undefined);
+
+    const [PostState, setPostState] = React.useState(false);
+
     const [value, setValue] = React.useState('1');
 
     const [state, setState] = React.useState(false);
+
+    const [ButtonStyle, setButtonStyle] = React.useState("registerButton");
+    const ButtonLabel = () => {
+        console.log(serverResponse)
+        if (PostState === false) {
+            return <Typography>Create account</Typography>
+        } else {
+            if (serverResponse !== undefined) {
+                if (serverResponse.success === true) {
+
+                    return <Typography>success</Typography>
+                } else {
+
+                    return <Typography>Failed: {serverResponse.msg}</Typography>
+                }
+            } else {
+                return <Typography>Processing</Typography>
+            }
+        }
+    }
 
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
     const handleChange2 = (event) => {
-        setState(!event.target.checked);
+        setState(event.target.checked);
+        console.log(event.target.checked)
     };
 
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        axios.post(AMAX_API_URL + '/players/create_account',
+
+            data, {
+                headers: {
+                    'content-type': 'application/json;charset=UTF-8',
+                    'Authorization': `Bearer ${auth.user.token}`
+                }
+            }
+        ).then(response => {setResponse(response.data)
+            setButtonStyle("successIcon")})
+            .catch(error => {
+                setResponse(error.response.data);
+                setPostState(true)
+                setButtonStyle("errorIcon")
+                console.log(error.response.data)
+                console.error('There was an error!', error);
+            });
+
+    };
 
     return (
         <Container>
@@ -139,7 +207,10 @@ export default function CreateBlurAccountForm() {
                                    error={!!errors?.username}
                         />
                         <FormHelperText>
-                            <ul><li>This will be your in-game username</li><li>Minimum length is 5</li></ul>
+                            <ul>
+                                <li>This will be your in-game username</li>
+                                <li>Minimum length is 5</li>
+                            </ul>
                         </FormHelperText>
                     </Grid>
                     <Grid item xs={12}>
@@ -150,7 +221,10 @@ export default function CreateBlurAccountForm() {
                                    type="password"
                         />
                         <FormHelperText>
-                            <ul><li>Password must be at least 8 characters</li><li>Should include at least 1 uppercase, 1 lowercase and 1 number</li></ul>
+                            <ul>
+                                <li>Password must be at least 8 characters</li>
+                                <li>Should include at least 1 uppercase, 1 lowercase and 1 number</li>
+                            </ul>
                         </FormHelperText>
 
                     </Grid>
@@ -164,58 +238,71 @@ export default function CreateBlurAccountForm() {
                     </Grid>
                     <Grid item xs={12}>
                         <div>
-                        <FormLabel component="legend">Account type</FormLabel>
-                        <RadioGroup {...register("accountType")} aria-label="accounttype" name="accounttype" value={value} onChange={handleChange}>
-                            <FormHelperText error>
-                                {errors.accountType ? errors.accountType.message : " "}
-                            </FormHelperText>
-                            <FormControlLabel className={classes.selectWide} value="1" control={<Radio/>}
-                                              label={<Typography><h3>Normal account</h3><ul><li>Account progression</li><li>Leaderboards</li><li>Legendary cars</li></ul></Typography>}/>
-                            <FormControlLabel className={classes.selectWide} value="0" control={<Radio/>}
-                                              label={<Typography><h3>Fully unlocked account</h3><ul><li>All cars and mods unlocked</li><li>No leaderboards</li></ul></Typography>}/>
-                        </RadioGroup>
+                            <FormLabel component="legend">Account type</FormLabel>
+                            <RadioGroup {...register("accountType")} aria-label="accounttype" name="accounttype"
+                                        value={value} onChange={handleChange}>
+                                <FormHelperText error>
+                                    {errors.accountType ? errors.accountType.message : " "}
+                                </FormHelperText>
+                                <FormControlLabel className={classes.selectWide} value="1" control={<Radio/>}
+                                                  label={<Typography><h3>Normal account</h3>
+                                                      <ul>
+                                                          <li>Account progression</li>
+                                                          <li>Leaderboards</li>
+                                                          <li>Legendary cars</li>
+                                                      </ul>
+                                                  </Typography>}/>
+                                <FormControlLabel className={classes.selectWide} value="0" control={<Radio/>}
+                                                  label={<Typography><h3>Fully unlocked account</h3>
+                                                      <ul>
+                                                          <li>All cars and mods unlocked</li>
+                                                          <li>No leaderboards</li>
+                                                      </ul>
+                                                  </Typography>}/>
+                            </RadioGroup>
 
 
-                </div>
+                        </div>
                     </Grid>
 
-                <div>
-                    <Typography>
-                        <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]}>
-                            {eula_text}
-                        </ReactMarkdown>
-                    </Typography>
-                </div>
-                <Grid item xs={12}>
-                    <FormControlLabel
-                        control={
-                            <Checkbox {...register("acceptEULA")}
-                                id="acceptEULA"
-                                checked={state}
-                                onChange={handleChange2}
-                                name="checkedB"
-                                color="primary"
-                            />
-                        }
-                        label="Primary"
-                        id="acceptEULA"
-                    />
-                    <FormHelperText error>
-                        {errors.acceptEULA ? errors.acceptEULA.message : " "}
-                    </FormHelperText>
+                    <div>
+                        <Typography>
+                            <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]}>
+                                {eula_text}
+                            </ReactMarkdown>
+                        </Typography>
+                    </div>
+                    <Grid item xs={12}>
+                        <FormControlLabel
+                            control={
+                                <Checkbox {...register("acceptEULA")}
+                                          id="acceptEULA"
+                                          checked={state}
+                                          value={state}
+                                          onChange={handleChange2}
+                                          name="acceptEULA"
+                                          color="primary"
+                                />
+                            }
+                            label="I accept all of above, just let me play."
+                            id="acceptEULA"
+                        />
+                        <FormHelperText error>
+                            {errors.acceptEULA ? errors.acceptEULA.message : " "}
+                        </FormHelperText>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
 
-                className={classes.submit}
-            >
-                Register
-            </Button>
-        </form>
-</Container>
-)
+                    className={classes[ButtonStyle]}
+                >
+                    <ButtonLabel/>
+                </Button>
+            </form>
+        </Container>
+    )
 }

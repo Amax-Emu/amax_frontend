@@ -71,54 +71,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PlayerAvatar({url, badge_count, friends_incoming}: {url: string,badge_count: number,friends_incoming: any}) {
     const classes = useStyles();
-
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const handleProfileMenuOpen = (event) => {
+    const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
-    const handleMenuClose = () => {
+    const handleClose = () => {
         setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
     };
 
     const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-    id={menuId}
-    keepMounted
-    transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-    open={isMenuOpen}
-    onClose={handleMenuClose}
-    >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <Divider />
 
-
-
-        </Menu>
-
-
-);
-    //{friends_incoming.map((friend_name) =>  <MenuItem onClick={handleMenuClose}>{friend_name}</MenuItem>)}
+    {friends_incoming.map((friend_name) =>  <MenuItem onClick={handleClose}>{friend_name}</MenuItem>)}
     return (
-        <IconButton className={classes.avatarButton} onClick={handleProfileMenuOpen}
+        <>
+        <IconButton className={classes.avatarButton} onClick={handleMenu}
                     edge="end"
                     aria-label="account of current user"
                     aria-controls={menuId}
@@ -129,8 +98,25 @@ export default function PlayerAvatar({url, badge_count, friends_incoming}: {url:
                     N
                 </Avatar>
             </Badge>
+
         </IconButton>
+    <Menu
+        anchorEl={anchorEl}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        id={menuId}
+        keepMounted
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={open}
+        onClose={handleClose}
+        onClick={handleClose}
+    >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <Divider />
 
 
+
+    </Menu>
+        </>
     )
 }

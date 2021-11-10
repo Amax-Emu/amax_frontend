@@ -6,15 +6,16 @@ import LeaderboardsWidget from "../leaderboard_widget";
 import {Button, Paper} from "@material-ui/core";
 import IntroWidget from "../../components/introWidget";
 import { useAuthStore } from "../../stores"
+import {useUserDataStore} from "../../stores/userdataStore";
 
 
 export default function Dashboard() {
     const auth = useAuthStore()
-
+    const user = useUserDataStore()
     return (
         <div className="dashboard_container">
 
-            {auth.signIn
+            {user?.userData
                 ?<div className = "main_widget_container">
                     <IntroWidget/>
                 </div>
