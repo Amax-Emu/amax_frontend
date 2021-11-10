@@ -20,6 +20,7 @@ import {useUserDataStore} from "./stores/userdataStore";
 import PlayerProfile from "./compositions/PlayerProfile";
 import ResponsiveDrawer from "./compositions/drawer/drawer2";
 import BigSessions from "./sessions_big";
+import FinalSteps from "./compositions/final_step/final_step";
 
 const { AMAX_API_URL } = process.env;
 
@@ -94,6 +95,7 @@ export function App() {
                     <Link to="/news">News</Link>
                     <Link to="/discord">=DISCORD=</Link>
                     <Link to="/register"> =MAKE BLUR ACC= </Link>
+                    <Link to="/final_steps"> =FINAL STEPS= </Link>
 
                 </nav>
                 <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
@@ -108,6 +110,7 @@ export function App() {
             <Route exact path="/Dashboard" component = {Dashboard} />
             <Route exact path="/news" component = {DiscordNews} />
             <Route exact path="/register" component = {CreateBlurAccountForm} />
+            <Route exact path="/final_steps" component = {FinalSteps} />
             <Route exact path="/profile/:profileName" component = {PlayerProfile} />
         </Switch>
             </Container>

@@ -56,7 +56,6 @@ const eula_text = `
  1. No conduct that constitutes cheating, hacking, or exploiting of game conditions for unintended advantage is permitted. Keep game fun and fair for everyone.
  2. All strategies and tactics are considered valid unless explicitly prohibited. This includes usage of Drift mod, legendary cars and Bribe.
  3. Respect less experienced players. Helping new players experience the game is essential to the future health of the community.
- 4.
  `
 
 const useStyles = makeStyles((theme: Theme) =>
