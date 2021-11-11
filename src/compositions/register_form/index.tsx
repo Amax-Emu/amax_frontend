@@ -19,7 +19,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ReactMarkdown from 'react-markdown'
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import { browserHistory } from 'react-router';
+import { useHistory } from "react-router-dom";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import remarkGfm from 'remark-gfm'
 import axios from 'axios';
@@ -139,6 +139,7 @@ export default function CreateBlurAccountForm() {
 
     const auth = useAuthStore()
     const user = useUserDataStore()
+    let history = useHistory();
     const [serverResponse, setResponse] = React.useState<response | undefined>(undefined);
 
     const [PostState, setPostState] = React.useState(false);
@@ -196,7 +197,7 @@ export default function CreateBlurAccountForm() {
             setPostState(true)
             setButtonStyle("successIcon")
             sleep(2000)
-            browserHistory.push("/final_step");}
+            history.push("/final_step");}
 
 
         )
