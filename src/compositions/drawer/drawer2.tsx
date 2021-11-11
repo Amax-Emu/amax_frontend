@@ -137,7 +137,7 @@ export default function ResponsiveDrawer() {
                     </ListItem>
                 </NavLink>
 
-                <NavLink to={"/sessions"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                <NavLink to={"/past_races"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
                     <ListItem button key='Games feed' classes = {{root: classes.menuitem, selected: classes.selected}}>
                         <ListItemIcon><HistoryIcon/></ListItemIcon>
                         <ListItemText primary="Games feed" />

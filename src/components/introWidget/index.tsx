@@ -2,6 +2,7 @@ import * as React from "react"
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {createStyles, makeStyles, Theme, useTheme} from '@material-ui/core/styles';
+import { NavLink,useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -36,19 +37,12 @@ export default function IntroWidget(){
                     Welcome to the Amax Emu - the home of Blur online emulator.
                     <br/>
                     <br/>
-
-                    TEXT
-                    <br/>
-                    TEXT
-                    <br/>
-                    TEXT
-                    <br/>
-                    TEXT
-                    <br/>
-
+                    In order to play Blur online you need to create Amax Emu account and install Amax Emu files.
                 </p>
             </Typography>
-            <Button className={classes.menuButton} size="large" color="secondary">Press to have moderate amount of fun.</Button>
+            <NavLink to={"/register"} style={{color: '#92929F', textDecoration: 'none'}}>
+            <Button className={classes.menuButton} size="large">Let's begin!</Button>
+            </NavLink>
         </div>
     )
 }

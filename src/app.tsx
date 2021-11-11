@@ -21,6 +21,8 @@ import PlayerProfile from "./compositions/PlayerProfile";
 import ResponsiveDrawer from "./compositions/drawer/drawer2";
 import BigSessions from "./sessions_big";
 import FinalSteps from "./compositions/final_step/final_step";
+import PersonalPlayerProfile from "./compositions/our_profile";
+import PastRaces from "./compositions/past_games/past_games";
 
 const { AMAX_API_URL } = process.env;
 
@@ -102,6 +104,7 @@ export function App() {
                     <Link to="/discord">=DISCORD=</Link>
                     <Link to="/register"> =MAKE BLUR ACC= </Link>
                     <Link to="/final_steps"> =FINAL STEPS= </Link>
+                    <Link to="/past_races"> =PAST RACES= </Link>
 
                 </nav>
                 <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
@@ -118,6 +121,8 @@ export function App() {
             <Route exact path="/register" component = {CreateBlurAccountForm} />
             <Route exact path="/final_steps" component = {FinalSteps} />
             <Route exact path="/profile/:profileName" component = {PlayerProfile} />
+            <Route exact path="/profile" component = {PersonalPlayerProfile} />
+            <Route exact path="/past_races" component = {PastRaces} />
         </Switch>
             </Container>
         </div>

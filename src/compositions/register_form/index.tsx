@@ -19,10 +19,12 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ReactMarkdown from 'react-markdown'
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import { browserHistory } from 'react-router';
 import FormHelperText from "@material-ui/core/FormHelperText";
 import remarkGfm from 'remark-gfm'
 import axios from 'axios';
 import {useAuthStore} from "../../stores";
+import {useUserDataStore} from "../../stores/userdataStore";
 
 const {AMAX_API_URL} = process.env;
 
@@ -136,7 +138,7 @@ export default function CreateBlurAccountForm() {
     });
 
     const auth = useAuthStore()
-
+    const user = useUserDataStore()
     const [serverResponse, setResponse] = React.useState<response | undefined>(undefined);
 
     const [PostState, setPostState] = React.useState(false);
@@ -166,6 +168,10 @@ export default function CreateBlurAccountForm() {
         }
     }
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     const handleChange = (event) => {
         setValue(event.target.value);
     };
@@ -185,8 +191,15 @@ export default function CreateBlurAccountForm() {
                     'Authorization': `Bearer ${auth.user.token}`
                 }
             }
-        ).then(response => {setResponse(response.data)
-            setButtonStyle("successIcon")})
+        ).then(response => {
+            setResponse(response.data)
+            setPostState(true)
+            setButtonStyle("successIcon")
+            sleep(2000)
+            browserHistory.push("/final_step");}
+
+
+        )
             .catch(error => {
                 setResponse(error.response.data);
                 setPostState(true)
@@ -197,7 +210,7 @@ export default function CreateBlurAccountForm() {
 
     };
 
-    return (
+    const RegisterForm = () => {
         <Container>
             <h1>Create new Amax Emu account</h1>
             <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
@@ -306,5 +319,13 @@ export default function CreateBlurAccountForm() {
                 </Button>
             </form>
         </Container>
+    }
+
+    return (
+        <>
+        {user.userData?.amax_account
+                ? <a>You already have an account, why do you need another one?</a>
+                :<RegisterForm/>}
+        </>
     )
 }

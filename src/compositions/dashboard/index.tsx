@@ -15,7 +15,7 @@ export default function Dashboard() {
     return (
         <div className="dashboard_container">
 
-            {user?.userData
+            {user?.userData === null
                 ?<></>
                 :<div className = "main_widget_container">
                 <IntroWidget/>

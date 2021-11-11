@@ -2,7 +2,7 @@ import * as React from "react";
 import {makeStyles, createStyles, Theme, useTheme} from '@material-ui/core/styles';
 import {Container} from "@material-ui/core";
 import {Typography} from "@material-ui/core";
-
+import AnimatedLogin from "../../components/animated_login/final_step";
 export default function FinalSteps() {
  return (
      <Container>
@@ -17,6 +17,7 @@ export default function FinalSteps() {
        <a>Download latest Amax Emu files from here and place them into root of your Blur installation.</a>
        <h2>4) Login into the Amax Emu in the game</h2>
        <a>Login into the Amax Emu using your username and password. </a>
+       <AnimatedLogin/>
        <h2>5) Play Blur</h2>
        <a>Enjoy Blur like it is 2010 again!</a>
       </Typography>
