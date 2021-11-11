@@ -73,8 +73,6 @@ export default function AmaxAppBar() {
     const { t, i18n } = useTranslation()
     const auth = useAuthStore()
     const user = useUserDataStore()
-    user.getData()
-    console.log(user.userData)
     const classes = useStyles();
 
     function handleDrawerToggle() {
@@ -82,7 +80,7 @@ export default function AmaxAppBar() {
     }
 
     const ServerStatusLabel = () => {
-        if (auth.user.token !== undefined) {
+        if (auth.user?.token !== undefined) {
             return (<></>)
         } else {
             return(

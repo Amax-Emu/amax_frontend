@@ -4,6 +4,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {useTranslation} from "react-i18next";
 import PlayerCard from "../../components/profile/player_card";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import {RaceIcon} from "../../components/general_icons/general_icons";
+import {DriverScoreIcon} from "../../components/general_icons/general_icons";
+import {FansIcon} from "../../components/general_icons/general_icons";
+import {TimeIcon} from "../../components/general_icons/general_icons";
 import * as moment from "moment";
 
 const { AMAX_API_URL } = process.env;
@@ -146,6 +150,49 @@ function DiscordIcon() {
     );
 }
 
+function GetIcon({statName}:{statName:string}) {
+    switch (statName){
+        case 'statRaces':{return (<RaceIcon/>)}
+        case 'statLevel':{return (<RaceIcon/>)}
+        case 'statFans':{return (<FansIcon/>)}
+        case 'statRaceTime':{return (<TimeIcon/>)}
+        case 'statDriverScore':{return (<DriverScoreIcon/>)}
+        case 'statTop3':{return (<RaceIcon/>)}
+        case 'statFirst':{return (<RaceIcon/>)}
+        case 'statHits':{return (<RaceIcon/>)}
+        case 'statFired':{return (<RaceIcon/>)}
+        case 'statWrecked':{return (<RaceIcon/>)}
+        case 'statLegend':{return (<RaceIcon/>)}
+
+    }
+}
+
+type StatNames = 'statRaces' | 'statLevel'
+const statNames: Record<StatNames, string> = {
+    statRaces: 'general_values_names.total_race',
+    statLevel: 'general_values_names.level',
+}
+
+function GetStatName(statName: StatNames) {
+    const { t, i18n } = useTranslation()
+    return t(statNames[statName])
+
+    switch (statName){
+        case 'statRaces':{return t("general_values_names.total_race")}
+        case 'statLevel':{return t("general_values_names.level")}
+        case 'statFans':{return t("general_values_names.fans")}
+        case 'statRaceTime':{return t("general_values_names.total_time")}
+        case 'statDriverScore':{return t("general_values_names.driving_score")}
+        case 'statTop3':{return t("general_values_names.top3")}
+        case 'statFirst':{return t("general_values_names.first")}
+        case 'statHits':{return t("general_values_names.hits")}
+        case 'statFired':{return t("general_values_names.fired")}
+        case 'statWrecked':{return t("general_values_names.wrecked")}
+        case 'statLegend':{return t("general_values_names.legend")}
+
+    }
+}
+
 function SingleStatWidget({statName,value}:{statName: string,value:(number|string)}) {
     const classes = useStyles();
 
@@ -157,10 +204,10 @@ function SingleStatWidget({statName,value}:{statName: string,value:(number|strin
     return (
         <div className={classes.sswidget_container}>
             <div className={classes.sswidget_icon_value}>
-        <DiscordIcon/>  <a style={{marginLeft: "0.3em"}}>{value2}</a>
+        <GetIcon statName={statName}/> <a style={{marginLeft: "0.3em"}}>{value2}</a>
             </div>
 
-            <a>{statName}</a>
+            <a>{GetStatName(statName)}</a>
 
         </div>
     )
@@ -199,12 +246,12 @@ export default function PlayerProfile () {
                 ? (<div>
                     <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent} playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1} playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend} playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded} playerPfpUrl={"123"}/>
                         <div className = {classes.sswidgets_container}>
-                        <SingleStatWidget statName={"Fans"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFans}/>
-                    <SingleStatWidget statName={"Driver Score"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statDriverScore}/>
-                    <SingleStatWidget statName={"Total races"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaces}/>
-                    <SingleStatWidget statName={"First"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFirst}/>
-                    <SingleStatWidget statName={"Top 3"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statTop3}/>
-                    <SingleStatWidget statName={"Fired"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFired}/>
+                        <SingleStatWidget statName={"statFans"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFans}/>
+                    <SingleStatWidget statName={"statDriverScore"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statDriverScore}/>
+                    <SingleStatWidget statName={"statRaces"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaces}/>
+                    <SingleStatWidget statName={"statFirst"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFirst}/>
+                    <SingleStatWidget statName={"statTop3"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statTop3}/>
+                    <SingleStatWidget statName={"statFired"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statFired}/>
                     <SingleStatWidget statName={"statWrecked"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statWrecked}/>
 
                     <SingleStatWidget statName={"statRaceTime"} value={targetPlayerData.data.amaxPlayerData.amaxStatsData.statRaceTime}/>

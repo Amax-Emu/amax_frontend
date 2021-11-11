@@ -50,10 +50,16 @@ export function App() {
     const classes = useStyles();
     const auth = useAuthStore()
     const user = useUserDataStore()
-    console.log("LOGGIN IN IN APP.JS")
-    auth.signIn()
-    console.log("GETTING USER DATA IN APP.JS")
-    user.getData()
+
+    React.useEffect(() => {
+        const poop = async () => {
+            await auth.signIn()
+            await user.getData()
+        }
+
+        poop().then(() => {})
+    }, [])
+
     const theme = createTheme({
         palette: {
           type: 'dark',

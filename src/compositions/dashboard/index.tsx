@@ -16,10 +16,10 @@ export default function Dashboard() {
         <div className="dashboard_container">
 
             {user?.userData
-                ?<div className = "main_widget_container">
-                    <IntroWidget/>
+                ?<></>
+                :<div className = "main_widget_container">
+                <IntroWidget/>
                 </div>
-                :<></>
             }
             <div className = "column1_container">
             <SessionsWidget/>

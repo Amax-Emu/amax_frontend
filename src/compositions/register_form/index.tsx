@@ -134,7 +134,9 @@ export default function CreateBlurAccountForm() {
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(validationSchema)
     });
+
     const auth = useAuthStore()
+
     const [serverResponse, setResponse] = React.useState<response | undefined>(undefined);
 
     const [PostState, setPostState] = React.useState(false);
@@ -144,6 +146,7 @@ export default function CreateBlurAccountForm() {
     const [state, setState] = React.useState(false);
 
     const [ButtonStyle, setButtonStyle] = React.useState("registerButton");
+
     const ButtonLabel = () => {
         console.log(serverResponse)
         if (PostState === false) {
