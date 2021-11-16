@@ -58,7 +58,7 @@ function get_mod_icon(mod_id) {
             mod_icon = "ecm"
             break;
         case 18:
-            mod_icon = "placeholder"
+            mod_icon = "placeholder" // vampiric
             break;
         case 19:
             mod_icon = "bribe"

@@ -7,8 +7,9 @@ import {AmaxPastRaceData} from "../../compositions/past_games/past_games";
 import {Paper} from "@material-ui/core";
 import * as moment from 'moment'
 import PastRaceItemTable from "./PastRaceItemTable";
+// @ts-ignore
 import LocationIcons from "./loc_icons/*.png"
-import LoginImage from "../animated_login/login.png";
+// @ts-ignore
 import LocationHeaders from "./location_headers/*.png"
 
 function get_location_icon(mod_id) {
@@ -100,26 +101,42 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             margin: 15,
-            /* Blue/700 (2 L) */
-
-
-            /* Blue/600 */
-            border: "1px solid #3E5270",
-            boxSizing: "border-box",
-            borderRadius: 8,
         }, race_data_container: {
 
-            backgroundImage: `url(${LocationHeaders['location_header']})`,
-            backgroundPosition: 'center',
-            backgroundSize: '100% 100%',
-            backgroundRepeat: 'no-repeat',
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "flex-start",
             alignItems: "center",
-            borderRadius: "8px 8px 0px 0px",
+            borderRadius: "6px 6px 0px 0px",
+            position: "relative",
+            overflow: "hidden"
 
-        }, map_name: {
+        },
+        map_image_header: {
+            backgroundImage: `url(${LocationHeaders['location_header']})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            position: "absolute",
+            right: "0px",
+            top: "0px",
+            height: "100px",
+            width: "1000px",
+            zIndex: 1,
+
+        },
+        map_gradient_header: {
+
+            background: "linear-gradient(90deg, rgba(44,56,69,1) 30%, rgba(0,0,0,0) 100%)",
+            position: "absolute",
+            left: "0px",
+            top: "0px",
+            height: "100px",
+            width: "50%",
+            zIndex: 2,
+
+        },
+        map_name: {
             fontSize: "25px",
             fontWeight: "bold",
 
@@ -128,6 +145,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             flexWrap: "wrap",
             flexDirection: "column",
+            zIndex: 3,
 
         }, game_data_stats: {
             lineHeight: "5px"
@@ -142,7 +160,8 @@ const useStyles = makeStyles((theme: Theme) =>
             marginLeft: "15px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
+            zIndex: 3,
         }
     }),
 );
@@ -150,9 +169,9 @@ export default function PastRaceItem({data}: { data: AmaxPastRaceData }) {
     const {t, i18n} = useTranslation()
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <Paper elevation={3} className="history_game_item">
+            <Paper elevation={3} className={classes.root}>
                 <div className={classes.race_data_container}>
+
                     <div className={classes.map_icon_container}>
                         <img src={LocationIcons['amboy']} className={classes.location_icon} alt="logo"/>
                     </div>
@@ -165,12 +184,13 @@ export default function PastRaceItem({data}: { data: AmaxPastRaceData }) {
                             <p>{moment(data.timestamp).local().format("M/D/YYYY- h:mm A z")}</p>
                         </div>
                     </div>
+                    <div className={classes.map_gradient_header}></div>
+                    <div className={classes.map_image_header}></div>
                 </div>
                 <div>
                     <PastRaceItemTable tableData={data.racers_info}/>
                 </div>
             </Paper>
-        </div>
     )
 
 }
