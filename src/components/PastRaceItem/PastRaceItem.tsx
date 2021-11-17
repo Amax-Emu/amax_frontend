@@ -12,89 +12,68 @@ import LocationIcons from "./loc_icons/*.png"
 // @ts-ignore
 import LocationHeaders from "./location_headers/*.png"
 
-function get_location_icon(mod_id) {
-    let mod_icon = 'iron_fist';
-    switch (mod_id) {
+function get_location_icon(location_id) {
+    let location_icon = '';
+    switch (location_id) {
         case 1:
-            mod_icon = "iron_fist"
+            location_icon = "oval"
             break;
         case 2:
-            mod_icon = "jump_the_gun"
+            location_icon = "barcelona"
             break;
         case 3:
-            mod_icon = "front_runner"
+            location_icon = "brighton"
             break;
         case 4:
-            mod_icon = "drifter"
+            location_icon = "barcelona"
             break;
         case 5:
-            mod_icon = "titanium_armor"
+            location_icon = "hackney"
             break;
         case 6:
-            mod_icon = "showy_flourish"
+            location_icon = "la_observatory" //hollywood_hills
             break;
         case 7:
-            mod_icon = "stable_frame"
+            location_icon = "amboy"
             break;
         case 8:
-            mod_icon = "battering_ram"
+            location_icon = "la_downtown"
             break;
         case 9:
-            mod_icon = "placeholder" //decoy drop
+            location_icon = "amboy"
             break;
         case 10:
-            mod_icon = "placeholder" //road sweep
+            location_icon = "la_docks"
             break;
         case 11:
-            mod_icon = "scrambler"
+            location_icon = "la_downtown"
             break;
         case 12:
-            mod_icon = "splash_damage"
+            location_icon = "la_downtown"
             break;
         case 13:
-            mod_icon = "shielding_efficency"
+            location_icon = "la_river"
             break;
         case 14:
-            mod_icon = "safety_net"
+            location_icon = "mount_haruna"
             break;
         case 15:
-            mod_icon = "shielded_boosters"
+            location_icon = "dumbo"
             break;
         case 16:
-            mod_icon = "shielded_bay"
+            location_icon = "russian_hill"
             break;
         case 17:
-            mod_icon = "ecm"
+            location_icon = "san_francisco"
             break;
         case 18:
-            mod_icon = "placeholder"
-            break;
-        case 19:
-            mod_icon = "bribe"
-            break;
-        case 20:
-            mod_icon = "fan_favourite"
-            break;
-        case 21:
-            mod_icon = "laser_sight"
-            break;
-        case 22:
-            mod_icon = "placeholder" // Advanced radar
-            break;
-        case 23:
-            mod_icon = "silent_running"
-            break;
-        case 24:
-            mod_icon = "last_gasp"
-            break;
-        case 25:
-            mod_icon = "mastermine"
+            location_icon = "japan_shutoko" //tokyo
             break;
         default:
-            mod_icon = "placeholder";
+            location_icon = "double_question_mark";
 
     }
-    return mod_icon
+    return location_icon
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -132,7 +111,7 @@ const useStyles = makeStyles((theme: Theme) =>
             left: "0px",
             top: "0px",
             height: "100px",
-            width: "50%",
+            width: "70%",
             zIndex: 2,
 
         },
@@ -158,6 +137,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: "70px",
             height: "70px",
             marginLeft: "15px",
+            marginRight: "12px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -173,7 +153,7 @@ export default function PastRaceItem({data}: { data: AmaxPastRaceData }) {
                 <div className={classes.race_data_container}>
 
                     <div className={classes.map_icon_container}>
-                        <img src={LocationIcons['amboy']} className={classes.location_icon} alt="logo"/>
+                        <img src={LocationIcons[get_location_icon(data.location_id)]} className={classes.location_icon} alt="logo"/>
                     </div>
 
                     <div className={classes.game_data}>

@@ -1,4 +1,13 @@
-import {DriverScoreIcon, FansIcon, RaceIcon, TimeIcon} from "../../general_icons/general_icons";
+import {
+    DriverScoreIcon,
+    FansIcon,
+    FiredIcon, HitsIcon,
+    LegendIcon,
+    FirstIcon,
+    RaceIcon,
+    TimeIcon, Top3Icon,
+    WrekedIcon
+} from "../../general_icons/general_icons";
 import {useTranslation} from "react-i18next";
 import * as moment from "moment";
 import * as React from "react";
@@ -87,12 +96,12 @@ function GetIcon({statName}:{statName:string}) {
         case 'statFans':{return (<FansIcon/>)}
         case 'statRaceTime':{return (<TimeIcon/>)}
         case 'statDriverScore':{return (<DriverScoreIcon/>)}
-        case 'statTop3':{return (<RaceIcon/>)}
-        case 'statFirst':{return (<RaceIcon/>)}
-        case 'statHits':{return (<RaceIcon/>)}
-        case 'statFired':{return (<RaceIcon/>)}
-        case 'statWrecked':{return (<RaceIcon/>)}
-        case 'statLegend':{return (<RaceIcon/>)}
+        case 'statTop3':{return (<Top3Icon/>)}
+        case 'statFirst':{return (<FirstIcon/>)}
+        case 'statHits':{return (<HitsIcon/>)}
+        case 'statFired':{return (<FiredIcon/>)}
+        case 'statWrecked':{return (<WrekedIcon/>)}
+        case 'statLegend':{return (<LegendIcon/>)}
 
     }
 }

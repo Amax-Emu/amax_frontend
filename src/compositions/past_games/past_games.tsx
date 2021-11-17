@@ -18,6 +18,8 @@ export interface AmaxPastRaceData {
     game_type_hex:    string;
     game_type_id:     number;
     game_type_name:   string;
+    location_id:      string;
+    location_name:    string;
     map_name:         string;
     number_of_racers: number;
     laps:             number;
