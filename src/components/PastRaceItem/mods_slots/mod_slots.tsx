@@ -92,13 +92,13 @@ export default function Mod_slots({mod1,mod2,mod3,mod1_name,mod2_name,mod3_name}
     return (
         <div className="mod_slots_container">
             <div className="mod_slot">
-                <img src={ModIcons[get_mod_icon(mod1)]} className="mod_icon" alt={mod1_name} />
+                <img src={ModIcons[get_mod_icon(mod1)]} className="mod_icon2" alt={mod1_name} />
             </div>
             <div className="mod_slot">
-                <img src={ModIcons[get_mod_icon(mod2)]} className="mod_icon" alt={mod2_name} />
+                <img src={ModIcons[get_mod_icon(mod2)]} className="mod_icon2" alt={mod2_name} />
             </div>
             <div className="mod_slot">
-                <img src={ModIcons[get_mod_icon(mod3)]} className="mod_icon" alt={mod3_name} />
+                <img src={ModIcons[get_mod_icon(mod3)]} className="mod_icon2" alt={mod3_name} />
             </div>
         </div>
     )

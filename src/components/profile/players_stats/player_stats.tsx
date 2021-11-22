@@ -66,7 +66,8 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             flexWrap: 'wrap',
             flexDirection: "row",
-            margin: "1em"
+            margin: "1em",
+            maxWidth: "60%"
 
         },
         stats_career_container:{
@@ -83,8 +84,11 @@ export default function PlayerProfileStats({playerStatsData}:{playerStatsData:Am
     const classes = useStyles();
 
     return (
+                        <>
+                            <a className="session_item_name">Stats</a>
 
                          <div className = {classes.sswidgets_container}>
+
                              <div className = {classes.stats_career_container}>
                                  <Typography>
                                      <h2>Career</h2>
@@ -127,7 +131,7 @@ export default function PlayerProfileStats({playerStatsData}:{playerStatsData:Am
                             </div>
 </div>
 
-
+                        </>
 
 
     );

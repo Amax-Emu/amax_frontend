@@ -10,6 +10,7 @@ import {FansIcon} from "../../components/general_icons/general_icons";
 import {TimeIcon} from "../../components/general_icons/general_icons";
 import * as moment from "moment";
 import PlayerProfileStats from "../../components/profile/players_stats/player_stats";
+import PlayerPastRaces from "../player_past_races/player_past_races";
 
 const { AMAX_API_URL } = process.env;
 
@@ -175,6 +176,7 @@ export default function PlayerProfile () {
                 ? (<div>
                     <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent} playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1} playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend} playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded} playerPfpUrl={"123"}/>
                     <PlayerProfileStats playerStatsData={targetPlayerData.data.amaxPlayerData.amaxStatsData}/>
+                        <PlayerPastRaces player_name={targetPlayerData.data.player_name}/>
                     </div>
 
 

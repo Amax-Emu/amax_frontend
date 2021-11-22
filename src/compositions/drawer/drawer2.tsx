@@ -118,9 +118,18 @@ export default function ResponsiveDrawer() {
     const theme = useTheme();
     const isMobile = window.screen.width < 600
 
-    const activeRoute = (routeName: any) => {
+    const [path, setPath] = React.useState("");
 
-        return location.pathname === routeName;
+    let location = useLocation();
+
+    useEffect(() => {
+        setPath(location.pathname);
+        console.log(location.pathname)
+    }, [location,setPath]);
+
+    const activeRoute = (route:string) => {
+        console.log(route, path);
+        return route === path;
     }
 
     function handleDrawerToggle() {
@@ -130,7 +139,7 @@ export default function ResponsiveDrawer() {
     const drawer = (
         <div>
             <List className={classes.menulist}>
-                <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none',}}>
                     <ListItem button key='Dashboard' selected={activeRoute("/Dashboard")} classes = {{root: classes.menuitem, selected: classes.selected}}>
                         <ListItemIcon><DashboardIcon/></ListItemIcon>
                         <ListItemText primary="Dashboard" />
@@ -138,14 +147,14 @@ export default function ResponsiveDrawer() {
                 </NavLink>
 
                 <NavLink to={"/past_races"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-                    <ListItem button key='Games feed' classes = {{root: classes.menuitem, selected: classes.selected}}>
+                    <ListItem button key='Games feed' selected={activeRoute("/past_races")} classes = {{root: classes.menuitem, selected: classes.selected}}>
                         <ListItemIcon><HistoryIcon/></ListItemIcon>
                         <ListItemText primary="Games feed" />
                     </ListItem>
                 </NavLink>
 
             <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}>
-                <ListItem button onClick={handleClick} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                <ListItem button onClick={handleClick} selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>
                     <ListItemIcon><TableChartIcon/></ListItemIcon>
                     <ListItemText primary="Leaderboards" />
                     {open ? <ExpandLess /> : <ExpandMore />}
@@ -172,9 +181,8 @@ export default function ResponsiveDrawer() {
             <ListItemText primary="How to play" />
         </ListItem>
 
-
-        <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}}>
-            <ListItem button classes = {{root: classes.menuitem, selected: classes.selected}}>
+        <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+            <ListItem button key='news' selected={activeRoute("/news")} classes = {{root: classes.menuitem, selected: classes.selected}}>
                 <ListItemIcon><AnnouncementIcon/></ListItemIcon>
                 <ListItemText primary="News" />
             </ListItem>
@@ -184,6 +192,13 @@ export default function ResponsiveDrawer() {
             <ListItemIcon><TableChartIcon/></ListItemIcon>
             <ListItemText primary="Discord server" />
         </ListItem>
+
+        <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+            <ListItem button key='news' selected={activeRoute("/news")} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                <ListItemIcon><AnnouncementIcon/></ListItemIcon>
+                <ListItemText primary="Profile" />
+            </ListItem>
+        </NavLink>
 
 
     </List>

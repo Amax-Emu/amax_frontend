@@ -67,8 +67,10 @@ export default function PastRaceItemTable({tableData}:{tableData:RacersInfo}) {
                             </TableCell>
                             <TableCell align="left">{tableData[key].player_car_name}</TableCell>
                             <TableCell align="center">
+                                <div style={{width:"120px"}}>
                                 <Mod_slots mod1 = {tableData[key].mod_1_id} mod2 = {tableData[key].mod_2_id}  mod3 = {tableData[key].mod_3_id}  mod1_name = {tableData[key].mod_1_name} mod2_name = {tableData[key].mod_2_name} mod3_name ={tableData[key].mod_3_name}/>
-                            </TableCell>
+                                </div>
+                                </TableCell>
                             <TableCell align="left">{tableData[key].total_fans}</TableCell>
                             <TableCell align="left">{GetFinalStateName(tableData[key].final_state_id)}</TableCell>
                         </TableRow>

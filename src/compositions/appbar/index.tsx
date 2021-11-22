@@ -117,7 +117,7 @@ export default function AmaxAppBar() {
 
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {user.userData?.amax_account !== undefined
-                      ? <PlayerAvatar url="https://amax-emu.com/static/img/profile.png" badge_count={user.userData.amax_player_data.friends_purposes.incoming.length} friends_incoming={user.userData.amax_player_data.friends_purposes.incoming}/>
+                      ? <PlayerAvatar url={user.userData.avatarUrl} badge_count={user.userData.amax_player_data.friends_purposes.incoming.length} friends_incoming={user.userData.amax_player_data.friends_purposes.incoming}/>
                       : <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
 
                   }

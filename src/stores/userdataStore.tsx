@@ -6,6 +6,7 @@ const { AMAX_API_URL } = process.env;
 
 export interface UserData {
     amax_account: boolean;
+    avatarUrl:       string;
     isGameBanned: boolean;
     isDiscordBanned: boolean;
     ban_data: banData | undefined

@@ -26,25 +26,15 @@ import PastRaces from "./compositions/past_games/past_games";
 
 const { AMAX_API_URL } = process.env;
 
-function main() {
-    const auth = useAuthStore()
-    return ( 
-        <>
-            {auth.user 
-                ? <h1>2 Hello {auth.user.token}</h1>
-                : <button onClick={auth.signIn}>Sign In</button>
-            }
-        </>
-    )
-}
-
 const useStyles = makeStyles(theme => ({
     root: {
         marginLeft: 0,
+
         [theme.breakpoints.up('sm')]: {
             marginLeft: 240,
             flexShrink: 0,
         },
+
     },
 }))
 
