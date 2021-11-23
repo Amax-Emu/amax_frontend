@@ -74,7 +74,14 @@ export const useUserDataStore = create<Store>((set, get) => {
 
         userData: undefined,
         getData: async () => {
-            const auth = authStore.getState()
+            let auth = undefined
+            if (authStore === undefined) {
+                return
+            } else {
+                auth = authStore.getState()
+            }
+
+
             if (auth.user === undefined) {
                 return
             } else {
