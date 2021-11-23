@@ -41,7 +41,7 @@
     "remark-gfm": "^2.0.0",
     "styled-components": "^5.3.1",
     "yup": "^0.32.9",
-    "zustand": "^3.5.10"
+    "zustand": "3.5.10"
   },
   "scripts": {
     "dev": "AMAX_API_URL=http://127.0.0.1:8000 parcel ./src/index.html --port 3000"
