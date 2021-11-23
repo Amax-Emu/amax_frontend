@@ -14,7 +14,7 @@ export const useAuthStore = create<Store>((set, get) => ({
     user: undefined,
     signIn: async () => {
         if (get().user !== undefined) {
-            // console.log("User is defined")
+            console.log("User is defined")
             return
         } 
 

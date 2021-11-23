@@ -68,20 +68,13 @@ interface Store {
 
 
 
-export const useUserDataStore = create<Store>((set, get) => {
+export const [useUserDataStore,UserDataStore] = create<Store>((set, get) => {
 
     return {
 
         userData: undefined,
         getData: async () => {
-            let auth = undefined
-            if (authStore === undefined) {
-                return
-            } else {
-                auth = authStore.getState()
-            }
-
-
+            let auth = authStore.getState()
             if (auth.user === undefined) {
                 return
             } else {
