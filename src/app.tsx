@@ -74,7 +74,7 @@ export function App() {
       });
 
       // You cannot access hooks before initialization iirc
-      React.useEffect(() => { auth.signIn() }, [])
+      // //
 
     return (
 

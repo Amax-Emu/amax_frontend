@@ -1,5 +1,5 @@
 import create from "zustand"
-import {useAuthStore} from "./authStore";
+import {authStore} from "./authStore";
 import {date} from "yup";
 
 const { AMAX_API_URL } = process.env;

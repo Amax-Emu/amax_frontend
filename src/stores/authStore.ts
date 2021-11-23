@@ -10,7 +10,8 @@ interface Store {
     signIn: () => Promise<void>
 }
 
-export const useAuthStore = create<Store>((set, get) => ({
+// @ts-ignore
+export const [useAuthStore, authStore] = create<Store>((set, get) => ({
     user: undefined,
     signIn: async () => {
         if (get().user !== undefined) {
