@@ -7,6 +7,7 @@ import {AmaxGeneralUserData} from "../PlayerProfile";
 import PastRaceItem from "../../components/PastRaceItem/PastRaceItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {Container} from "@material-ui/core";
+import Pagination from '@material-ui/lab/Pagination';
 
 const { AMAX_API_URL } = process.env;
 
@@ -169,6 +170,7 @@ export default function PastRaces() {
         <>
             <Container>
             <RenderSessions/>
+                <Pagination count={10} />
             </Container>
         </>
     )

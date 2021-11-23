@@ -211,7 +211,7 @@ export default function CreateBlurAccountForm() {
 
     };
 
-    const RegisterForm:JSX = () => {
+    const RegisterForm = () => {
         return(
         <Container>
             <h1>Create new Amax Emu account</h1>

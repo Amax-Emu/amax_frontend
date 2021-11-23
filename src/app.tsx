@@ -44,12 +44,16 @@ export function App() {
     const user = useUserDataStore()
 
     React.useEffect(() => {
-        const poop = async () => {
+        const auth2 = async () => {
             await auth.signIn()
+        }
+
+        const userdata2 = async () => {
             await user.getData()
         }
 
-        poop().then(() => {})
+        auth2().then(() => {})
+        userdata2().then(() => {})
     }, [])
 
     const theme = createTheme({
