@@ -139,7 +139,8 @@ export default function PastRaces() {
     const [pastRaceData,setPestRaceData] = React.useState<AmaxPastRaces | undefined>(undefined);
     const [gotDataFlag, setgotDataFlag] = React.useState(false);
     const [NumOfRaces,SetNumOfRaces] = React.useState(0);
-    const [page, setPage] = React.useState(useParams<{pageNumber: string}>().pageNumber);
+    const [page, setPage] = React.useState(Number(useParams<{pageNumber: string}>().pageNumber));
+
 
     const auth2 = async () => {
         let additional_params = "?offset=" + (page - 1) * 10
