@@ -32,7 +32,7 @@ export default function IntroWidget(){
     return (
         <div className={classes.root}>
             <Typography>
-                <h1>Weclome to Amax Emu!</h1>
+                <h1>Welcome to Amax Emu!</h1>
                 <p>
                     Welcome to the Amax Emu - the home of Blur online emulator.
                     <br/>

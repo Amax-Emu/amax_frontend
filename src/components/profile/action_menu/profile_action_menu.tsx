@@ -296,28 +296,28 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
     const AddRemoveFriendButton = () => {
         if (user.userData?.amax_account) {
             if (user.userData.amax_player_data.friends.some(e => e.name === user_name)) {
-                return (<Button color="primary" onClick={RemoveFriend}>
+                return (<Button color="primary" variant="contained" onClick={RemoveFriend}>
                     Remove Friend
                 </Button>)
             } else if (user.userData.amax_player_data.friends_purposes.outcoming.includes(user_name)) {
                 return (
-                    <Button color="primary" onClick={CancelFriendRequest}>
+                    <Button color="primary" variant="contained" onClick={CancelFriendRequest}>
                     Cancel friend request
                 </Button>)
             } else if (user.userData.amax_player_data.friends_purposes.incoming.includes(user_name)) {
                 return (
                     <>
-                    <Button color="primary" onClick={AcceptFriendRequest}>
+                    <Button color="primary" variant="contained" onClick={AcceptFriendRequest}>
                         Accept friend request
                     </Button>
-                    <Button color="primary" onClick={DeclineFriendRequest}>
+                    <Button color="primary" variant="contained" onClick={DeclineFriendRequest}>
                         Decline friend request
                     </Button>
                     </>
                 )
             } else {
                 return (
-                    <Button color="primary" onClick={AddFriendRequest}>
+                    <Button color="primary" variant="contained" onClick={AddFriendRequest}>
                         Add friend
                     </Button>)
             }

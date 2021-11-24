@@ -20,8 +20,6 @@ const useStyles = makeStyles({
 })
 
 function GetFinalStateName(StateId:number) {
-    console.log("GIVE ME STATE")
-    console.log(StateId)
     switch (StateId) {
         case 1 :
             return "Unknown"
@@ -42,7 +40,7 @@ function GetFinalStateName(StateId:number) {
 
 export default function PastRaceItemTable({tableData}:{tableData:RacersInfo}) {
     const classes = useStyles();
-    console.log(tableData)
+
     return (
         <TableContainer component={Paper}>
             <Table     className={classes.PlayerTable} size="small" aria-label="a dense table">
@@ -63,7 +61,7 @@ export default function PastRaceItemTable({tableData}:{tableData:RacersInfo}) {
                                 {key}
                             </TableCell>
                             <TableCell component="th" scope="row" align="left">
-                                <PlayerBar player_name = {tableData[key].player_name} place = {tableData[key].finish_pos} level = {tableData[key].player_level} legend = {tableData[key].player_legend} />
+                                <PlayerBar player_name = {tableData[key].player_name} place = {tableData[key].finish_pos} level = {tableData[key].player_level} legend = {tableData[key].player_legend} is_bot={tableData[key].is_bot}/>
                             </TableCell>
                             <TableCell align="left">{tableData[key].player_car_name}</TableCell>
                             <TableCell align="center">

@@ -175,8 +175,10 @@ export default function PlayerProfile () {
         <>
             {severDataFlag
                 ? (<div>
+                        <div style={{display: "flex",flexDirection: "row",flexWrap: "wrap"}}>
                     <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent} playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1} playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend} playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded} playerPfpUrl={"123"}/>
                         <ProfileActionMenu user_name={targetPlayerData.data.player_name}/>
+                        </div>
                         <PlayerProfileStats playerStatsData={targetPlayerData.data.amaxPlayerData.amaxStatsData}/>
                         <PlayerPastRaces player_name={targetPlayerData.data.player_name}/>
                     </div>

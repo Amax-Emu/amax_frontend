@@ -8,6 +8,7 @@ import PastRaceItem from "../../components/PastRaceItem/PastRaceItem";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {Container} from "@material-ui/core";
 import Pagination from '@material-ui/lab/Pagination';
+import {useHistory} from "react-router-dom";
 
 const { AMAX_API_URL } = process.env;
 
@@ -123,15 +124,45 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             margin: "1em"
 
-        }
+        },pagination: {
+            '& > *': {
+                marginTop: theme.spacing(2),
+            },
+        },
     }),
 );
 
 export default function PastRaces() {
     const { t, i18n } = useTranslation()
     const classes = useStyles();
+    let history = useHistory();
     const [pastRaceData,setPestRaceData] = React.useState<AmaxPastRaces | undefined>(undefined);
     const [gotDataFlag, setgotDataFlag] = React.useState(false);
+    const [NumOfRaces,SetNumOfRaces] = React.useState(0);
+    const [page, setPage] = React.useState(useParams<{pageNumber: string}>().pageNumber);
+
+    const auth2 = async () => {
+        let additional_params = "?offset=" + (page - 1) * 10
+
+        const resp = await fetch(AMAX_API_URL + "/data/pastraces" + additional_params, {
+
+            method: 'GET',
+
+            headers: {
+                'content-type': 'application/json;charset=UTF-8'
+            },
+        })
+        setPestRaceData(await resp.json())
+        setgotDataFlag(true)
+    }
+
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        setPage(value);
+        setgotDataFlag(false)
+        history.push(`/past_races/${page}`)
+        auth2().then(() => {})
+
+    };
 
     const RenderSessions = () => {
         if (gotDataFlag) {
@@ -149,8 +180,11 @@ export default function PastRaces() {
     }
 
     React.useEffect(() => {
+
         async function getServerData() {
-            const resp = await fetch(AMAX_API_URL + "/data/pastraces", {
+            let additional_params = "?offset=" + (page - 1) * 10
+
+            const resp = await fetch(AMAX_API_URL + "/data/pastraces" + additional_params, {
 
                 method: 'GET',
 
@@ -164,13 +198,33 @@ export default function PastRaces() {
 
         getServerData().catch(() => {
         })
-    }, [])
+
+        async function getServerDataPages() {
+
+            const resp = await fetch(AMAX_API_URL + "/data/total_races", {
+
+                method: 'GET',
+
+                headers: {
+                    'content-type': 'application/json;charset=UTF-8'
+                },
+            })
+            const r = await resp.json()
+            SetNumOfRaces(r.data)
+        }
+
+        getServerDataPages().catch(() => {
+        })
+    }
+    , [])
 
     return (
         <>
             <Container>
             <RenderSessions/>
-                <Pagination count={10} />
+                <div className={classes.pagination}>
+                <Pagination count={Number((NumOfRaces/10).toFixed())} page={Number(page)} onChange={handleChange}/>
+                </div>
             </Container>
         </>
     )

@@ -117,6 +117,7 @@ export function App() {
             <Route exact path="/profile/:profileName" component = {PlayerProfile} />
             <Route exact path="/profile" component = {PersonalPlayerProfile} />
             <Route exact path="/past_races" component = {PastRaces} />
+            <Route exact path="/past_races/:pageNumber" component = {PastRaces} />
         </Switch>
             </Container>
         </div>
