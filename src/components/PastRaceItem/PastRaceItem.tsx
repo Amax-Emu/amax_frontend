@@ -76,6 +76,154 @@ function get_location_icon(location_id) {
     return location_icon
 }
 
+function get_track_name(track_internal_name:string) {
+    let track_name = '';
+    switch (track_internal_name) {
+        case "Barcelona Oval 0":
+            track_name = "Circus Minimus"
+            break;
+        case "Barcelona Oval 1":
+            track_name = "City Breach"
+            break;
+        case "Barcelona Bowl Multiplayer":
+            track_name = "Ocean Pier"
+            break;
+        case "Brighton 0":
+            track_name = "Brighton 0"
+            break;
+        case "Brighton 3":
+            track_name = "Coastal Cruise"
+            break;
+        case "Brighton 1":
+            track_name = "Promenade Loop" //hollywood_hills
+            break;
+        case "Brighton 2":
+            track_name = "Seafront Strip"
+            break;
+        case "Barcelona Gracia 0":
+            track_name = "Passeig de Gracia"
+            break;
+        case "Barcelona Gracia 5":
+            track_name = "Catalon Climb"
+            break;
+        case "Barcelona Gracia 2":
+            track_name = "El Carmel Heights"
+            break;
+        case "Barcelona Gracia 1":
+            track_name = "Passeig de Gracia"
+            break;
+        case "Hackney 0":
+            track_name = "Hackney 0"
+            break;
+        case "Hackney 4":
+            track_name = "Central Sprint"
+            break;
+        case "Hackney 1":
+            track_name = "Shoreditch Sweep"
+            break;
+        case "Hackney 2":
+            track_name = "Urban Belt"
+            break;
+        case "Hollywood Hills 0":
+            track_name = "Hollywood Rift"
+            break;
+        case "Hollywood Hills 2":
+            track_name = "Downtown Vista"
+            break;
+        case "Hollywood Hills 1":
+            track_name = "Hollywood Rift" //tokyo
+            break;
+        case "Amboy 0":
+            track_name = "Amboy 0"
+            break;
+        case "Amboy 3":
+            track_name = "Tumbleweed Alley"
+            break;
+        case "Amboy 1":
+            track_name = "Route 66"
+            break;
+        case "LA Downtown 0":
+            track_name = "Angel Angles"
+            break;
+        case "LA Downtown 1":
+            track_name = "The Money Run"
+            break;
+        case "LA Downtown 4":
+            track_name = "Highrise Ring"
+            break;
+        case "LA Downtown 6":
+            track_name = "Harbor Freeway"
+            break;
+        case "Amboy Bowl Multiplayer":
+            track_name = "Amboy Little Bowl"
+            break;
+        case "LA Docks 0":
+            track_name = "Container Island"
+            break;
+        case "LA Docks 3":
+            track_name = "Cargo Run"
+            break;
+        case "LA Docks 2":
+            track_name = "Pacific Reach"
+            break;
+        case "LA Downtown Highrise Multiplayer":
+            track_name = "LA Heights"
+            break;
+        case "LA Downtown FigureOf8 Multiplayer":
+            track_name = "Figure of 8"
+            break;
+        case "LA River 0":
+            track_name = "Stormdrain Surge"
+            break;
+        case "LA River 3":
+            track_name = "Concrete Basin"
+            break;
+        case "Mount Haruna 0":
+            track_name = "Assent"
+            break;
+        case "Mount Haruna 1":
+            track_name = "Descent"
+            break;
+        case "NY Dumbo 0":
+            track_name = "Fulton Loop"
+            break;
+        case "NY Dumbo 3":
+            track_name = "Brooklyn Tour"
+            break;
+        case "NY Dumbo 2":
+            track_name = "Manhattan View"
+            break;
+        case "SanFran Russian Hill 0":
+            track_name = "Cable Car Chase"
+            break;
+        case "SanFran Russian Hill 1":
+            track_name = "Russian Steppes"
+            break;
+        case "SanFran Sausalito 0":
+            track_name = "la_docks"
+            break;
+        case "SanFran Sausalito 2":
+            track_name = "Bay Area Tour"
+            break;
+        case "SanFran Sausalito 1":
+            track_name = "Golden Gate Rush"
+            break;
+        case "Tokyo Shutoko 0":
+            track_name = "la_docks"
+            break;
+        case "Tokyo Shutoko 2":
+            track_name = "Bayshore Route"
+            break;
+        case "Tokyo Shutoko 4":
+            track_name = "Wangan-sen"
+            break;
+        default:
+            track_name = track_internal_name;
+
+    }
+    return track_name
+}
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -157,7 +305,7 @@ export default function PastRaceItem({data}: { data: AmaxPastRaceData }) {
                     </div>
 
                     <div className={classes.game_data}>
-                        <div className={classes.map_name}>{data.map_name}</div>
+                        <div className={classes.map_name}>{get_track_name(data.map_name)}</div>
                         <div className={classes.game_data_stats}>
                             <p>Laps: {data.laps}</p>
                             <p>Racers: {data.number_of_racers}</p>
