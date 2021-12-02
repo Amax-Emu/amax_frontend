@@ -224,6 +224,154 @@ function get_track_name(track_internal_name:string) {
     return track_name
 }
 
+function get_header_name(track_internal_name:string) {
+    let track_name = '';
+    switch (track_internal_name) {
+        case "Barcelona Oval 0":
+            track_name = "location_header"
+            break;
+        case "Barcelona Oval 1":
+            track_name = "location_header"
+            break;
+        case "Barcelona Bowl Multiplayer":
+            track_name = "location_header"
+            break;
+        case "Brighton 0":
+            track_name = "location_header"
+            break;
+        case "Brighton 3":
+            track_name = "location_header"
+            break;
+        case "Brighton 1":
+            track_name = "location_header" //hollywood_hills
+            break;
+        case "Brighton 2":
+            track_name = "location_header"
+            break;
+        case "Barcelona Gracia 0":
+            track_name = "location_header"
+            break;
+        case "Barcelona Gracia 5":
+            track_name = "location_header"
+            break;
+        case "Barcelona Gracia 2":
+            track_name = "location_header"
+            break;
+        case "Barcelona Gracia 1":
+            track_name = "location_header"
+            break;
+        case "Hackney 0":
+            track_name = "location_header"
+            break;
+        case "Hackney 4":
+            track_name = "location_header"
+            break;
+        case "Hackney 1":
+            track_name = "location_header"
+            break;
+        case "Hackney 2":
+            track_name = "location_header"
+            break;
+        case "Hollywood Hills 0":
+            track_name = "location_header"
+            break;
+        case "Hollywood Hills 2":
+            track_name = "usa_la_observatory_2"
+            break;
+        case "Hollywood Hills 1":
+            track_name = "usa_la_observatory_1" //tokyo
+            break;
+        case "Amboy 0":
+            track_name = "location_header"
+            break;
+        case "Amboy 3":
+            track_name = "location_header"
+            break;
+        case "Amboy 1":
+            track_name = "location_header"
+            break;
+        case "LA Downtown 0":
+            track_name = "location_header"
+            break;
+        case "LA Downtown 1":
+            track_name = "location_header"
+            break;
+        case "LA Downtown 4":
+            track_name = "location_header"
+            break;
+        case "LA Downtown 6":
+            track_name = "location_header"
+            break;
+        case "Amboy Bowl Multiplayer":
+            track_name = "location_header"
+            break;
+        case "LA Docks 0":
+            track_name = "location_header"
+            break;
+        case "LA Docks 3":
+            track_name = "location_header"
+            break;
+        case "LA Docks 2":
+            track_name = "location_header"
+            break;
+        case "LA Downtown Highrise Multiplayer":
+            track_name = "location_header"
+            break;
+        case "LA Downtown FigureOf8 Multiplayer":
+            track_name = "location_header"
+            break;
+        case "LA River 0":
+            track_name = "usa_la_river_6"
+            break;
+        case "LA River 3":
+            track_name = "usa_la_river_3"
+            break;
+        case "Mount Haruna 0":
+            track_name = "location_header"
+            break;
+        case "Mount Haruna 1":
+            track_name = "location_header"
+            break;
+        case "NY Dumbo 0":
+            track_name = "location_header"
+            break;
+        case "NY Dumbo 3":
+            track_name = "usa_ny_dumbo_3"
+            break;
+        case "NY Dumbo 2":
+            track_name = "usa_ny_dumbo_2"
+            break;
+        case "SanFran Russian Hill 0":
+            track_name = "usa_sanfran_russianhill_1"
+            break;
+        case "SanFran Russian Hill 1":
+            track_name = "usa_sanfran_russianhill_1"
+            break;
+        case "SanFran Sausalito 0":
+            track_name = "location_header"
+            break;
+        case "SanFran Sausalito 2":
+            track_name = "usa_sanfran_sausalito_2"
+            break;
+        case "SanFran Sausalito 1":
+            track_name = "usa_sanfran_sausalito_1"
+            break;
+        case "Tokyo Shutoko 0":
+            track_name = "location_header"
+            break;
+        case "Tokyo Shutoko 2":
+            track_name = "location_header"
+            break;
+        case "Tokyo Shutoko 4":
+            track_name = "location_header"
+            break;
+        default:
+            track_name = "location_header";
+
+    }
+    return track_name
+}
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -240,7 +388,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
         },
         map_image_header: {
-            backgroundImage: `url(${LocationHeaders['location_header']})`,
             backgroundPosition: 'center',
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
@@ -313,7 +460,7 @@ export default function PastRaceItem({data}: { data: AmaxPastRaceData }) {
                         </div>
                     </div>
                     <div className={classes.map_gradient_header}></div>
-                    <div className={classes.map_image_header}></div>
+                    <div className={classes.map_image_header} style={{backgroundImage: `url(${LocationHeaders[get_header_name(data.map_name)]})`,}}></div>
                 </div>
                 <div>
                     <PastRaceItemTable tableData={data.racers_info}/>
