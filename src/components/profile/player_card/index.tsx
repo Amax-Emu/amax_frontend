@@ -205,7 +205,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             alignItems: 'flex-start',
             flexDirection: "column",
-            marginLeft: "1em"
+            marginLeft: "1em",
         },
         container: {
             display: "grid",
@@ -224,6 +224,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             alignItems: 'center',
             flexDirection: "row",
+            marginBottom: "1em",
         },
         avatar: {
             width: "5em",
@@ -247,8 +248,9 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         rank_icon: {
-            width: "5em",
-            height: "5em"
+            width: "3em",
+            height: "3em",
+            marginRight: "1em"
         }
     }),
 );

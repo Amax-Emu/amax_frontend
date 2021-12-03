@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
             background: "#2C3845",
             margin: 4,
             borderRadius: 4,
+            justifySelf: "center"
         },
         menuButton: {
             marginRight: theme.spacing(2),

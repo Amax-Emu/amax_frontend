@@ -6,6 +6,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Divider from '@material-ui/core/Divider';
+import { NavLink,useLocation } from 'react-router-dom';
+import {useUserDataStore} from "../../../stores/userdataStore";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -73,7 +75,7 @@ export default function PlayerAvatar({url, badge_count, friends_incoming}: {url:
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-
+    const user = useUserDataStore()
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -110,7 +112,10 @@ export default function PlayerAvatar({url, badge_count, friends_incoming}: {url:
         onClose={handleClose}
         onClick={handleClose}
     >
+        <NavLink to={'/profile/'+user.userData?.amax_player_data.stats.playerName} style={{color: '#E5E5E5', textDecoration: 'none'}}
+                 activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
         <MenuItem onClick={handleClose}>Profile</MenuItem>
+        </NavLink>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <Divider />
 

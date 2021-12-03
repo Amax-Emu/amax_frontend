@@ -30,11 +30,6 @@
 .appbar_player_name {
     /* AiBot */
     margin-left: 24px;
-    position: static;
-    width: 55px;
-    height: 23px;
-    left: 374px;
-    top: 13.5px;
 
     /*font-family: Ubuntu;*/
     font-style: normal;
@@ -55,7 +50,6 @@
 
 .appbar_player_component {
     height: 100%;
-
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;

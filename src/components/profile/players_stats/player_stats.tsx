@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexWrap: 'wrap',
             flexDirection: "row",
             margin: "1em",
-            maxWidth: "60%"
+            maxWidth: "600px"
 
         },
         stats_career_container:{

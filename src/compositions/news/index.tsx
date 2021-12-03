@@ -3,6 +3,8 @@ import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import ReactMarkdown from 'react-markdown'
 import DiscordNewsComponent from "../../components/NewsComponent";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {Container} from "@mui/material";
+import {Grid} from "@mui/material";
 
 const { AMAX_API_URL } = process.env;
 
@@ -89,13 +91,18 @@ export default function NewsPage() {
     }, [])
 
     return (
-        <>
+        <Container>
+            <Grid   container
+                    direction="column"
+                    justifyContent="center"
+                    alignItems="center">
         {discordNewsFlag
                 ? discordNewsData.data.map((NewsItemData) =>
                     <DiscordNewsComponent data={NewsItemData}/>
                     )
                 : <div>none</div>        }
-        </>
+            </Grid>
+        </Container>
     )
 
 }

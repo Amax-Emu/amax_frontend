@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 
-function DiscordIcon() {
+export function DiscordIcon() {
     const classes = useStyles();
 
     return (
@@ -107,7 +107,6 @@ export default function AmaxAppBar() {
 
                   </Typography>
                   <LanguageSelector/>
-                  <TransitionsModal/>
                   <ServerStatusLabel/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {user.userData?.amax_account !== undefined

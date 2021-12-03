@@ -12,14 +12,15 @@ import {useUserDataStore} from "../../stores/userdataStore";
 export default function Dashboard() {
     const auth = useAuthStore()
     const user = useUserDataStore()
+
     return (
         <div className="dashboard_container">
 
-            {user?.userData === null
+            {user.userData?.amax_account
                 ?<></>
-                :<div className = "main_widget_container">
-                <IntroWidget/>
-                </div>
+                :(<div className = "main_widget_container">
+                    <IntroWidget/>
+                </div>)
             }
             <div className = "column1_container">
             <SessionsWidget/>

@@ -9,6 +9,9 @@ import axios from "axios";
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import {useAuthStore} from "../../../stores";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 const {AMAX_API_URL} = process.env;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -83,7 +86,21 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             margin: "1em"
 
-        }
+        },modal: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        },paper: {
+            backgroundColor: theme.palette.background.paper,
+            borderRadius: 8,
+            padding: "1em",
+            //border: '2px solid #000',
+            boxShadow: theme.shadows[5],
+            backdropFilter: "blur(3px)",
+            width: 600,
+
+            //padding: theme.spacing(2, 4, 3),
+        },
     }),
 );
 
@@ -100,10 +117,19 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
     const { t, i18n } = useTranslation()
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [openModal, setOpenModal] = React.useState(false);
     const [serverResponse, setResponse] = React.useState<response | undefined>(undefined);
     const [ChangedFlag, setChanged] = React.useState(false);
     const user = useUserDataStore()
     const auth = useAuthStore()
+
+    const handleModalOpen = () => {
+        setOpenModal(true);
+    };
+
+    const handleModalClose = () => {
+        setOpenModal(false);
+    };
 
     function UpdateProfile() {
         console.log('render!');
@@ -315,6 +341,12 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
                     </Button>
                     </>
                 )
+            } else if (user.userData?.amax_player_data.stats.playerName === user_name) {
+                return (
+                    <Button color="primary" variant="contained" onClick={handleModalOpen}>
+                        Change account type
+                    </Button>
+                )
             } else {
                 return (
                     <Button color="primary" variant="contained" onClick={AddFriendRequest}>
@@ -333,6 +365,32 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <ResultAlert/>
             </Snackbar>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={openModal}
+                onClose={handleModalClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openModal}>
+                    <div className={classes.paper}>
+                        <Box>
+                        <h2 id="transition-modal-title">Attention!</h2>
+                        <p id="transition-modal-description">Account type change can't be reversed! You'll lost all your normal account progress. If you're 100% sure press the button below.</p>
+                        <Button color="primary" variant="contained" onClick={handleModalClose}>
+                            Change accout type
+                        </Button>
+                        </Box>
+                    </div>
+                </Fade>
+            </Modal>
+
         </Box>
     )
 }

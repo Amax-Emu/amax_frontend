@@ -23,6 +23,8 @@ import BigSessions from "./sessions_big";
 import FinalSteps from "./compositions/final_step/final_step";
 import PersonalPlayerProfile from "./compositions/our_profile";
 import PastRaces from "./compositions/past_games/past_games";
+import FullLeaderboard from "./compositions/main_leaderboard/main_leaderboard";
+import HowToPlay from "./compositions/how_to_play/how_to_play";
 
 const { AMAX_API_URL } = process.env;
 
@@ -109,11 +111,12 @@ export function App() {
             <Route exact path="/discord_auth" component={set_discord_token} />
             <Route exact path="/sessions" component={BigSessions} />
             <Route exact path="/status_test" component={ServerStatus} />
-            <Route exact path="/leaderboards" component={LeaderboardsWidget} />
+            <Route exact path="/leaderboards" component={FullLeaderboard} />
             <Route exact path="/Dashboard" component = {Dashboard} />
             <Route exact path="/news" component = {DiscordNews} />
             <Route exact path="/register" component = {CreateBlurAccountForm} />
             <Route exact path="/final_steps" component = {FinalSteps} />
+            <Route exact path="/how_to_play" component = {HowToPlay} />
             <Route exact path="/profile/:profileName" component = {PlayerProfile} />
             <Route exact path="/profile" component = {PersonalPlayerProfile} />
             <Route exact path="/past_races" component = {PastRaces} />

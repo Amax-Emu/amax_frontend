@@ -29,6 +29,10 @@ import Collapse from "@material-ui/core/Collapse";
 import Divider from "@material-ui/core/Divider";
 import HelpIcon from "@material-ui/icons/Help";
 import AnnouncementIcon from "@material-ui/icons/Announcement";
+import {useAuthStore} from "../../stores";
+import {useUserDataStore} from "../../stores/userdataStore";
+import {DiscordIcon} from "../appbar";
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -124,17 +128,18 @@ export default function ResponsiveDrawer() {
 
     useEffect(() => {
         setPath(location.pathname);
-        console.log(location.pathname)
     }, [location,setPath]);
 
     const activeRoute = (route:string) => {
-        console.log(route, path);
         return route === path;
     }
 
     function handleDrawerToggle() {
         setMobileOpen(!mobileOpen)
     }
+
+    const auth = useAuthStore()
+    const user = useUserDataStore()
 
     const drawer = (
         <div>
@@ -174,12 +179,15 @@ export default function ResponsiveDrawer() {
 
         </List>
     <Divider variant="middle"/>
-    <List>
+    <List className={classes.menulist}>
 
-        <ListItem button key='how-to-play'>
-            <ListItemIcon><HelpIcon/></ListItemIcon>
-            <ListItemText primary="How to play" />
-        </ListItem>
+
+        <NavLink to={"/how_to_play"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+            <ListItem button key='howtoplay' selected={activeRoute("/how_to_play")} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                <ListItemIcon><HelpIcon/></ListItemIcon>
+                <ListItemText primary="How to play" />
+            </ListItem>
+        </NavLink>
 
         <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
             <ListItem button key='news' selected={activeRoute("/news")} classes = {{root: classes.menuitem, selected: classes.selected}}>
@@ -188,24 +196,29 @@ export default function ResponsiveDrawer() {
             </ListItem>
         </NavLink>
 
-        <ListItem button key='discord'>
-            <ListItemIcon><TableChartIcon/></ListItemIcon>
+        {user.userData?.amax_account
+
+            ? (<NavLink to={'/profile/'+user.userData?.amax_player_data.stats.playerName} style={{color: '#92929F', textDecoration: 'none'}}
+                        activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+            <ListItem button key='profile' selected={activeRoute('/profile/'+user.userData?.amax_player_data.stats.playerName)}
+                      classes={{root: classes.menuitem, selected: classes.selected}}>
+                <ListItemIcon><AccountBoxIcon/></ListItemIcon>
+                <ListItemText primary="Profile"/>
+            </ListItem>
+        </NavLink>)
+            : <></>
+        }
+
+        <ListItem button key='discord' href={"https://discord.gg/pbt6DzQPGY"}>
+            <ListItemIcon><DiscordIcon/></ListItemIcon>
             <ListItemText primary="Discord server" />
         </ListItem>
-
-        <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-            <ListItem button key='news' selected={activeRoute("/news")} classes = {{root: classes.menuitem, selected: classes.selected}}>
-                <ListItemIcon><AnnouncementIcon/></ListItemIcon>
-                <ListItemText primary="Profile" />
-            </ListItem>
-        </NavLink>
-
 
     </List>
 
         </div>
     );
-
+    console.log(user)
     return (
         <div className={classes.root}>
             <CssBaseline />

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
             alignItems: "flex-end",
             // minWidth: 400,
-            maxWidth: "40%"
+            maxWidth: "800px"
             // height: 636,
             /* Blue/700 (2 L) */
             // background: "#304254",
