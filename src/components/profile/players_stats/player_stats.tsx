@@ -4,6 +4,7 @@ import SingleStatWidget from "../single_stat/single_stat";
 import {AmaxStatsData} from "../../../compositions/PlayerProfile";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {Typography} from "@material-ui/core";
+import {useTranslation} from "react-i18next";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -82,16 +83,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PlayerProfileStats({playerStatsData}:{playerStatsData:AmaxStatsData}) {
     const classes = useStyles();
-
+    const { t, i18n } = useTranslation()
     return (
                         <>
-                            <a className="session_item_name">Stats</a>
+                            <a className="session_item_name">{t('profile_stats.stats')}</a>
 
                          <div className = {classes.sswidgets_container}>
 
                              <div className = {classes.stats_career_container}>
                                  <Typography>
-                                     <h2>Career</h2>
+                                     <h2>{t('profile_stats.career')}</h2>
                                  </Typography>
                              <SingleStatWidget statName={"statFans"}
                                                value={playerStatsData.statFans}/>
@@ -107,7 +108,7 @@ export default function PlayerProfileStats({playerStatsData}:{playerStatsData:Am
 
                              <div className = {classes.stats_career_container}>
                                  <Typography>
-                                     <h2>Combat</h2>
+                                     <h2>{t('profile_stats.combat')}</h2>
                                  </Typography>
                                  <SingleStatWidget statName={"statFired"}
                                                    value={playerStatsData.statFired}/>
@@ -119,7 +120,7 @@ export default function PlayerProfileStats({playerStatsData}:{playerStatsData:Am
                              </div>
                              <div className = {classes.stats_career_container}>
                                  <Typography>
-                                     <h2>Racing</h2>
+                                     <h2>{t('profile_stats.racing')}</h2>
                                  </Typography>
                                  <SingleStatWidget statName={"statRaces"}
                                                value={playerStatsData.statRaces}/>

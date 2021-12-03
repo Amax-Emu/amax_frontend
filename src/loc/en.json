@@ -21,23 +21,30 @@
     "header": "Top 10",
     "position": "Pos.",
     "player": "Player",
-    "value": "Value",
     "fans": "Fans",
     "driving_score": "Driving score",
     "legend": "Legend"
-  },  "general_values_names": {
-  "fans": "Fans",
-  "level": "Fans",
-  "driving_score": "Driving score",
-  "legend": "Legend",
-  "total_race": "Total races",
-  "top3": "Top 3",
-  "first": "First",
-  "hits": "Hits",
-  "fired": "Fired",
-  "total_time": "Total race time",
-  "wrecked": "Wrecks"
-},
+  },
+  "general_values_names": {
+    "fans": "Fans",
+    "level": "Level",
+    "driving_score": "Driving score",
+    "legend": "Legend",
+    "total_race": "Total races",
+    "top3": "Top 3",
+    "first": "First",
+    "hits": "Hits",
+    "fired": "Fired",
+    "total_time": "Total race time",
+    "wrecked": "Wrecks"
+  },
+  "profile_stats": {
+    "stats": "Stats",
+    "pastraces": "Past races",
+    "career": "Career",
+    "combat": "Combat",
+    "racing": "Racing"
+  },
   "server_status_widget": {
     "server_status": "Server status",
     "offline": "Offline",

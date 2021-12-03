@@ -73,7 +73,6 @@ export default function PlayerPastRaces({player_name}:{player_name:string}) {
     const { t, i18n } = useTranslation()
     let [session_data, setData] = React.useState<PlayerPastRacesResult | undefined>(undefined);
     let [dataRequested, setRequestStatus] = React.useState(false);
-
     const RenderPlayerPastRaces = () => {
         if (dataRequested) {
             return session_data.data.map(session_data =>
@@ -113,7 +112,7 @@ export default function PlayerPastRaces({player_name}:{player_name:string}) {
 
     return (
         <div className={classes.root}>
-        <a className="session_item_name">Past races</a>
+        <a className="session_item_name">{t('profile_stats.pastraces')}</a>
     <div >
     <RenderPlayerPastRaces/>
     </div>
