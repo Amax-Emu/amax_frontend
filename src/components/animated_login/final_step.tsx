@@ -26,7 +26,7 @@ export default function AnimatedLogin() {
      <div>
       <div className={classes.logindiv}>
           <div className={"typewriter_name"}>
-       <a>{user.userData?.amax_player_data.stats.playerName !== undefined
+       <a>{user?.userData?.amax_player_data?.stats?.playerName !== undefined
        ? user.userData?.amax_player_data.stats.playerName
        : "Login"}</a>
           </div>

@@ -2,6 +2,7 @@ import * as React from "react";
 import {createStyles, makeStyles, Theme, useTheme} from '@material-ui/core/styles';
 import Avatar from "@material-ui/core/Avatar";
 import "./NewsAuthor.css"
+import * as moment from "moment";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -37,12 +38,15 @@ const useStyles = makeStyles((theme: Theme) =>
         },
             avatar: {
                 margin: "0px 8px"
-            }
+            },
+        date_text: {
+            whiteSpace: "nowrap"
+        }
     }
     )
 )
 
-export default function NewsAuthor({avatar_url,author_name,post_date}:{avatar_url:string, author_name:string, post_date:string}) {
+export default function NewsAuthor({avatar_url,author_name,post_date}:{avatar_url:string, author_name:string, post_date:Date}) {
     const classes = useStyles();
     return (
         <div className="container">
@@ -51,7 +55,7 @@ export default function NewsAuthor({avatar_url,author_name,post_date}:{avatar_ur
             </div>
             <div className="data_container">
             <a className={classes.username}>{author_name}</a>
-            <a>{post_date}</a>
+            <a className={classes.date_text}>{moment(post_date.timestamp).local().format("M/D/YYYY- h:mm A z")}</a>
             </div>
         </div>
     )

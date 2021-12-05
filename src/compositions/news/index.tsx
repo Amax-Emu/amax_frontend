@@ -14,13 +14,14 @@ export interface DiscordNewsData{
 
 export interface DiscordNews {
     text:              string;
-    author_name:       AuthorName;
+    author_name:       string;
     author_avatar_url: string;
     jump_url:          string;
-    channel_name:      ChannelName;
+    channel_name:      string;
     attachments:       Attachment[];
     embeds:            Embed[];
     reactions:         Reaction[];
+    timestamp:         Date;
 }
 
 export interface Attachment {
@@ -31,18 +32,10 @@ export interface Attachment {
     proxy_url?:    string;
 }
 
-export enum AuthorName {
-    Aibot = "Aibot",
-}
-
-export enum ChannelName {
-    Announcements = "announcements",
-}
-
 export interface Embed {
     thumbnail?:   Attachment;
     provider?:    Provider;
-    type:         Type;
+    type:         string;
     description?: string;
     url:          string;
     title?:       string;
@@ -54,10 +47,6 @@ export interface Provider {
     url?: string;
 }
 
-export enum Type {
-    Image = "image",
-    Link = "link",
-}
 
 export interface Reaction {
     count: number;

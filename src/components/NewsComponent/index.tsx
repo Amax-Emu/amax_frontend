@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import NewsAuthor from "./NewsAuthor";
 import NewsReactions from "./NewsReactions";
 import remarkGfm from 'remark-gfm'
+import ImageList from '@material-ui/core/ImageList';
+import ImageListItem from '@material-ui/core/ImageListItem';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -30,19 +32,44 @@ const useStyles = makeStyles((theme: Theme) =>
             '& > * + *': {
                 marginLeft: theme.spacing(2),
             },
-        }
+        }, imageList: {
+            width: "100%",
+        },
+        a_img_container: {
+            height: "100%",
+        },
     }),
 );
 
 
-export default function DiscordNewsComponent({data}:{data: DiscordNews}) {
+export default function DiscordNewsComponent({data}: { data: DiscordNews }) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <Typography>
-        <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]} >{data.text}</ReactMarkdown>
+                <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]}>{data.text}</ReactMarkdown>
             </Typography>
-            <NewsAuthor author_name={data.author_name} post_date={"01.01.2021"} avatar_url={data.author_avatar_url}/>
+
+
+            <ImageList rowHeight={160} className={classes.imageList} cols={2}>
+                {data.embeds?.map((item,i) => (
+                    <ImageListItem key={i} cols={1} className={classes.imageList}>
+                        <a href={item.url} className={classes.a_img_container}>
+                    <img src={item.thumbnail?.url} alt={item.title} className={classes.a_img_container}/>
+                        </a>
+                    </ImageListItem>
+                ))}
+
+                {data.attachments?.map((item,i) => (
+                    <ImageListItem key={i} cols={1} className={classes.imageList}>
+                        <a href={item.url} className={classes.a_img_container}>
+                            <img src={item.url} className={classes.a_img_container}/>
+                        </a>
+                    </ImageListItem>
+                ))}
+            </ImageList>
+
+            <NewsAuthor author_name={data.author_name} post_date={data.timestamp} avatar_url={data.author_avatar_url}/>
             <NewsReactions reactions_data={data.reactions}/>
         </div>
     )

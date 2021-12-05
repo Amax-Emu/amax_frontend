@@ -228,52 +228,55 @@ function get_header_name(track_internal_name:string) {
     let track_name = '';
     switch (track_internal_name) {
         case "Barcelona Oval 0":
-            track_name = "location_header"
+            track_name = "spa_barcelona_oval_1"
             break;
         case "Barcelona Oval 1":
-            track_name = "location_header"
+            track_name = "spa_barcelona_oval_1"
+            break;
+        case "Barcelona Oval 2":
+            track_name = "spa_barcelona_oval_2"
             break;
         case "Barcelona Bowl Multiplayer":
-            track_name = "location_header"
+            track_name = "spa_barcelona_bowl_multiplayer"
             break;
         case "Brighton 0":
-            track_name = "location_header"
+            track_name = "uk_brighton_1"
             break;
         case "Brighton 3":
-            track_name = "location_header"
+            track_name = "uk_brighton_3"
             break;
         case "Brighton 1":
-            track_name = "location_header" //hollywood_hills
+            track_name = "uk_brighton_1" //hollywood_hills
             break;
         case "Brighton 2":
-            track_name = "location_header"
+            track_name = "uk_brighton_2"
             break;
         case "Barcelona Gracia 0":
-            track_name = "location_header"
+            track_name = "spa_barcelona_gracia_1"
             break;
         case "Barcelona Gracia 5":
-            track_name = "location_header"
+            track_name = "spa_barcelona_gracia_5"
             break;
         case "Barcelona Gracia 2":
-            track_name = "location_header"
+            track_name = "spa_barcelona_gracia_2"
             break;
         case "Barcelona Gracia 1":
-            track_name = "location_header"
+            track_name = "spa_barcelona_gracia_1"
             break;
         case "Hackney 0":
-            track_name = "location_header"
+            track_name = "uk_london_hackney_1"
             break;
         case "Hackney 4":
-            track_name = "location_header"
+            track_name = "uk_london_hackney_4"
             break;
         case "Hackney 1":
-            track_name = "location_header"
+            track_name = "uk_london_hackney_1"
             break;
         case "Hackney 2":
-            track_name = "location_header"
+            track_name = "uk_london_hackney_2"
             break;
         case "Hollywood Hills 0":
-            track_name = "location_header"
+            track_name = "usa_la_observatory_1"
             break;
         case "Hollywood Hills 2":
             track_name = "usa_la_observatory_2"
@@ -282,43 +285,43 @@ function get_header_name(track_internal_name:string) {
             track_name = "usa_la_observatory_1" //tokyo
             break;
         case "Amboy 0":
-            track_name = "location_header"
+            track_name = "usa_amboy_1"
             break;
         case "Amboy 3":
-            track_name = "location_header"
+            track_name = "usa_amboy_3"
             break;
         case "Amboy 1":
-            track_name = "location_header"
+            track_name = "usa_amboy_1"
             break;
         case "LA Downtown 0":
             track_name = "location_header"
             break;
         case "LA Downtown 1":
-            track_name = "location_header"
+            track_name = "usa_la_downtown_1"
             break;
         case "LA Downtown 4":
-            track_name = "location_header"
+            track_name = "usa_la_downtown_4"
             break;
         case "LA Downtown 6":
-            track_name = "location_header"
+            track_name = "usa_la_downtown_6"
             break;
         case "Amboy Bowl Multiplayer":
-            track_name = "location_header"
+            track_name = "usa_amboy_bowl"
             break;
         case "LA Docks 0":
-            track_name = "location_header"
+            track_name = "usa_la_longbeachdocks_3"
             break;
         case "LA Docks 3":
-            track_name = "location_header"
+            track_name = "usa_la_longbeachdocks_3"
             break;
         case "LA Docks 2":
-            track_name = "location_header"
+            track_name = "usa_la_longbeachdocks_2"
             break;
         case "LA Downtown Highrise Multiplayer":
-            track_name = "location_header"
+            track_name = "usa_la_multiplayer_highrise"
             break;
         case "LA Downtown FigureOf8 Multiplayer":
-            track_name = "location_header"
+            track_name = "usa_la_downtown_figureof8"
             break;
         case "LA River 0":
             track_name = "usa_la_river_6"
@@ -327,13 +330,13 @@ function get_header_name(track_internal_name:string) {
             track_name = "usa_la_river_3"
             break;
         case "Mount Haruna 0":
-            track_name = "location_header"
+            track_name = "jpn_mharuna_1"
             break;
         case "Mount Haruna 1":
-            track_name = "location_header"
+            track_name = "jpn_mharuna_1"
             break;
         case "NY Dumbo 0":
-            track_name = "location_header"
+            track_name = "usa_ny_dumbo_2"
             break;
         case "NY Dumbo 3":
             track_name = "usa_ny_dumbo_3"
@@ -348,7 +351,7 @@ function get_header_name(track_internal_name:string) {
             track_name = "usa_sanfran_russianhill_1"
             break;
         case "SanFran Sausalito 0":
-            track_name = "location_header"
+            track_name = "usa_sanfran_sausalito_1"
             break;
         case "SanFran Sausalito 2":
             track_name = "usa_sanfran_sausalito_2"
@@ -357,16 +360,16 @@ function get_header_name(track_internal_name:string) {
             track_name = "usa_sanfran_sausalito_1"
             break;
         case "Tokyo Shutoko 0":
-            track_name = "location_header"
+            track_name = "jpn_tokyo_shutoko_2"
             break;
         case "Tokyo Shutoko 2":
-            track_name = "location_header"
+            track_name = "jpn_tokyo_shutoko_2"
             break;
         case "Tokyo Shutoko 4":
-            track_name = "location_header"
+            track_name = "jpn_tokyo_shutoko_4"
             break;
         default:
-            track_name = "location_header";
+            track_name = "missing!";
 
     }
     return track_name

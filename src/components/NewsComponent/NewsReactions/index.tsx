@@ -15,9 +15,19 @@ const useStyles = makeStyles((theme: Theme) =>
                 margin: "2px 2px 2px 2px"
         },
             emoji_img: {
-                maxHeight: 16,
+                display: "block",
+                maxWidth:"18px",
+                maxHeight:"18px",
+                width: "auto",
+                height: "auto",
 
-                margin: "0px 4px"
+            }, emoji_img_container: {
+                height: 18,
+                width: 18,
+                margin: "0px 4px",
+            display: "flex",
+            alignItems: "center",
+            justifyItems:"center"
             },
             reactions_container:{
                 display: "flex",
@@ -29,7 +39,6 @@ const useStyles = makeStyles((theme: Theme) =>
             emoji_text: {
                 height: 16,
                 wight: 16,
-                margin: "0px 4px"
             }
     }
     ))
@@ -39,10 +48,12 @@ export default function NewsReactions({reactions_data}:{reactions_data:Array<Rea
     function ReactionItem({emoji_url,emoji_text,count}:{emoji_url:string,emoji_text:string,count:number})  {
         return (
             <div className={classes.emoji_container}>
+                <div className={classes.emoji_img_container}>
                 {emoji_url === ""
                     ? <a className={classes.emoji_text}>{emoji_text}</a>
                     : <img src={emoji_url} className={classes.emoji_img}/>
                 }
+            </div>
                 <a>{count}</a>
             </div>
         )
