@@ -14,6 +14,8 @@ import translationDE from '/src/loc/de.json';
 import translationFR from '/src/loc/fr.json';
 // @ts-ignore
 import translationHI from '/src/loc/hi.json';
+// @ts-ignore
+import translationIT from '/src/loc/it.json';
 
 // the translations
 const resources = {
@@ -34,6 +36,9 @@ const resources = {
     },
     hi: {
         translation: translationHI
+    },
+    it: {
+        translation: translationIT
     }
 };
 

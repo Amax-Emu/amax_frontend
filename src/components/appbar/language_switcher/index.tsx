@@ -42,10 +42,11 @@ const LanguageSelector = () => {
                 >
                     <option value={"en"}>English</option>
                     <option value={"ru"}>Russian</option>
-                    <option value={"de"}>de</option>
-                    <option value={"es"}>es</option>
-                    <option value={"fr"}>fr</option>
-                    <option value={"hi"}>hi</option>
+                    <option value={"de"}>German</option>
+                    <option value={"es"}>Spanish</option>
+                    <option value={"fr"}>French</option>
+                    <option value={"hi"}>Hindi</option>
+                    <option value={"it"}>Italian</option>
 
                 </Select>
             </FormControl>
