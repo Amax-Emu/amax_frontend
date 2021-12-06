@@ -25,6 +25,7 @@ import PersonalPlayerProfile from "./compositions/our_profile";
 import PastRaces from "./compositions/past_games/past_games";
 import FullLeaderboard from "./compositions/main_leaderboard/main_leaderboard";
 import HowToPlay from "./compositions/how_to_play/how_to_play";
+import LogOut from "./compositions/log_out/log_out";
 
 const { AMAX_API_URL } = process.env;
 
@@ -101,12 +102,14 @@ export function App() {
                     <Link to="/register"> =MAKE BLUR ACC= </Link>
                     <Link to="/final_steps"> =FINAL STEPS= </Link>
                     <Link to="/past_races"> =PAST RACES= </Link>
+                    <Link to="/log_out"> =LOG OUT= </Link>
 
                 </nav>
                 <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
         <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/user" component={get_user_data} />
+            <Route exact path="/log_out" component={LogOut} />
             <Route exact path="/discord" component={set_discord_token} />
             <Route exact path="/discord_auth" component={set_discord_token} />
             <Route exact path="/sessions" component={BigSessions} />

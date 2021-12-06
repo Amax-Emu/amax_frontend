@@ -116,8 +116,11 @@ export default function PlayerAvatar({url, badge_count, friends_incoming}: {url:
                  activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         </NavLink>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
         <Divider />
+        <NavLink to={'/log_out'} style={{color: '#E5E5E5', textDecoration: 'none'}}
+                 activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+            <MenuItem onClick={handleClose}>Log out</MenuItem>
+        </NavLink>
 
 
 

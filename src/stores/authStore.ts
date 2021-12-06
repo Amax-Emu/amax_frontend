@@ -26,6 +26,19 @@ export const [useAuthStore, authStore] = create<Store>((set, get) => ({
             }
         })
     
+    },
+    signOut: async () => {
+        if (get().user === undefined) {
+            console.log("User is undefined")
+            return
+        }
+        localStorage.removeItem("token")
+        localStorage.removeItem("refresh_token")
+
+        set({
+            user: undefined
+        })
+
     }
 }))
 

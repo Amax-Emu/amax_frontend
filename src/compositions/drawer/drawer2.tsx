@@ -33,6 +33,15 @@ import {useAuthStore} from "../../stores";
 import {useUserDataStore} from "../../stores/userdataStore";
 import {DiscordIcon} from "../appbar";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import PlayerBar from "../../components/player_bar";
+import LanguageSelector from "../../components/appbar/language_switcher";
+import UserStats from "../../components/appbar/player_stats";
+import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
+import Button from "@material-ui/core/Button";
+import {useTranslation} from "react-i18next";
+
+
+const { AMAX_API_URL } = process.env;
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -52,6 +61,12 @@ const useStyles = makeStyles(theme => ({
         justifySelf: "center",
         alignItems: "center",
         alignSelf: "center",
+
+    },logoImageMobile: {
+        justifySelf: "center",
+        alignItems: "center",
+        alignSelf: "center",
+        height: "1.5em"
 
     },
     drawer: {
@@ -121,6 +136,8 @@ export default function ResponsiveDrawer() {
     const classes = useStyles();
     const theme = useTheme();
     const isMobile = window.screen.width < 600
+
+    const { t, i18n } = useTranslation()
 
     const [path, setPath] = React.useState("");
 
@@ -236,9 +253,22 @@ export default function ResponsiveDrawer() {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" noWrap>
-                            Responsive drawer
-                        </Typography>
+                        <img className={classes.logoImageMobile} src={AmaxLogo}/>
+
+                    <LanguageSelector/>
+
+                    {/* Added a questionmark in front of the . for type safety xoxo */}
+                    {user.userData?.amax_account !== undefined
+                        ? <UserStats user_level={user.userData.amax_player_data.leveling.level+1} user_legend={user.userData.amax_player_data.leveling.legend} user_exp={user.userData.amax_player_data.leveling.fans} user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent} user_name={user.userData.amax_player_data.stats.playerName} />
+                        : <></>
+                    }
+
+                    {/* Added a questionmark in front of the . for type safety xoxo */}
+                    {user.userData?.amax_account !== undefined
+                        ? <PlayerAvatar url={user.userData.avatarUrl} badge_count={user.userData.amax_player_data.friends_purposes.incoming.length} friends_incoming={user.userData.amax_player_data.friends_purposes.incoming}/>
+                        : <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
+
+                    }
                     </Toolbar>
                 </AppBar>
 

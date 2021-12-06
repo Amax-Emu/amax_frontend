@@ -9,11 +9,12 @@ import {NavLink} from "react-router-dom";
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
-        width:370,
-        height:160,
+        width:"25em",
+        height:"auto",
         border: "4px dashed #3E5270",
         boxSizing: "border-box",
-        borderRadius: "8px"
+        borderRadius: "8px",
+        margin: "1em"
     },label:{
 
         fontFamily: "Ubuntu",
@@ -22,27 +23,44 @@ const useStyles = makeStyles({
         fontSize: "24px",
         lineHeight: "155%",
         color: "#92929F"
-}
+},label_size:{
+
+        fontFamily: "Ubuntu",
+        fontStyle: "italic",
+        fontWeight: "normal",
+        marginLeft: "1em",
+        fontSize: "15px",
+        lineHeight: "155%",
+        color: "#92929F"
+    }
 });
 
 export default function DownloadFile({filename,size,link}:{filename:string, size:string, link:string}) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
+            <div style={{margin: "1em"}}>
             <Grid>
+
                 <Typography>
-                    <p className={classes.label}>Test</p>
+                    <a className={classes.label}>{filename}</a><a className={classes.label_size}>{size}</a>
                 </Typography>
+
                 <Button
                     fullWidth
                     variant="contained"
                     color="primary"
+                    href={link}
+                    target={"_blank"}
+
 
 
                 >
                     Download file
                 </Button>
+
             </Grid>
+            </div>
         </div>
     )
 

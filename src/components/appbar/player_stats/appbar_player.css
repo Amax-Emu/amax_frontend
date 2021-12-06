@@ -50,10 +50,14 @@
 
 .appbar_player_component {
     height: 100%;
-    justify-content: flex-start;
+max-width: 100%;
+    width: 100%;
+    min-width: 150px;
+    justify-content: flex-end;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+
     margin: 2px;
     display: flex;
 }
@@ -75,9 +79,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-right: -2px;
+    margin-right: -0.5em;
     height: 24px;
-    width: 24px;
+    width: 64px;
 
 }
 

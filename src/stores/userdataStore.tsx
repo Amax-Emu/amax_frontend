@@ -104,6 +104,16 @@ export const [useUserDataStore,UserDataStore] = create<Store>((set, get) => {
             }
 
         },
+        clearData: async () => {
+            const auth = authStore.getState()
+            if (auth.user !== undefined) {
+                return
+            }
+                set({
+                        userData: undefined
+                    }
+                )
+        },
 }})
 
 

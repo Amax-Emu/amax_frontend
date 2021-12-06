@@ -21,10 +21,11 @@ export default function UserStats({user_level, user_legend, user_exp, user_exp_p
                 <div className="appbar_rank_container">
                     <div className={return_rank_class(user_level, user_legend)}/>
                 </div>
+                <p className="appbar_level_value">
+                    {user_level}
+                </p>
             </div>
-            <p className="appbar_level_value">
-                {user_level}
-            </p>
+
             { /* This is wrong */ }
             {/* CustomizedProgressBars(user_exp_percent) */}
             <PlayerExpBar exp_value={user_exp_percent} />

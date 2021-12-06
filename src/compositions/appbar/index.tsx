@@ -79,18 +79,6 @@ export default function AmaxAppBar() {
         setMobileOpen(!mobileOpen)
     }
 
-    const ServerStatusLabel = () => {
-        if (auth.user?.token !== undefined) {
-            return (<></>)
-        } else {
-            return(
-                <div className={classes.spinner}>
-                    <CircularProgress/>
-                </div>
-            )
-        }
-
-    }
 
     // Lucas:
     // Functions passed to useEffect cannot be async.
@@ -107,7 +95,6 @@ export default function AmaxAppBar() {
 
                   </Typography>
                   <LanguageSelector/>
-                  <ServerStatusLabel/>
                   {/* Added a questionmark in front of the . for type safety xoxo */}
                   {user.userData?.amax_account !== undefined
                   ? <UserStats user_level={user.userData.amax_player_data.leveling.level+1} user_legend={user.userData.amax_player_data.leveling.legend} user_exp={user.userData.amax_player_data.leveling.fans} user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent} user_name={user.userData.amax_player_data.stats.playerName} />

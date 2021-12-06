@@ -15,6 +15,7 @@
 
 @media (max-width: 850px) {
     .dashboard_container {
+
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content min-content min-content;
         grid-template-areas:
@@ -32,7 +33,7 @@
     justify-items: stretch;
     justify-self: center;
 width: 100%;
-padding: 1em;}
+margin: 1em;}
 .column2_container { grid-area: second;
     justify-self: center;
     padding: 1em;}

@@ -22,7 +22,12 @@ const useStyles = makeStyles((theme: Theme) =>
             width: "24px",
             height: "24px",
             viewBox: "0 0 12 12"
+        },stepHeader: {
+                marginBottom: "0.1em"
+        },listItem: {
+            marginBottom: "4em"
         },
+
         }
     ))
 
@@ -34,24 +39,33 @@ export default function HowToPlay() {
             <Paper className={classes.root}>
 
                 <Typography>
+
                     <h1>How to play Blur online</h1>
-                    <h2>1) Login with your Discord account</h2>
+                    <ol>
+                        <li className={classes.listItem}>
+                    <h2 className={classes.stepHeader} >Login with your Discord account</h2>
                     <a>Login with your Discord account using the button below</a>
                     <br/>
                     <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
-                    <h2>2) Get a copy of Blur</h2>
+                        </li>
+                        <li className={classes.listItem}>
+                        <h2 className={classes.stepHeader}>Get a copy of Blur</h2>
                     <a>Install Blur from your legally owned DVD from 2010 or download it from your Steam library.</a>
-                    <h2>3) Apply patch 1.2</h2>
-                    <p>You can download patch 1.2 files from here. <strong>You don't need to do it if you installed game
-                        thought Steam</strong></p>
+                        </li>
+                    <li className={classes.listItem}>
+                        <h2 className={classes.stepHeader}>Apply patch 1.2</h2>
+                    <a>You can download patch 1.2 files from here. <strong>You don't need to do it if you installed game
+                        thought Steam</strong></a>
                     <Grid container
                           direction="column"
                           justifyContent="center"
                           alignItems="center">
                         <DownloadFile filename={"Test"} size={"18M"} link={"/file"}/>
                     </Grid>
-                    <p>Place patch files to the root of your Blur installation</p>
-                    <h2>4) Add Amax Emu files</h2>
+                    <a>Place patch files to the root of your Blur installation</a>
+                    </li>
+                        <li className={classes.listItem}>
+                    <h2 className={classes.stepHeader}>Add Amax Emu files</h2>
                     <a>Download latest Amax Emu files from here and place them into root of your Blur installation.</a>
                     <Grid container
                           direction="column"
@@ -59,7 +73,9 @@ export default function HowToPlay() {
                           alignItems="center">
                         <DownloadFile filename={"Amax_emu.zip"} size={"18M"} link={"/file2"}/>
                     </Grid>
-                    <h2>5) Login into the Amax Emu in the game</h2>
+                        </li>
+                        <li className={classes.listItem}>
+                    <h2 className={classes.stepHeader}>Login into the Amax Emu in the game</h2>
                     <a>Login into the Amax Emu using your username and password. </a>
                     <Grid container
                           direction="column"
@@ -67,8 +83,12 @@ export default function HowToPlay() {
                           alignItems="center">
                         <AnimatedLogin/>
                     </Grid>
-                    <h2>6) Play Blur</h2>
+                        </li>
+                        <li className={classes.listItem}>
+                    <h2 className={classes.stepHeader}>Play Blur</h2>
                     <a>Enjoy Blur like it is 2010 again!</a>
+                        </li>
+                    </ol>
                 </Typography>
 
             </Paper>
