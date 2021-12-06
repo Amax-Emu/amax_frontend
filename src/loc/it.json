@@ -1,59 +1,60 @@
 {
-  "intro_welcome_header": "",
-  "intro_welcome_description": "",
-  "sessions_widget_header": "",
-  "sessions_widget": {
-    "status": {
-      "inprogress": "",
-      "inlobby": ""
+    "intro_welcome_header": "Benvenuto nella home di Amax Emu!",
+    "intro_welcome_description": "Blur è un gioco abbastanza decente.",
+    "sessions_widget_header": "Sessioni attive",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "In corso",
+            "inlobby": "Nella lobby"
+        },
+        "gamemode": {
+            "skirmish": "Gare schermaglia",
+            "drivingschool": "Scuola guida",
+            "powerupracing": "Gare con potenziamenti",
+            "teamracing": "Gare a squadre",
+            "motormash": "Sfasciamotori",
+            "communityevent": "Eventi della comunità",
+            "worldtour": "Tour mondiale"
+        }
     },
-    "gamemode": {
-      "skirmish": "",
-      "drivingschool": "",
-      "powerupracing": "",
-      "teamracing": "",
-      "motormash": "",
-      "communityevent": "",
-      "worldtour": ""
+    "leaderboard_widget": {
+        "header": "Top 10",
+        "position": "Pos.",
+        "player": "Giocatore",
+        "value": "Valore",
+        "fans": "Tifosi",
+        "driving_score": "Punteggio di guida",
+        "legend": "Leggenda"
+    },
+    "server_status_widget": {
+        "server_status": "Stato del server",
+        "offline": "Offline",
+        "online": "Online",
+        "players": "Giocatori online:",
+        "sessions": "Sessioni:"
+    },
+    "appbar": {
+        "login_discord": "Accedi con Discord",
+        "profile": "Profilo"
+    },
+    "profile_stats": {
+        "stats": "Stats",
+        "pastraces": "Past Races",
+        "career": "Career",
+        "combat": "Combat",
+        "racing": "Racing"
+    },
+    "general_values_names": {
+        "fans": "Fans",
+        "level": "Fans",
+        "driving_score": "Driving score",
+        "legend": "Legend",
+        "total_race": "Total races",
+        "top3": "Top 3",
+        "first": "First",
+        "hits": "Hits",
+        "fired": "Fired",
+        "total_time": "Total race time",
+        "wrecked": "Wrecks"
     }
-  },
-  "profile_stats": {
-    "stats": "",
-    "pastraces": "",
-    "career": "",
-    "combat": "",
-    "racing": ""
-  },
-  "leaderboard_widget": {
-    "header": "",
-    "position": "",
-    "player": "",
-    "fans": "",
-    "driving_score": "",
-    "legend": ""
-  },
-  "general_values_names": {
-    "fans": "",
-    "level": "",
-    "driving_score": "",
-    "legend": "",
-    "total_race": "",
-    "top3": "",
-    "first": "",
-    "hits": "",
-    "fired": "",
-    "total_time": "",
-    "wrecked": ""
-  },
-  "server_status_widget": {
-    "server_status": "",
-    "offline": "",
-    "online": "",
-    "players": "",
-    "sessions": ""
-  },
-  "appbar": {
-    "login_discord": "",
-    "profile": ""
-  }
 }
