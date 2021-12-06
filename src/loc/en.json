@@ -1,40 +1,58 @@
 {
-    "intro_welcome_header": "¡Bienvenido!",
-    "intro_welcome_description": "Bienvenido a la pagina de AMAX para Blur",
-    "sessions_widget_header": "Encabezado Del Widget De Sesiones",
+    "intro_welcome_header": "Welcome to the home of Amax Emu!",
+    "intro_welcome_description": "Blur is a pretty decent game.",
+    "sessions_widget_header": "Active sessions",
     "sessions_widget": {
         "status": {
-            "inprogress": "En Progreso",
-            "inlobby": "En El Lobby"
+            "inprogress": "In progress",
+            "inlobby": "In lobby"
         },
         "gamemode": {
-            "skirmish": "Duelo",
-            "drivingschool": "Escuela De Conduccion",
-            "powerupracing": "Potenciador De Carreras",
-            "teamracing": "Equipo corredor",
-            "motormash": "Motomasacre",
-            "communityevent": "Evento De La Comunidad",
-            "worldtour": "Gira Mundial"
+            "skirmish": "Skirmish racing",
+            "drivingschool": "Driving school",
+            "powerupracing": "Power-up racing",
+            "teamracing": "Team racing",
+            "motormash": "Motor Mash",
+            "communityevent": "Community events",
+            "worldtour": "World tour"
         }
-    },
+    },"profile_stats": {
+    "stats": "Stats",
+    "pastraces": "Past Races",
+    "career": "Career",
+    "combat": "Combat",
+    "racing": "Racing"
+},
     "leaderboard_widget": {
-        "header": "Encabezado",
-        "position": "Posicion",
-        "player": "Jugador",
-        "value": "Valor",
-        "fans": "Seguidores",
-        "driving_score": "Puntuación De Conducción",
-        "legend": "Leyenda"
+        "header": "Top 10",
+        "position": "Pos.",
+        "player": "Player",
+        "fans": "Fans",
+        "driving_score": "Driving score",
+        "legend": "Legend"
+    },
+    "general_values_names": {
+        "fans": "Fans",
+        "level": "Fans",
+        "driving_score": "Driving score",
+        "legend": "Legend",
+        "total_race": "Total races",
+        "top3": "Top 3",
+        "first": "First",
+        "hits": "Hits",
+        "fired": "Fired",
+        "total_time": "Total race time",
+        "wrecked": "Wrecks"
     },
     "server_status_widget": {
-        "server_status": "Estado Del Servidor",
-        "offline": "Fuera De Linea",
-        "online": "En Linea",
-        "players": "Jugadores",
-        "sessions": "Sesiones"
+        "server_status": "Server status",
+        "offline": "Offline",
+        "online": "Online",
+        "players": "Players online:",
+        "sessions": "Sessions:"
     },
     "appbar": {
-        "login_discord": "Inicio De Sesión A Través de Discord",
-        "profile": "Perfil"
+        "login_discord": "Login with Discord",
+        "profile": "Profile"
     }
 }

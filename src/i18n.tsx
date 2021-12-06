@@ -6,6 +6,14 @@ import { initReactI18next } from 'react-i18next'
 import translationEN from '/src/loc/en.json';
 // @ts-ignore
 import translationRU from '/src/loc/ru.json';
+// @ts-ignore
+import translationES from '/src/loc/es.json';
+// @ts-ignore
+import translationDE from '/src/loc/de.json';
+// @ts-ignore
+import translationFR from '/src/loc/fr.json';
+// @ts-ignore
+import translationHI from '/src/loc/hi.json';
 
 // the translations
 const resources = {
@@ -14,6 +22,18 @@ const resources = {
     },
     ru: {
         translation: translationRU
+    },
+    de: {
+        translation: translationDE
+    },
+    es: {
+        translation: translationES
+    },
+    fr: {
+        translation: translationFR
+    },
+    hi: {
+        translation: translationHI
     }
 };
 

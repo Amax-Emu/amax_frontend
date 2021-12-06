@@ -1,1 +1,40 @@
-{}
+{
+  "intro_welcome_header": "¡Bienvenido!",
+  "intro_welcome_description": "Bienvenido a la pagina de AMAX para Blur",
+  "sessions_widget_header": "Encabezado Del Widget De Sesiones",
+  "sessions_widget": {
+    "status": {
+      "inprogress": "En Progreso",
+      "inlobby": "En El Lobby"
+    },
+    "gamemode": {
+      "skirmish": "Duelo",
+      "drivingschool": "Escuela De Conduccion",
+      "powerupracing": "Potenciador De Carreras",
+      "teamracing": "Equipo corredor",
+      "motormash": "Motomasacre",
+      "communityevent": "Evento De La Comunidad",
+      "worldtour": "Gira Mundial"
+    }
+  },
+  "leaderboard_widget": {
+    "header": "Encabezado",
+    "position": "Posicion",
+    "player": "Jugador",
+    "value": "Valor",
+    "fans": "Seguidores",
+    "driving_score": "Puntuación De Conducción",
+    "legend": "Leyenda"
+  },
+  "server_status_widget": {
+    "server_status": "Estado Del Servidor",
+    "offline": "Fuera De Linea",
+    "online": "En Linea",
+    "players": "Jugadores",
+    "sessions": "Sesiones"
+  },
+  "appbar": {
+    "login_discord": "Inicio De Sesión A Través de Discord",
+    "profile": "Perfil"
+  }
+}
