@@ -1,40 +1,60 @@
 {
-  "intro_welcome_header": "¡Bienvenido!",
-  "intro_welcome_description": "Bienvenido a la pagina de AMAX para Blur",
-  "sessions_widget_header": "Encabezado Del Widget De Sesiones",
-  "sessions_widget": {
-    "status": {
-      "inprogress": "En Progreso",
-      "inlobby": "En El Lobby"
+    "intro_welcome_header": "¡Bienvenido a la pagina de AMAX para Blur!",
+    "intro_welcome_description": "Blur es un juego bastante bueno.",
+    "sessions_widget_header": "Sesiones activas",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "En Progreso",
+            "inlobby": "En Lobby"
+        },
+        "gamemode": {
+            "skirmish": "Carreras Individual",
+            "drivingschool": "Escuela De Conduccion",
+            "powerupracing": "Carrera Con Potenciadores",
+            "teamracing": "Duelo Por Equipos",
+            "motormash": "Motomasacre",
+            "communityevent": "Eventos Comunitarios",
+            "worldtour": "Gira Mundial"
+        }
     },
-    "gamemode": {
-      "skirmish": "Duelo",
-      "drivingschool": "Escuela De Conduccion",
-      "powerupracing": "Potenciador De Carreras",
-      "teamracing": "Equipo corredor",
-      "motormash": "Motomasacre",
-      "communityevent": "Evento De La Comunidad",
-      "worldtour": "Gira Mundial"
+    "leaderboard_widget": {
+        "header": "Mejores 10",
+        "position": "Posicion",
+        "player": "Jugador",
+        "value": "Valor",
+        "fans": "Seguidores",
+        "driving_score": "Puntuación De Conducción",
+        "legend": "Leyenda"
+    },
+    "server_status_widget": {
+        "server_status": "Estado Del Servidor",
+        "offline": "Fuera De Linea",
+        "online": "En Linea",
+        "players": "Jugadores en linea",
+        "sessions": "Sesiones"
+    },
+    "appbar": {
+        "login_discord": "Inicio De Sesión A Través de Discord",
+        "profile": "Perfil"
+    },
+    "profile_stats": {
+        "stats": "Estadisticas",
+        "pastraces": "Carreras Pasadas",
+        "career": "Carrera Profesional",
+        "combat": "Combate",
+        "racing": "Carreras"
+    },
+    "general_values_names": {
+        "fans": "Seguidores",
+        "level": "Cantidad",
+        "driving_score": "Puntuación De Conducción",
+        "legend": "Leyenda",
+        "total_race": "Carreras Totales",
+        "top3": "Tercero",
+        "first": "Primero",
+        "hits": "Aciertos",
+        "fired": "Disparado",
+        "total_time": "Tiempo Total En Carrera",
+        "wrecked": "Destruidos"
     }
-  },
-  "leaderboard_widget": {
-    "header": "Encabezado",
-    "position": "Posicion",
-    "player": "Jugador",
-    "value": "Valor",
-    "fans": "Seguidores",
-    "driving_score": "Puntuación De Conducción",
-    "legend": "Leyenda"
-  },
-  "server_status_widget": {
-    "server_status": "Estado Del Servidor",
-    "offline": "Fuera De Linea",
-    "online": "En Linea",
-    "players": "Jugadores",
-    "sessions": "Sesiones"
-  },
-  "appbar": {
-    "login_discord": "Inicio De Sesión A Través de Discord",
-    "profile": "Perfil"
-  }
 }
