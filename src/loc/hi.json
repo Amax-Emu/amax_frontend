@@ -1,1 +1,59 @@
-{}
+{
+  "intro_welcome_header": "",
+  "intro_welcome_description": "",
+  "sessions_widget_header": "",
+  "sessions_widget": {
+    "status": {
+      "inprogress": "",
+      "inlobby": ""
+    },
+    "gamemode": {
+      "skirmish": "",
+      "drivingschool": "",
+      "powerupracing": "",
+      "teamracing": "",
+      "motormash": "",
+      "communityevent": "",
+      "worldtour": ""
+    }
+  },
+  "profile_stats": {
+    "stats": "",
+    "pastraces": "",
+    "career": "",
+    "combat": "",
+    "racing": ""
+  },
+  "leaderboard_widget": {
+    "header": "",
+    "position": "",
+    "player": "",
+    "fans": "",
+    "driving_score": "",
+    "legend": ""
+  },
+  "general_values_names": {
+    "fans": "",
+    "level": "",
+    "driving_score": "",
+    "legend": "",
+    "total_race": "",
+    "top3": "",
+    "first": "",
+    "hits": "",
+    "fired": "",
+    "total_time": "",
+    "wrecked": ""
+  },
+  "server_status_widget": {
+    "server_status": "",
+    "offline": "",
+    "online": "",
+    "players": "",
+    "sessions": ""
+  },
+  "appbar": {
+    "login_discord": "",
+    "profile": ""
+  }
+}
