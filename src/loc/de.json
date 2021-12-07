@@ -1,1 +1,60 @@
-{}
+{
+    "intro_welcome_header": "Willkommen bei Amax Emu!",
+    "intro_welcome_description": "Blur ist ein ziemlich cooles Spiel.",
+    "sessions_widget_header": "Aktive Sitzungen",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "Im Gange",
+            "inlobby": "In der Lobby"
+        },
+        "gamemode": {
+            "skirmish": "Gefechtsrennen",
+            "drivingschool": "Fahrschule",
+            "powerupracing": "Powerup-Rennen",
+            "teamracing": "Teamrennen",
+            "motormash": "Motorensalat",
+            "communityevent": "Community-Events",
+            "worldtour": "Welttournee"
+        }
+    },
+    "leaderboard_widget": {
+        "header": "Top 10",
+        "position": "Pos.",
+        "player": "Spieler",
+        "value": "Wert",
+        "fans": "Fans",
+        "driving_score": "Fahrerpunkte",
+        "legend": "Legende"
+    },
+    "server_status_widget": {
+        "server_status": "Server Status",
+        "offline": "Offline",
+        "online": "Online",
+        "players": "Spieler online:",
+        "sessions": "Sitzungen:"
+    },
+    "appbar": {
+        "login_discord": "Einloggen mit Discord",
+        "profile": "Profil"
+    },
+    "profile_stats": {
+        "stats": "Statistik",
+        "pastraces": "Letzte Rennen",
+        "career": "Karriere",
+        "combat": "Gefecht",
+        "racing": "Spielen"
+    },
+    "general_values_names": {
+        "fans": "Fans",
+        "level": "Fans",
+        "driving_score": "Fahrerpunkte",
+        "legend": "Legende",
+        "total_race": "Rennen",
+        "top3": "Top 3",
+        "first": "Erster",
+        "hits": "Treffer",
+        "fired": "Abgefeuert\n",
+        "total_time": "Gesamtspielzeit",
+        "wrecked": "Demolierungen"
+    }
+}
