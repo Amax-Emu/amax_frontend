@@ -1,1 +1,60 @@
-{}
+{
+    "intro_welcome_header": "Bienvenue dans le menu d'Amax Emu !",
+    "intro_welcome_description": "Blur est un jeu à peu près décent.",
+    "sessions_widget_header": "Sessions active",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "En cours",
+            "inlobby": "Dans un salon"
+        },
+        "gamemode": {
+            "skirmish": "Escarmouche",
+            "drivingschool": "Auto-école",
+            "powerupracing": "Course avec Power-ups",
+            "teamracing": "Course en équipe",
+            "motormash": "Annihilation",
+            "communityevent": "Évènement communautaire",
+            "worldtour": "Tour du monde"
+        }
+    },
+    "leaderboard_widget": {
+        "header": "Top 10",
+        "position": "Pos.",
+        "player": "Joueur",
+        "value": "Valeur",
+        "fans": "Fans",
+        "driving_score": "Points de conduite",
+        "legend": "Légende"
+    },
+    "server_status_widget": {
+        "server_status": "Statut du serveur",
+        "offline": "Hors Ligne",
+        "online": "En ligne",
+        "players": "Joueurs en ligne :",
+        "sessions": "Sessions :"
+    },
+    "appbar": {
+        "login_discord": "Connexion avec Discord",
+        "profile": "Profile"
+    },
+    "profile_stats": {
+        "stats": "Stats",
+        "pastraces": "Précédente courses ",
+        "career": "Carrière",
+        "combat": "Combat",
+        "racing": "Course"
+    },
+    "general_values_names": {
+        "fans": "Fans",
+        "level": "Fans",
+        "driving_score": "Score de conduite",
+        "legend": "Légende",
+        "total_race": "Total de courses",
+        "top3": "Top 3",
+        "first": "Premier",
+        "hits": "Coups",
+        "fired": "Viré",
+        "total_time": "Total en temps de courses ",
+        "wrecked": "Détruits"
+    }
+}

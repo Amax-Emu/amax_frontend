@@ -38,23 +38,23 @@
         "profile": "Profilo"
     },
     "profile_stats": {
-        "stats": "Stats",
-        "pastraces": "Past Races",
-        "career": "Career",
-        "combat": "Combat",
-        "racing": "Racing"
+        "stats": "Statistiche",
+        "pastraces": "Gare passate",
+        "career": "Carriera",
+        "combat": "Combattimento",
+        "racing": "Gare"
     },
     "general_values_names": {
-        "fans": "Fans",
-        "level": "Fans",
-        "driving_score": "Driving score",
-        "legend": "Legend",
-        "total_race": "Total races",
+        "fans": "Tifosi",
+        "level": "Tifosi",
+        "driving_score": "Punteggio di guida",
+        "legend": "Leggenda",
+        "total_race": "Gare totali",
         "top3": "Top 3",
-        "first": "First",
-        "hits": "Hits",
-        "fired": "Fired",
-        "total_time": "Total race time",
-        "wrecked": "Wrecks"
+        "first": "Primo",
+        "hits": "Colpi a segno",
+        "fired": "Colpi sparati",
+        "total_time": "Tempo di gioco totale",
+        "wrecked": "Colpi demolitori"
     }
 }
