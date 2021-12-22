@@ -23,7 +23,7 @@
         "player": "Giocatore",
         "value": "Valore",
         "fans": "Tifosi",
-        "driving_score": "Punteggio di guida",
+        "driving_score": "Punteggio pilota",
         "legend": "Leggenda"
     },
     "server_status_widget": {
@@ -47,14 +47,31 @@
     "general_values_names": {
         "fans": "Tifosi",
         "level": "Tifosi",
-        "driving_score": "Punteggio di guida",
+        "driving_score": "Punteggio pilota",
         "legend": "Leggenda",
-        "total_race": "Gare totali",
+        "total_race": "Partite totali",
         "top3": "Top 3",
         "first": "Primo",
         "hits": "Colpi a segno",
         "fired": "Colpi sparati",
         "total_time": "Tempo di gioco totale",
         "wrecked": "Colpi demolitori"
+    },
+    "how_to_play": {
+        "header": "Come giocare Blur online",
+        "login_step_header": "Accedi con il tuo account Discord",
+        "login_step_text": "Accedi con il tuo account Discord usando il bottone sotto",
+        "blur_download_step_header": "Prendi una copia di Blur",
+        "blur_download_step_text": "Installa Blur usando il DVD che possiedi legalmente dal 2010 oppure scaricalo dalla tua libreria di Steam.",
+        "patch_step_header": "Installa la patch 1.2",
+        "patch_step_text1": "Puoi scaricare i file della patch 1.2 da qua. ",
+        "patch_step_text2": "Non hai bisogno di farlo se hai installato il gioco tramite Steam",
+        "patch_step_text3": "Metti i file della patch nella cartella principale in cui hai installato Blur",
+        "amax_emu_step_header": "Aggiungi i file di Amax Emu",
+        "amax_emu_step_text": "Scarica da qua i file più aggiornati di Amax Emu e mettili nella cartella principale in cui hai installato Blur.",
+        "amax_emu_login_step_header": "Accedi ad Amax Emu nel gioco",
+        "amax_emu_login_step_text": "Accedi ad Amax Emu usando il tuo username e password.",
+        "play_step_header": "Gioca a Blur",
+        "play_step_text": "Goditi Blur come se fosse ancora il 2010!"
     }
 }
