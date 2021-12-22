@@ -1,59 +1,77 @@
 {
-  "intro_welcome_header": "Я люблю Блюр.",
-  "intro_welcome_description": "Blur is a pretty decent game.",
-  "sessions_widget_header": "Текущие сессии",
-  "sessions_widget": {
-    "status": {
-      "inprogress": "В процессе",
-      "inlobby": "В лобби"
+    "intro_welcome_header": "Я люблю Блюр.",
+    "intro_welcome_description": "Blur is a pretty decent game.",
+    "sessions_widget_header": "Текущие сессии",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "В процессе",
+            "inlobby": "В лобби"
+        },
+        "gamemode": {
+            "skirmish": "Скирмиш рейсинг",
+            "drivingschool": "Школа вождения",
+            "powerupracing": "Power-up racing",
+            "teamracing": "Командный заезд",
+            "motormash": "Мотор меш",
+            "communityevent": "Community events",
+            "worldtour": "Мировой тур"
+        }
     },
-    "gamemode": {
-      "skirmish": "Скирмиш рейсинг",
-      "drivingschool": "Школа вождения",
-      "powerupracing": "Power-up racing",
-      "teamracing": "Командный заезд",
-      "motormash": "Мотор меш",
-      "communityevent": "Community events",
-      "worldtour": "Мировой тур"
+    "leaderboard_widget": {
+        "header": "Топ 10",
+        "position": "№",
+        "player": "Игрок",
+        "value": " ",
+        "fans": "Фанатов",
+        "driving_score": "Очки вождения",
+        "legend": "Уровень Легенды"
+    },
+    "server_status_widget": {
+        "server_status": "Статус сервера",
+        "offline": "Не в сети",
+        "online": "В сети",
+        "players": "Игроков:",
+        "sessions": "Сессий:"
+    },
+    "appbar": {
+        "login_discord": "Авторизировать через Discord",
+        "profile": "Профиль"
+    },
+    "profile_stats": {
+        "stats": "Статистика",
+        "pastraces": "Прошлые заезды",
+        "career": "Карьера",
+        "combat": "Бонусы",
+        "racing": "Заезды"
+    },
+    "general_values_names": {
+        "fans": "Фанаты",
+        "level": "Уровень",
+        "driving_score": "Очки вождения",
+        "legend": "Легенда",
+        "total_race": "Всего заездов",
+        "top3": "Топ 3",
+        "first": "Первым",
+        "hits": "Попаданий",
+        "fired": "Выстрелов",
+        "total_time": "Общее время",
+        "wrecked": "Уничтожено"
+    },
+    "how_to_play": {
+        "header": "Как играть в Blur по сети",
+        "login_step_header": "Залогиньтесь, используя свой аккаунт Discord",
+        "login_step_text": "Залогиньтесь, используя кнопку ниже.",
+        "blur_download_step_header": "Установите Blur",
+        "blur_download_step_text": "Установите Blur c вашего DVD диска, который вы купили в 2010 году, или установите игру через Steam.",
+        "patch_step_header": "Установите патч 1.2",
+        "patch_step_text1": "Вы можете скачать необходимые файлы ниже.",
+        "patch_step_text2": "Этот шаг можно пропустить, если вы установили игру через Steam.",
+        "patch_step_text3": "Поместите файлы в каталог, где установлен Blur.",
+        "amax_emu_step_header": "Добавьте файлы Amax Emu",
+        "amax_emu_step_text": "Загрузите самые последние файлы для игры через Amax Emu по ссылке ниже и поместите файлы в каталог, где установлен Blur.",
+        "amax_emu_login_step_header": "Войдите в Amax Emu в игре",
+        "amax_emu_login_step_text": "Войдите в своей профиль Amax Emu, используя ваш логин и пароль.",
+        "play_step_header": "Теперь можно играть",
+        "play_step_text": "Наслаждайтесь Blur'ом, как будто 2010 никогда не закончился!"
     }
-  },
-  "leaderboard_widget": {
-    "header": "Топ 10",
-    "position": "№",
-    "player": "Игрок",
-    "fans": "Фанатов",
-    "driving_score": "Очки вождения",
-    "legend": "Уровень Легенды"
-  },
-  "general_values_names": {
-    "fans": "Фанаты",
-    "level": "Уровень",
-    "driving_score": "Очки вождения",
-    "legend": "Легенда",
-    "total_race": "Всего заездов",
-    "top3": "Топ 3",
-    "first": "Первым",
-    "hits": "Попаданий",
-    "fired": "Выстрелов",
-    "total_time": "Общее время",
-    "wrecked": "Уничтожено"
-  },
-  "profile_stats": {
-    "stats": "Статистика",
-    "pastraces": "Прошлые заезды",
-    "career": "Карьера",
-    "combat": "Бонусы",
-    "racing": "Заезды"
-  },
-  "server_status_widget": {
-    "server_status": "Статус сервера",
-    "offline": "Не в сети",
-    "online": "В сети",
-    "players": "Игроков:",
-    "sessions": "Сессий:"
-  },
-  "appbar": {
-    "login_discord": "Авторизировать через Discord",
-    "profile": "Профиль"
-  }
 }
