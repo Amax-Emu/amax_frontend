@@ -1,1 +1,77 @@
-{}
+{
+    "intro_welcome_header": "एमैक्स इमयू में आपका स्वागत है!",
+    "intro_welcome_description": "ब्लर काफी अच्छा खेल है।",
+    "sessions_widget_header": "चालू सत्र",
+    "sessions_widget": {
+        "status": {
+            "inprogress": "प्रगति में",
+            "inlobby": "लाॅबी में"
+        },
+        "gamemode": {
+            "skirmish": "स्किरमिश रेसिंग",
+            "drivingschool": "ड्राइविंग स्कूल",
+            "powerupracing": "पावर-अप रेसिंग",
+            "teamracing": "टीम रेसिंग",
+            "motormash": "मोटर मैश",
+            "communityevent": "सामुदायिक इवेंट",
+            "worldtour": "विश्व टूर"
+        }
+    },
+    "leaderboard_widget": {
+        "header": "शीर्ष 10",
+        "position": "स्थिति.",
+        "player": "खिलाड़ी",
+        "value": "वैल्यू",
+        "fans": "प्रशंसक",
+        "driving_score": "ड्राइविंग स्कोर",
+        "legend": "दिग्गज"
+    },
+    "server_status_widget": {
+        "server_status": "सर्वर की स्थिति",
+        "offline": "ऑफलाइन",
+        "online": "ऑनलाइन",
+        "players": "खिलाड़ी ऑनलाइन:",
+        "sessions": "सेशंस:"
+    },
+    "appbar": {
+        "login_discord": "डिस्कॉर्ड के साथ लॉगिन करें",
+        "profile": "प्रोफ़ाइल"
+    },
+    "profile_stats": {
+        "stats": "आँकड़े",
+        "pastraces": "पिछली रेसेस",
+        "career": "करियर",
+        "combat": "लड़ाई",
+        "racing": "रेसिंग"
+    },
+    "general_values_names": {
+        "fans": "प्रशंसक",
+        "level": "प्रशंसक",
+        "driving_score": "ड्राइविंग स्कोर",
+        "legend": "दिग्गज",
+        "total_race": "कुल रेसेस",
+        "top3": "शीर्ष 3",
+        "first": "प्रथम",
+        "hits": "हिट्स",
+        "fired": "गोलियां चलाईं",
+        "total_time": "कुल रेस का समय",
+        "wrecked": "निपटा दिए"
+    },
+    "how_to_play": {
+        "header": "ब्लर ऑनलाइन कैसे खेलें",
+        "login_step_header": "अपने डिस्कॉर्ड खाते से लॉगिन करें",
+        "login_step_text": "नीचे दिए गए बटन का उपयोग करके अपने डिस्कॉर्ड खाते से लॉगिन करें",
+        "blur_download_step_header": "ब्लर की एक कॉपी प्राप्त करें",
+        "blur_download_step_text": "ब्लर को कानूनी रूप से अपने 2010 वाली डीवीडी से इनस्टॉल करें या इसे अपनी स्टीम लाइब्रेरी से डाउनलोड करें",
+        "patch_step_header": "पैच 1.2 इनस्टॉल करें",
+        "patch_step_text1": "आप यहाँ से पैच 1.2 की फ़ाइलें डाउनलोड कर सकते हैं",
+        "patch_step_text2": "यदि आपने गेम स्टीम से इनस्टॉल किया है तो आपको इसे करने की आवश्यकता नहीं है",
+        "patch_step_text3": "पैच फ़ाइलों को अपने ब्लर इंस्टॉलेशन के रुट फोल्डर में रखें",
+        "amax_emu_step_header": "ऐड एमैक्स इमयू फाइल्स",
+        "amax_emu_step_text": "नयी एमैक्स इमयू फ़ाइलें यहाँ से डाउनलोड करें और उन्हें अपने ब्लर इंस्टालेशन के रुट फोल्डर में रखें",
+        "amax_emu_login_step_header": "गेम में एमैक्स इमयू में लॉगिन करें",
+        "amax_emu_login_step_text": "अपने नाम और पासवर्ड का उपयोग करके एमैक्स इमयू में लॉगिन करें",
+        "play_step_header": "ब्लर खेलें",
+        "play_step_text": "ब्लर का आनंद लें जैसे कि यह 2010 फिर से है!"
+    }
+}
