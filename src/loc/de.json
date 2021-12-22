@@ -56,5 +56,22 @@
         "fired": "Abgefeuert\n",
         "total_time": "Gesamtspielzeit",
         "wrecked": "Demolierungen"
+    },
+    "how_to_play": {
+        "header": "Wie spielt man Blur online",
+        "login_step_header": "Logge dich mit deinem Discord Account ein",
+        "login_step_text": "Logge dich mit deinem Discord Account ein, indem du den unteren Button drückst",
+        "blur_download_step_header": "Erhalte eine Kopie von Blur",
+        "blur_download_step_text": "Installiere Blur mithilfe deiner originalen Blur CD oder downloade es aus deiner Steam Bibliothek.",
+        "patch_step_header": "Installiere Patch 1.2",
+        "patch_step_text1": "Hier kannst du die 1.2 Patch Dateien runterladen.",
+        "patch_step_text2": "Du brauchst den Patch nicht, wenn du Blur via Steam installiert hast.",
+        "patch_step_text3": "Platziere die Patch Dateien in deinem Blur Installationsverzeichnis.",
+        "amax_emu_step_header": "Füge Amax Emu Dateien hinzu",
+        "amax_emu_step_text": "Downloade die neuesten Amax Emu Dateien und platziere sie in deinem Blur Installationsverzeichnis.",
+        "amax_emu_login_step_header": "Logge dich mit Amax Emu im Spiel ein",
+        "amax_emu_login_step_text": "Loge dich mit deinem Passwort und Nutzernamen bei Amax Emu ein.",
+        "play_step_header": "Spiele Blur",
+        "play_step_text": "Habe Spaß, als wäre es 2010!"
     }
 }
