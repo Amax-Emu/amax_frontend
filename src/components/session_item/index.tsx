@@ -115,26 +115,28 @@ export default function SessionItem({data}:{data: Session}) {
 
     return (
         <div className="session_item_container">
-            <div className="session_info" style={{backgroundImage: "url('" + mediadata.header_image +"')"}} >
+            <div className="session_info">
 
-
-                <div className="icon_container">
-                    <img className="icon" src={mediadata.icon}/>
-                </div>
                 <div className="session_info_text">
                     <div className="gamemode_info">
+                        <div className="icon_container">
+                            <img className="icon" src={mediadata.icon}/>
+                        </div>
+                        <div style={{marginLeft:"0.5rem"}}>
                         <div style={{fontWeight: "bold", fontSize: "1.4rem"}}>{mediadata.name}</div>
-                        <div>
+                        <div className={"playersCounter"}>
                             <PeopleIcon  style={{fontSize: "1.2rem",display: "inline-block"}} />
                             <div style={{fontSize: "1.2rem",display: "inline-block",marginLeft:"0.3rem"}}>
                                 {(data.totalSlots - data.availableSlots) + "/" + data.totalSlots}
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div className="lobby_status_container">
                         <GameStatus/>
                     </div>
                 </div>
+                <img src={mediadata.header_image} className={"session_header_img"}/>
             </div>
             <div className="players">
 

@@ -9,7 +9,8 @@ import {NavLink} from "react-router-dom";
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
-        width:"25em",
+        maxWidth:"25em",
+        width: "100%",
         height:"auto",
         border: "4px dashed #3E5270",
         boxSizing: "border-box",

@@ -1,9 +1,10 @@
 .typewriter_name {
-    position: relative;
+    position: absolute;
     width: 150px;
-    top: 77px;
-    left: 40px;
+    top: 27%;
+    left: 12%;
     margin: 0px;
+    font-size: 1.8vh;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /*border-right: .15em solid orange; !* The typwriter cursor *!*/
     white-space: nowrap; /* Keeps the content on a single line */
@@ -14,11 +15,12 @@
 }
 
 .typewriter_pass {
-    position: relative;
+    position: absolute;
     width: 150px;
-    top: 105px;
-    left: 40px;
+    top: 46%;
+    left: 12%;
     margin: 0px;
+    font-size: 1.8vh;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     /*border-right: .15em solid orange; !* The typwriter cursor *!*/
     white-space: nowrap; /* Keeps the content on a single line */

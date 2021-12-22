@@ -6,11 +6,7 @@ import get_user_data from "./user_data"
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {createTheme, makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AmaxAppBar from "./compositions/appbar/index"
-import PermanentDrawerLeft from "./compositions/drawer";
-import SessionsWidget from "./compositions/sessions";
 import ServerStatus from "./compositions/serverstatus";
-import LeaderboardsWidget from "./compositions/leaderboard_widget";
 import {Container} from "@material-ui/core";
 import Dashboard from "./compositions/dashboard";
 import DiscordNews from "./compositions/news";
@@ -87,25 +83,25 @@ export function App() {
         <div>
 
         <ResponsiveDrawer/>
-        {/*<PermanentDrawerLeft/>*/}
         <div className={classes.root}>
 
             <Container disableGutters={true} maxWidth="xl">
-                {/*<AmaxAppBar/>*/}
-                <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/user">User data</Link>
-                    <Link to="/sessions">BigSessions</Link>
-                    <Link to="/status_test">Status</Link>
-                    <Link to="/news">News</Link>
-                    <Link to="/discord">=DISCORD=</Link>
-                    <Link to="/register"> =MAKE BLUR ACC= </Link>
-                    <Link to="/final_steps"> =FINAL STEPS= </Link>
-                    <Link to="/past_races"> =PAST RACES= </Link>
-                    <Link to="/log_out"> =LOG OUT= </Link>
 
-                </nav>
-                <a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>
+                {/*<nav>*/}
+                {/*    <Link to="/">Home</Link>*/}
+                {/*    <Link to="/user">User data</Link>*/}
+                {/*    <Link to="/sessions">BigSessions</Link>*/}
+                {/*    <Link to="/status_test">Status</Link>*/}
+                {/*    <Link to="/news">News</Link>*/}
+                {/*    <Link to="/discord">=DISCORD=</Link>*/}
+                {/*    <Link to="/register"> =MAKE BLUR ACC= </Link>*/}
+                {/*    <Link to="/final_steps"> =FINAL STEPS= </Link>*/}
+                {/*    <Link to="/past_races"> =PAST RACES= </Link>*/}
+                {/*    <Link to="/log_out"> =LOG OUT= </Link>*/}
+
+                {/*</nav>*/}
+
+                {/*<a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>*/}
         <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/user" component={get_user_data} />

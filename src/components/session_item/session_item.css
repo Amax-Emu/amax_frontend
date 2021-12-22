@@ -1,6 +1,6 @@
 .session_item_container {
-    /*max-width: 700px;*/
-    min-width: 400px;
+    min-width: 300px;
+    width: auto;
     border: 1px solid #3E5270;
     box-sizing: border-box;
     border-radius: 8px;
@@ -8,13 +8,13 @@
     background: #304254;
 
     display: grid;
-    grid-template-columns: 0.6fr 1.1fr;
-    grid-template-rows: 0.8fr auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content auto;
     gap: 0px 0px;
     margin: 15px 0px 15px 0px;
     grid-template-areas:
-    "session_info session_info"
-    "players players";
+    "session_info"
+    "players";
 }
 
 .session_item_name{
@@ -54,26 +54,36 @@
 }
 
 .session_info {
-    margin-left: 0.8rem;
+    overflow: hidden;
+    height: 100%;
     background-position: right;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    grid-area: session_info;
+    width: 100%;
     border-radius: 0.3rem 0.3rem 0 0 ;
     background-repeat: no-repeat;
-    display: grid;
-    grid-template-columns: 0.3fr 1.7fr;
-    grid-template-areas:
-    "icon_zone session_info_text";
+    position: relative;
 
 }
 
+.session_header_img{
+    position: absolute;
+    height: 100%;
+    max-height: 300%;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
 .gamemode_info{
+    width: 100%;
     float: right;
     text-align: left;
     line-height: 250%;
     margin-left: 15px;
-
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: flex-start;
     font-family: Ubuntu;
     font-style: normal;
     font-weight: bold;
@@ -88,13 +98,29 @@
 
 }
 
+@media only screen and (max-width: 600px) {
+    .session_info_text {
+        margin-top: 0.5em;
+        z-index: 999;
+        position: relative;
+        grid-area: session_info_text;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        flex-direction: column-reverse;
+        margin-bottom: 2em;
+    }
+}
+
 .session_info_text {
+    margin-top: 0.5em;
+    z-index: 999;
+    position: relative;
     grid-area: session_info_text;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    padding-top: 0.2rem;
+    flex-wrap: nowrap;
+
 }
 
 .players {
@@ -108,6 +134,12 @@
 
 }
 
+.playersCounter {
+    align-self: flex-end;
+    justify-self: flex-end;
+
+}
+
 .player_card{
     border: 1px solid #3E5270;
     box-sizing: border-box;
@@ -118,7 +150,7 @@
 }
 
 .game_in_progress{
-
+    white-space: nowrap;
 
     font-family: Ubuntu;
     font-style: normal;

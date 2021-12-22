@@ -16,6 +16,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import {FansIcon} from "../../components/general_icons/general_icons";
 import {DriverScoreIcon} from "../../components/general_icons/general_icons";
 import {LegendIcon} from "../../components/general_icons/general_icons";
+import {Container} from "@mui/material";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -118,6 +119,7 @@ export default function FullLeaderboard() {
     ];
 
     return (
+        <Container>
         <div>
             <a className={classes.widgetName}>{t("leaderboard_widget.header")}</a>
 
@@ -165,5 +167,6 @@ export default function FullLeaderboard() {
                 </TabPanel>
             </div>
         </div>
+        </Container>
     );
 }

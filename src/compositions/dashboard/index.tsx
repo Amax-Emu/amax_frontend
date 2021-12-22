@@ -7,6 +7,7 @@ import {Button, Paper} from "@material-ui/core";
 import IntroWidget from "../../components/introWidget";
 import { useAuthStore } from "../../stores"
 import {useUserDataStore} from "../../stores/userdataStore";
+import {Container} from "@material-ui/core";
 
 
 export default function Dashboard() {
@@ -14,6 +15,7 @@ export default function Dashboard() {
     const user = useUserDataStore()
 
     return (
+        <Container>
         <div className="dashboard_container">
 
             {user.userData?.amax_account
@@ -41,5 +43,6 @@ export default function Dashboard() {
 
             </div>
         </div>
+        </Container>
     )
 }

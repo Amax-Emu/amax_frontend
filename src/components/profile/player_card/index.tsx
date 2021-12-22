@@ -200,12 +200,16 @@ function GetLevelClass(level: number, legend: number) {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            margin: "1em"
+            margin: "1em",
+
         }, data_container2: {
             display: 'flex',
             alignItems: 'flex-start',
             flexDirection: "column",
             marginLeft: "1em",
+            maxWidth: "500px",
+            minWidth: "240px"
+
         },
         container: {
             display: "grid",
@@ -225,11 +229,17 @@ const useStyles = makeStyles((theme: Theme) =>
             alignItems: 'center',
             flexDirection: "row",
             marginBottom: "1em",
+
         },
         avatar: {
             width: "5em",
             height: "5em",
 
+
+        },
+        exp_bar_container: {
+            width: "100%",
+            height: "auto",
 
         },
         menuButton: {
@@ -274,6 +284,7 @@ export default function PlayerCard({
     console.log(percent2)
 
     return (
+
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.avatar_container}>
@@ -293,10 +304,10 @@ export default function PlayerCard({
                         </div>
                     </div>
 
-
+                    <div className={classes.exp_bar_container}>
                     <PlayerExpBar exp_value={Math.round(percent2)}/>
                     <a style={{marginTop: "0.3em"}}>{playerCurrentExp}/{playerLevelupExp}</a>
-
+                    </div>
 
                 </div>
 

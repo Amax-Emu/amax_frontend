@@ -176,22 +176,29 @@ export default function ResponsiveDrawer() {
                     </ListItem>
                 </NavLink>
 
-            <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}>
-                <ListItem button onClick={handleClick} selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>
-                    <ListItemIcon><TableChartIcon/></ListItemIcon>
-                    <ListItemText primary="Leaderboards" />
-                    {open ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-            </NavLink>
-
-            <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <ListItem button >
-
-                        <ListItemText primary="Starred" />
+                <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                    <ListItem button key='Leaderboards' selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                        <ListItemIcon><TableChartIcon/></ListItemIcon>
+                        <ListItemText primary="Leaderboards" />
                     </ListItem>
-                </List>
-            </Collapse>
+                </NavLink>
+
+            {/*<NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}>*/}
+            {/*    <ListItem button onClick={handleClick} selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>*/}
+            {/*        <ListItemIcon><TableChartIcon/></ListItemIcon>*/}
+            {/*        <ListItemText primary="Leaderboards" />*/}
+            {/*        {open ? <ExpandLess /> : <ExpandMore />}*/}
+            {/*    </ListItem>*/}
+            {/*</NavLink>*/}
+
+            {/*<Collapse in={open} timeout="auto" unmountOnExit>*/}
+            {/*    <List component="div" disablePadding>*/}
+            {/*        <ListItem button >*/}
+
+            {/*            <ListItemText primary="Starred" />*/}
+            {/*        </ListItem>*/}
+            {/*    </List>*/}
+            {/*</Collapse>*/}
 
 
 

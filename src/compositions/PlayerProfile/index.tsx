@@ -3,15 +3,10 @@ import * as React from "react"
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {useTranslation} from "react-i18next";
 import PlayerCard from "../../components/profile/player_card";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import {RaceIcon} from "../../components/general_icons/general_icons";
-import {DriverScoreIcon} from "../../components/general_icons/general_icons";
-import {FansIcon} from "../../components/general_icons/general_icons";
-import {TimeIcon} from "../../components/general_icons/general_icons";
-import * as moment from "moment";
 import PlayerProfileStats from "../../components/profile/players_stats/player_stats";
 import PlayerPastRaces from "../player_past_races/player_past_races";
 import ProfileActionMenu from "../../components/profile/action_menu/profile_action_menu";
+import {Container} from "@mui/material";
 
 const { AMAX_API_URL } = process.env;
 
@@ -172,7 +167,7 @@ export default function PlayerProfile () {
 
 
     return (
-        <>
+        <Container>
             {severDataFlag
                 ? (<div>
                         <div style={{display: "flex",flexDirection: "row",flexWrap: "wrap"}}>
@@ -186,6 +181,6 @@ export default function PlayerProfile () {
 
                 ) : ( <a>Loading</a> )
             }
-        </>
+        </Container>
 );
 }

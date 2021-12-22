@@ -55,5 +55,22 @@
   "appbar": {
     "login_discord": "Login with Discord",
     "profile": "Profile"
+  },
+  "how_to_play": {
+    "header": "How to play Blur online",
+    "login_step_header": "Login with your Discord account",
+    "login_step_text": "Login with your Discord account using the button below",
+    "blur_download_step_header": "Get a copy of Blur",
+    "blur_download_step_text": "Install Blur from your legally owned DVD from 2010 or download it from your Steam library.",
+    "patch_step_header": "Install patch 1.2",
+    "patch_step_text1": "You can download patch 1.2 files from here. ",
+    "patch_step_text2": "You don't need to do it if you installed game thought Steam",
+    "patch_step_text3": "Place patch files to the root of your Blur installation",
+    "amax_emu_step_header": "Add Amax Emu files",
+    "amax_emu_step_text": "Download latest Amax Emu files from here and place them into root of your Blur installation.",
+    "amax_emu_login_step_header": "Login into the Amax Emu in the game",
+    "amax_emu_login_step_text": "Login into the Amax Emu using your username and password.",
+    "play_step_header": "Play Blur",
+    "play_step_text": "Enjoy Blur like it is 2010 again!"
   }
 }
