@@ -12,9 +12,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import AmaxAppBar from "../appbar";
-import { NavLink,useLocation } from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
 import {MenuItem} from "@material-ui/core";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -39,9 +39,12 @@ import UserStats from "../../components/appbar/player_stats";
 import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 import Button from "@material-ui/core/Button";
 import {useTranslation} from "react-i18next";
+import Avatar from "@material-ui/core/Avatar";
+import PlayerAvatarWidgetAppBar from "../../components/appbar/PlayerAvatarWidget/PlayerAvatarWidget";
+import PlayerStatsWidgetAppBar from "../../components/appbar/PlayerStatsWidget/PlayerStatsWidget";
 
 
-const { AMAX_API_URL } = process.env;
+const {AMAX_API_URL} = process.env;
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -62,7 +65,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center",
         alignSelf: "center",
 
-    },logoImageMobile: {
+    }, logoImageMobile: {
         justifySelf: "center",
         alignItems: "center",
         alignSelf: "center",
@@ -100,7 +103,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "#3E5270",
         borderRadius: 4
     },
-    menuitem:{
+    menuitem: {
         borderRadius: 4,
         marginTop: "0.5em",
         marginBottom: "0.5em",
@@ -114,11 +117,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
 export default function ResponsiveDrawer() {
     const [isDesktop, setDesktop] = React.useState(window.innerWidth < 600);
 
-    const [open,setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(true);
     const handleClick = () => {
         setOpen(!open);
     };
@@ -137,7 +139,7 @@ export default function ResponsiveDrawer() {
     const theme = useTheme();
     const isMobile = window.screen.width < 600
 
-    const { t, i18n } = useTranslation()
+    const {t, i18n} = useTranslation()
 
     const [path, setPath] = React.useState("");
 
@@ -145,9 +147,9 @@ export default function ResponsiveDrawer() {
 
     useEffect(() => {
         setPath(location.pathname);
-    }, [location,setPath]);
+    }, [location, setPath]);
 
-    const activeRoute = (route:string) => {
+    const activeRoute = (route: string) => {
         //return route === path;
         return path.includes(route)
     }
@@ -162,91 +164,119 @@ export default function ResponsiveDrawer() {
     const drawer = (
         <div>
             <List className={classes.menulist}>
-                <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none',}}>
-                    <ListItem button key='Dashboard' selected={activeRoute("/Dashboard")} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}}
+                         activeStyle={{color: '#E5E5E5', textDecoration: 'none',}}>
+                    <ListItem button key='Dashboard' selected={activeRoute("/Dashboard")}
+                              classes={{root: classes.menuitem, selected: classes.selected}}>
                         <ListItemIcon><DashboardIcon/></ListItemIcon>
-                        <ListItemText primary="Dashboard" />
+                        <ListItemText primary="Dashboard"/>
                     </ListItem>
                 </NavLink>
 
-                <NavLink to={"/past_races/1"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-                    <ListItem button key='Games feed' selected={activeRoute("/past_races")} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                <NavLink to={"/past_races/1"} style={{color: '#92929F', textDecoration: 'none'}}
+                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                    <ListItem button key='Games feed' selected={activeRoute("/past_races")}
+                              classes={{root: classes.menuitem, selected: classes.selected}}>
                         <ListItemIcon><HistoryIcon/></ListItemIcon>
-                        <ListItemText primary="Games feed" />
+                        <ListItemText primary="Games feed"/>
                     </ListItem>
                 </NavLink>
 
-                <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-                    <ListItem button key='Leaderboards' selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>
+                <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}
+                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                    <ListItem button key='Leaderboards' selected={activeRoute("/leaderboards")}
+                              classes={{root: classes.menuitem, selected: classes.selected}}>
                         <ListItemIcon><TableChartIcon/></ListItemIcon>
-                        <ListItemText primary="Leaderboards" />
+                        <ListItemText primary="Leaderboards"/>
                     </ListItem>
                 </NavLink>
 
-            {/*<NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}>*/}
-            {/*    <ListItem button onClick={handleClick} selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>*/}
-            {/*        <ListItemIcon><TableChartIcon/></ListItemIcon>*/}
-            {/*        <ListItemText primary="Leaderboards" />*/}
-            {/*        {open ? <ExpandLess /> : <ExpandMore />}*/}
-            {/*    </ListItem>*/}
-            {/*</NavLink>*/}
+                {/*<NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}>*/}
+                {/*    <ListItem button onClick={handleClick} selected={activeRoute("/leaderboards")} classes = {{root: classes.menuitem, selected: classes.selected}}>*/}
+                {/*        <ListItemIcon><TableChartIcon/></ListItemIcon>*/}
+                {/*        <ListItemText primary="Leaderboards" />*/}
+                {/*        {open ? <ExpandLess /> : <ExpandMore />}*/}
+                {/*    </ListItem>*/}
+                {/*</NavLink>*/}
 
-            {/*<Collapse in={open} timeout="auto" unmountOnExit>*/}
-            {/*    <List component="div" disablePadding>*/}
-            {/*        <ListItem button >*/}
+                {/*<Collapse in={open} timeout="auto" unmountOnExit>*/}
+                {/*    <List component="div" disablePadding>*/}
+                {/*        <ListItem button >*/}
 
-            {/*            <ListItemText primary="Starred" />*/}
-            {/*        </ListItem>*/}
-            {/*    </List>*/}
-            {/*</Collapse>*/}
-
-
-
-        </List>
-    <Divider variant="middle"/>
-    <List className={classes.menulist}>
+                {/*            <ListItemText primary="Starred" />*/}
+                {/*        </ListItem>*/}
+                {/*    </List>*/}
+                {/*</Collapse>*/}
 
 
-        <NavLink to={"/how_to_play"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-            <ListItem button key='howtoplay' selected={activeRoute("/how_to_play")} classes = {{root: classes.menuitem, selected: classes.selected}}>
-                <ListItemIcon><HelpIcon/></ListItemIcon>
-                <ListItemText primary="How to play" />
-            </ListItem>
-        </NavLink>
+            </List>
+            <Divider variant="middle"/>
+            <List className={classes.menulist}>
 
-        <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}} activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-            <ListItem button key='news' selected={activeRoute("/news")} classes = {{root: classes.menuitem, selected: classes.selected}}>
-                <ListItemIcon><AnnouncementIcon/></ListItemIcon>
-                <ListItemText primary="News" />
-            </ListItem>
-        </NavLink>
 
-        {user.userData?.amax_account
+                <NavLink to={"/how_to_play"} style={{color: '#92929F', textDecoration: 'none'}}
+                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                    <ListItem button key='howtoplay' selected={activeRoute("/how_to_play")}
+                              classes={{root: classes.menuitem, selected: classes.selected}}>
+                        <ListItemIcon><HelpIcon/></ListItemIcon>
+                        <ListItemText primary="How to play"/>
+                    </ListItem>
+                </NavLink>
 
-            ? (<NavLink to={'/profile/'+user.userData?.amax_player_data.stats.playerName} style={{color: '#92929F', textDecoration: 'none'}}
-                        activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-            <ListItem button key='profile' selected={activeRoute('/profile/'+user.userData?.amax_player_data.stats.playerName)}
-                      classes={{root: classes.menuitem, selected: classes.selected}}>
-                <ListItemIcon><AccountBoxIcon/></ListItemIcon>
-                <ListItemText primary="Profile"/>
-            </ListItem>
-        </NavLink>)
-            : <></>
-        }
+                <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}}
+                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                    <ListItem button key='news' selected={activeRoute("/news")}
+                              classes={{root: classes.menuitem, selected: classes.selected}}>
+                        <ListItemIcon><AnnouncementIcon/></ListItemIcon>
+                        <ListItemText primary="News"/>
+                    </ListItem>
+                </NavLink>
 
-        <ListItem button key='discord' href={"https://discord.gg/pbt6DzQPGY"}>
-            <ListItemIcon><DiscordIcon/></ListItemIcon>
-            <ListItemText primary="Discord server" />
-        </ListItem>
+                {user.userData?.amax_account
 
-    </List>
+                    ? (<NavLink to={'/profile/' + user.userData?.amax_player_data.stats.playerName}
+                                style={{color: '#92929F', textDecoration: 'none'}}
+                                activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                        <ListItem button key='profile'
+                                  selected={activeRoute('/profile/' + user.userData?.amax_player_data.stats.playerName)}
+                                  classes={{root: classes.menuitem, selected: classes.selected}}>
+                            <ListItemIcon><AccountBoxIcon/></ListItemIcon>
+                            <ListItemText primary="Profile"/>
+                        </ListItem>
+                    </NavLink>)
+                    : <></>
+                }
+
+                <ListItem button key='discord' href={"https://discord.gg/pbt6DzQPGY"}>
+                    <ListItemIcon><DiscordIcon/></ListItemIcon>
+                    <ListItemText primary="Discord server"/>
+                </ListItem>
+
+            </List>
 
         </div>
     );
-    console.log(user)
+
+    const PlayerStatsWidget = () => {
+        if (user.userData?.amax_account !== undefined) {
+            if (user.userData?.amax_account === true) {
+                return (<UserStats user_level={user.userData.amax_player_data.leveling.level + 1}
+                                   user_legend={user.userData.amax_player_data.leveling.legend}
+                                   user_exp={user.userData.amax_player_data.leveling.fans}
+                                   user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent}
+                                   user_name={user.userData.amax_player_data.stats.playerName}/>
+                )
+            } else {
+                return <></>
+            }
+        } else {
+            return <></>
+        }
+    }
+
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
 
             {isDesktop ? (
                 <AppBar position="fixed" className={classes.appBar}>
@@ -258,24 +288,15 @@ export default function ResponsiveDrawer() {
                             onClick={handleDrawerToggle}
                             className={classes.menuButton}
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <img className={classes.logoImageMobile} src={AmaxLogo}/>
 
-                    <LanguageSelector/>
+                        <LanguageSelector/>
 
-                    {/* Added a questionmark in front of the . for type safety xoxo */}
-                    {user.userData?.amax_account !== undefined
-                        ? <UserStats user_level={user.userData.amax_player_data.leveling.level+1} user_legend={user.userData.amax_player_data.leveling.legend} user_exp={user.userData.amax_player_data.leveling.fans} user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent} user_name={user.userData.amax_player_data.stats.playerName} />
-                        : <></>
-                    }
+                        <PlayerStatsWidgetAppBar/>
 
-                    {/* Added a questionmark in front of the . for type safety xoxo */}
-                    {user.userData?.amax_account !== undefined
-                        ? <PlayerAvatar url={user.userData.avatarUrl} badge_count={user.userData.amax_player_data.friends_purposes.incoming.length} friends_incoming={user.userData.amax_player_data.friends_purposes.incoming}/>
-                        : <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
-
-                    }
+                        <PlayerAvatarWidgetAppBar/>
                     </Toolbar>
                 </AppBar>
 
@@ -308,26 +329,26 @@ export default function ResponsiveDrawer() {
                 </Hidden>
                 <Hidden xsDown implementation="css">
 
-                <Drawer
-                    className={classes.drawer}
-                    variant="permanent"
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                >
-                    <div className={classes.toolbar}>
-                        <div className={classes.logo}>
-                            <NavLink to={"/"}>
-                                <img className={classes.logo} src={AmaxLogo} />
-                            </NavLink>
+                    <Drawer
+                        className={classes.drawer}
+                        variant="permanent"
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                    >
+                        <div className={classes.toolbar}>
+                            <div className={classes.logo}>
+                                <NavLink to={"/"}>
+                                    <img className={classes.logo} src={AmaxLogo}/>
+                                </NavLink>
+                            </div>
                         </div>
-                    </div>
-                    {drawer}
-                </Drawer>
-            </Hidden>
+                        {drawer}
+                    </Drawer>
+                </Hidden>
             </nav>
             <div className={classes.content}>
-                <div className={classes.toolbar} />
+                <div className={classes.toolbar}/>
 
             </div>
         </div>

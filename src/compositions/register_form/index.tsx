@@ -144,7 +144,7 @@ export default function CreateBlurAccountForm() {
 
     const [PostState, setPostState] = React.useState(false);
 
-    const [value, setValue] = React.useState('1');
+    const [value, setValue] = React.useState('0');
 
     const [state, setState] = React.useState(false);
 
@@ -174,6 +174,7 @@ export default function CreateBlurAccountForm() {
     }
 
     const handleChange = (event) => {
+        console.log(event)
         setValue(event.target.value);
     };
 
@@ -261,17 +262,19 @@ export default function CreateBlurAccountForm() {
                                 <FormHelperText error>
                                     {errors.accountType ? errors.accountType.message : " "}
                                 </FormHelperText>
-                                <FormControlLabel className={classes.selectWide} value="1" control={<Radio/>}
-                                                  label={<Typography><h3>Normal account</h3>
+                                <FormControlLabel className={classes.selectWide} value="1"  onClick={()=> setValue("1")} control={<Radio/>}
+                                                  label={
+                                                      <Typography><h3>Normal account</h3>
                                                       <ul>
                                                           <li>Account progression</li>
                                                           <li>Leaderboards</li>
                                                           <li>Legendary cars</li>
                                                       </ul>
-                                                  </Typography>}/>
-                                <FormControlLabel className={classes.selectWide} value="0" control={<Radio/>}
+                                                  </Typography>
+}/>
+                                <FormControlLabel className={classes.selectWide} value="0" onClick={()=> setValue("0")} control={<Radio/>}
                                                   label={<Typography><h3>Fully unlocked account</h3>
-                                                      <ul>
+                                                      <ul >
                                                           <li>All cars and mods unlocked</li>
                                                           <li>No leaderboards</li>
                                                       </ul>
