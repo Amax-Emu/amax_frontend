@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             flexGrow: 1,
-            margin: 8
         },
         menuButton: {
             backgroundColor: "#111111"

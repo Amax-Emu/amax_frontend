@@ -28,7 +28,7 @@
 
 .main_widget_container { grid-area: main-widget;
     place-self: center stretch;
-    padding: 1em;}
+}
 .column1_container { grid-area: first;
     justify-items: stretch;
     justify-self: center;

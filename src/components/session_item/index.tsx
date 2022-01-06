@@ -83,6 +83,22 @@ function GetGametypeData(game_mode_id:string) {
                 header_image: headers.hardcore_racing_header
             }
         }
+
+        case "custom_game":{
+            return {
+                name: "Custom game",
+                icon: icons.default_icon,
+                header_image: headers.driving_school_header
+            }
+        }
+
+        case "unknown":{
+            return {
+                name: "Session",
+                icon: icons.default_icon,
+                header_image: headers.driving_school_header
+            }
+        }
     }
 }
 
@@ -90,6 +106,7 @@ function GetGametypeData(game_mode_id:string) {
 
 export default function SessionItem({data}:{data: Session}) {
     const { t, i18n } = useTranslation()
+    console.log(data.gameType)
     const mediadata = GetGametypeData(data.gameType)
 
     const GameStatus = () => {

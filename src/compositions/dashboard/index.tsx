@@ -32,7 +32,7 @@ export default function Dashboard() {
                 </div>
                 <div className="column3_container">
                     <ServerStatus/>
-                    {auth.signIn
+                    {user.userData?.amax_account
                         ? <div style={{marginTop: 200}}>
                             <iframe src="https://discord.com/widget?id=840455397818630175&theme=dark" width="350"
                                     height="500"
