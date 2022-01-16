@@ -7,11 +7,15 @@ import {Box} from "@material-ui/core";
 import {useUserDataStore} from "../../../stores/userdataStore";
 import axios from "axios";
 import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+import MuiAlert, {AlertProps} from '@material-ui/lab/Alert';
 import {useAuthStore} from "../../../stores";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ChangePasswordForm from "../../../compositions/pasword_change_form/pasword_change_from";
+
+
 const {AMAX_API_URL} = process.env;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -49,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) =>
             // boxShadow: "inset 0px 0px 4px rgba(120, 179, 233, 0.6)",
             // filter: "drop-shadow(0px 0px 20px rgba(4, 90, 255, 0.9))"
         },
-        sswidget_container:{
+        sswidget_container: {
             display: 'inline-flex',
             flex: "0 1 auto",
             flexBasis: "33.33%",
@@ -70,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) =>
             color: "#92929F",
 
         },
-        sswidget_icon_value:{
+        sswidget_icon_value: {
             display: "flex",
             flexDirection: 'row',
             flexWrap: 'wrap',
@@ -78,7 +82,7 @@ const useStyles = makeStyles((theme: Theme) =>
             fontWeight: "bold",
             color: "#E6E6E6",
         },
-        sswidgets_container:{
+        sswidgets_container: {
             display: "flex",
             maxWidth: "600px",
             maxHeight: "180px",
@@ -86,11 +90,11 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             margin: "1em"
 
-        },modal: {
+        }, modal: {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-        },paper: {
+        }, paper: {
             backgroundColor: theme.palette.background.paper,
             borderRadius: 8,
             padding: "1em",
@@ -101,6 +105,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
             //padding: theme.spacing(2, 4, 3),
         },
+        circularProgress: {
+            marginLeft: 0,
+            marginRight: theme.spacing.unit,
+        },
+        ButtonsContainer: {
+            display: 'flex',
+            flexDirection: "column",
+            alignItems: 'flex-start',
+            gap: "0.2em",
+            justifyContent: 'center'
+        }
     }),
 );
 
@@ -113,35 +128,81 @@ type response = {
     msg: string;
 }
 
-export default function ProfileActionMenu({user_name}:{user_name:string}) {
-    const { t, i18n } = useTranslation()
+export default function ProfileActionMenu({user_name}: { user_name: string }) {
+    const {t, i18n} = useTranslation()
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [openModal, setOpenModal] = React.useState(false);
+    const [openPasswordModal, setOpenPasswordModal] = React.useState(false);
     const [serverResponse, setResponse] = React.useState<response | undefined>(undefined);
+    const [accountChangeServerResponse, setAccountChangeServerResponse] = React.useState<response | undefined>(undefined);
+    const [accountChangeLoading, setAccountChangeLoading] = React.useState<boolean>(false);
     const [ChangedFlag, setChanged] = React.useState(false);
     const user = useUserDataStore()
     const auth = useAuthStore()
 
     const handleModalOpen = () => {
+        setAccountChangeLoading(false)
+        setAccountChangeServerResponse(undefined)
         setOpenModal(true);
     };
 
     const handleModalClose = () => {
         setOpenModal(false);
+        UpdateProfile();
     };
 
+    const handlePasswordModalClose = () => {
+        setOpenPasswordModal(false);
+    };
+
+    const handlePasswordModalOpen = () => {
+        setOpenPasswordModal(true);
+    };
+
+
     function UpdateProfile() {
-        console.log('render!');
         React.useEffect(() => {
-            console.log('render!');
             const poop = async () => {
                 await user.getData()
             }
-            poop().then(() => {})
+            poop().then(() => {
+            })
         })
     }
 
+
+    const changeAccountType = () => {
+        setAccountChangeLoading(true)
+
+        const data = {
+            call: "account_change"
+        }
+        axios.post(AMAX_API_URL + '/players/change_account_type',
+
+            data, {
+                headers: {
+                    'content-type': 'application/json;charset=UTF-8',
+                    'Authorization': `Bearer ${auth.user.token}`
+                }
+            }
+        ).then(response => {
+                console.log(response)
+                setAccountChangeServerResponse(response.data)
+                poop().then(() => {
+                })
+
+            }
+        )
+            .catch(error => {
+                console.log(error.response)
+                setAccountChangeServerResponse(error.response.data)
+                poop().then(() => {
+                })
+
+            });
+        setAccountChangeLoading(false)
+    };
 
 
     const AddFriendRequest = () => {
@@ -159,14 +220,16 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-            poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
                 console.log(error.response)
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             });
 
@@ -187,14 +250,16 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
                 console.log(error.response)
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             });
 
@@ -215,14 +280,16 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
                 console.log(error.response)
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             });
 
@@ -247,13 +314,15 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-            poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 console.log(error.response)
                 handleClick()
             });
@@ -275,13 +344,15 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
-                poop().then(() => {})
+                poop().then(() => {
+                })
                 console.log(error.response)
                 handleClick()
             });
@@ -300,6 +371,42 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
         setOpen(false);
     };
 
+    const ChangeAccoutButton = () => {
+        if (accountChangeLoading !== true) {
+            if (accountChangeServerResponse === undefined) {
+                return (
+                    <Button color="primary" variant="contained" onClick={changeAccountType}>
+                        Change account type
+                    </Button>
+                )
+
+            } else {
+                if (accountChangeServerResponse!.success === true) {
+                    return (
+                        <Button color="primary" variant="contained" disabled>
+                            {accountChangeServerResponse!.msg}
+                        </Button>
+                    )
+
+                } else {
+                    return (
+                        <Button color="primary" variant="contained" disabled>
+                            {accountChangeServerResponse!.msg}
+                        </Button>
+                    )
+                }
+
+            }
+        } else {
+            return (
+                <Button color="primary" variant="contained" disabled>
+                    <CircularProgress className={classes.circularProgress} size={20}/>
+                    Loading
+                </Button>
+            )
+        }
+    }
+
     const ResultAlert = () => {
         if (serverResponse !== undefined) {
             if (serverResponse.success) {
@@ -309,9 +416,9 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
                     </Alert>
                 )
             } else {
-                return ( <Alert onClose={handleClose} severity="error">
-                    {serverResponse.msg}
-                </Alert>
+                return (<Alert onClose={handleClose} severity="error">
+                        {serverResponse.msg}
+                    </Alert>
                 )
             }
         } else {
@@ -328,24 +435,30 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
             } else if (user.userData.amax_player_data.friends_purposes.outcoming.includes(user_name)) {
                 return (
                     <Button color="primary" variant="contained" onClick={CancelFriendRequest}>
-                    Cancel friend request
-                </Button>)
+                        Cancel friend request
+                    </Button>)
             } else if (user.userData.amax_player_data.friends_purposes.incoming.includes(user_name)) {
                 return (
                     <>
-                    <Button color="primary" variant="contained" onClick={AcceptFriendRequest}>
-                        Accept friend request
-                    </Button>
-                    <Button color="primary" variant="contained" onClick={DeclineFriendRequest}>
-                        Decline friend request
-                    </Button>
+                        <Button color="primary" variant="contained" onClick={AcceptFriendRequest}>
+                            Accept friend request
+                        </Button>
+                        <Button color="primary" variant="contained" onClick={DeclineFriendRequest}>
+                            Decline friend request
+                        </Button>
                     </>
                 )
             } else if (user.userData?.amax_player_data.stats.playerName === user_name) {
                 return (
+                    <>
                     <Button color="primary" variant="contained" onClick={handleModalOpen}>
                         Change account type
                     </Button>
+
+                <Button color="primary" variant="contained" onClick={handlePasswordModalOpen}>
+                    Change password
+                </Button>
+                    </>
                 )
             } else {
                 return (
@@ -353,7 +466,7 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
                         Add friend
                     </Button>)
             }
-        }  else {
+        } else {
             return (<></>)
         }
     }
@@ -361,7 +474,9 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
     return (
         <Box>
 
+            <div className={classes.ButtonsContainer}>
             <AddRemoveFriendButton/>
+            </div>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
                 <ResultAlert/>
             </Snackbar>
@@ -381,11 +496,35 @@ export default function ProfileActionMenu({user_name}:{user_name:string}) {
                 <Fade in={openModal}>
                     <div className={classes.paper}>
                         <Box>
-                        <h2 id="transition-modal-title">Attention!</h2>
-                        <p id="transition-modal-description">Account type change can't be reversed! You'll lost all your normal account progress. If you're 100% sure press the button below.</p>
-                        <Button color="primary" variant="contained" onClick={handleModalClose}>
-                            Change accout type
-                        </Button>
+                            <h2 id="transition-modal-title">Attention!</h2>
+                            <p id="transition-modal-description">Account type change can't be reversed! You'll
+                                lost all your normal account progress. If you're 100% sure press the button
+                                below.</p>
+                            <ChangeAccoutButton/>
+                        </Box>
+                    </div>
+                </Fade>
+            </Modal>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={openPasswordModal}
+                onClose={handlePasswordModalClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={openPasswordModal}>
+                    <div className={classes.paper}>
+                        <Box>
+                            <ChangePasswordForm/>
+                            <Button color="primary" variant="contained" onClick={handlePasswordModalClose}>
+                                Close
+                            </Button>
                         </Box>
                     </div>
                 </Fade>

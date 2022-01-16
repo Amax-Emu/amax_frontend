@@ -7,6 +7,7 @@ import {useUserDataStore} from "../../../stores/userdataStore";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {DiscordIcon} from "../../../compositions/appbar";
 import {useTranslation} from "react-i18next";
+import IconButton from '@material-ui/core/IconButton';
 
 const { AMAX_API_URL } = process.env;
 const useStyles = makeStyles((theme: Theme) =>
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         DiscordButton: {
             backgroundColor: '#7289DA',
+            marginLeft: "auto"
         },
         DiscordIcon: {
             width: "24px",
@@ -65,6 +67,22 @@ export default function PlayerAvatarWidgetAppBar() {
     const classes = useStyles();
     const { t, i18n } = useTranslation()
 
+    const [isMobile, setIsMobile] = React.useState(false)
+
+    //choose the screen size
+    const handleResize = () => {
+        if (window.innerWidth < 720) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+    }
+
+    // create an event listener
+    React.useEffect(() => {
+        window.addEventListener("resize", handleResize)
+    })
+
     const PlayerAvatarWidgetComponent = () => {
         if (user.userData?.amax_account !== undefined) {
             if (user.userData?.amax_account === true) {
@@ -84,8 +102,19 @@ export default function PlayerAvatarWidgetAppBar() {
                 </>)
             }
         } else {
-            return (<Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation
-                            endIcon={<DiscordIcon/>}>{t("appbar.login_discord")}</Button>)
+
+            if (isMobile) {
+                return (
+                    <IconButton aria-label="login" href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation>
+                        <DiscordIcon />
+                    </IconButton>
+                )
+            } else {
+                return (<Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation
+                                endIcon={<DiscordIcon/>}>
+                    {t("appbar.login_discord")}
+                </Button>)
+            }
         }
     }
     return(<PlayerAvatarWidgetComponent/>)

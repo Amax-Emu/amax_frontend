@@ -3,6 +3,7 @@ import * as React from "react"
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {useTranslation} from "react-i18next";
 import PlayerCard from "../../components/profile/player_card";
+import Chip from '@material-ui/core/Chip';
 import PlayerProfileStats from "../../components/profile/players_stats/player_stats";
 import PlayerPastRaces from "../player_past_races/player_past_races";
 import ProfileActionMenu from "../../components/profile/action_menu/profile_action_menu";
@@ -23,6 +24,7 @@ export interface Data {
     isOnline:       boolean;
     status:         number;
     isGameBanned:   boolean;
+    accountType:    number;
 }
 
 export interface AmaxPlayerData {
@@ -56,8 +58,8 @@ export interface AmaxStatsData {
 
 export interface BanData {
     ban_reason: string;
-    ban_start: string;
-    ban_end: string;
+    ban_start: Date;
+    ban_end: Date;
 }
 
 
@@ -171,7 +173,13 @@ export default function PlayerProfile () {
             {severDataFlag
                 ? (<div>
                         <div style={{display: "flex",flexDirection: "row",flexWrap: "wrap"}}>
-                    <PlayerCard playerName={profileName} playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent} playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1} playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend} playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded} playerPfpUrl={"123"}/>
+                    <PlayerCard playerName={profileName}
+                                playerCurrentExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansCurrent}
+                                playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1}
+                                playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend}
+                                playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded}
+                                playerPfpUrl={"123"}
+                                playerAccountType={targetPlayerData.data.accountType}/>
                         <ProfileActionMenu user_name={targetPlayerData.data.player_name}/>
                         </div>
                         <PlayerProfileStats playerStatsData={targetPlayerData.data.amaxPlayerData.amaxStatsData}/>

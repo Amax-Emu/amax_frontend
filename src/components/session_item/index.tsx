@@ -46,7 +46,7 @@ function GetGametypeData(game_mode_id:string) {
 
         case "motor_mash":{
             return {
-                name: t("sessions_widget.gamemode.motor_mash"),
+                name: t("sessions_widget.gamemode.motormash"),
                 icon: icons.motor_mash_icon,
                 header_image: headers.motor_mash_header
             }
@@ -62,7 +62,7 @@ function GetGametypeData(game_mode_id:string) {
 
         case "world_tour":{
             return {
-                name: t("sessions_widget.gamemode.world_tour"),
+                name: t("sessions_widget.gamemode.worldtour"),
                 icon: icons.world_tour_icon,
                 header_image: headers.world_tour_header
             }
@@ -70,8 +70,8 @@ function GetGametypeData(game_mode_id:string) {
 
         case "driving_school":{
             return {
-                name: t("sessions_widget.gamemode.driving_school"),
-                icon: icons.default_icon,
+                name: t("sessions_widget.gamemode.drivingschool"),
+                icon: icons.driving_school,
                 header_image: headers.driving_school_header
             }
         }
@@ -106,7 +106,6 @@ function GetGametypeData(game_mode_id:string) {
 
 export default function SessionItem({data}:{data: Session}) {
     const { t, i18n } = useTranslation()
-    console.log(data.gameType)
     const mediadata = GetGametypeData(data.gameType)
 
     const GameStatus = () => {
@@ -144,7 +143,7 @@ export default function SessionItem({data}:{data: Session}) {
                         <div className={"playersCounter"}>
                             <PeopleIcon  style={{fontSize: "1.2rem",display: "inline-block"}} />
                             <div style={{fontSize: "1.2rem",display: "inline-block",marginLeft:"0.3rem"}}>
-                                {(data.totalSlots - data.availableSlots) + "/" + data.totalSlots}
+                                {data.players_list.length + "/" + data.totalSlots}
                             </div>
                         </div>
                     </div>

@@ -9,6 +9,7 @@ import {Grid} from "@mui/material";
 import Button from "@material-ui/core/Button";
 import {DiscordIcon} from "../appbar";
 import {useTranslation} from "react-i18next";
+import { NavLink,useLocation } from 'react-router-dom';
 
 
 const { AMAX_API_URL } = process.env;
@@ -56,6 +57,17 @@ export default function HowToPlay() {
                     <br/>
                     <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
                         </li>
+
+                        <li className={classes.listItem}>
+
+                            <h2 className={classes.stepHeader} >{t("how_to_play.create_amax_account_header")}</h2>
+                            <a>{t("how_to_play.create_amax_account_text")}</a>
+                            <br/>
+                            <NavLink to={"/register"} style={{color: '#92929F', textDecoration: 'none'}}>
+                            <Button color="primary" variant="contained" >{t("appbar.create_amax_account")}</Button>
+                                </NavLink>
+                        </li>
+
                         <li className={classes.listItem}>
                         <h2 className={classes.stepHeader}>{t("how_to_play.blur_download_step_header")}</h2>
                     <a>{t("how_to_play.blur_download_step_text")}</a>

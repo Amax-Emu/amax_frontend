@@ -10,8 +10,10 @@
     "gamemode": {
       "skirmish": "Skirmish racing",
       "drivingschool": "Driving school",
-      "powerupracing": "Power-up racing",
+      "powered_up_racing": "Powered-up racing",
       "teamracing": "Team racing",
+      "hardcore_racing": "Hardcore racing",
+      "team_motor_mash": "Team Motor Mash",
       "motormash": "Motor Mash",
       "communityevent": "Community events",
       "worldtour": "World tour"
@@ -54,12 +56,15 @@
   },
   "appbar": {
     "login_discord": "Login with Discord",
+    "create_amax_account": "Create Amax Emu account",
     "profile": "Profile"
   },
   "how_to_play": {
     "header": "How to play Blur online",
     "login_step_header": "Login with your Discord account",
     "login_step_text": "Login with your Discord account using the button below",
+    "create_amax_account_header": "Create Amax Emu account",
+    "create_amax_account_text": "Create Amax emu (in game) account using the button below.",
     "blur_download_step_header": "Get a copy of Blur",
     "blur_download_step_text": "Install Blur from your legally owned DVD from 2010 or download it from your Steam library.",
     "patch_step_header": "Install patch 1.2",

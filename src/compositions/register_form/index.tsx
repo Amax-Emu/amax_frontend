@@ -19,7 +19,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import ReactMarkdown from 'react-markdown'
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import remarkGfm from 'remark-gfm'
 import axios from 'axios';
@@ -90,6 +90,10 @@ const useStyles = makeStyles((theme: Theme) =>
         errorIcon: {
             backgroundColor: 'red',
         },
+        hiddenClass: {
+            visibility: 'hidden',
+            height: "0px"
+        },
     }));
 
 type BlurPlayerSubmitForm = {
@@ -119,7 +123,7 @@ const validationSchema =
             .max(15, 'Password must not exceed 15 characters')
             .matches(
                 /^.*(?=.{8,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
-                "Password must contain at least 8 characters, one uppercase and one number"
+                "Password must contain at least 8 characters, one uppercase, one lowercase and one number"
             ),
         confirmPassword: Yup.string()
             .required('Confirm Password is required')
@@ -144,14 +148,13 @@ export default function CreateBlurAccountForm() {
 
     const [PostState, setPostState] = React.useState(false);
 
-    const [value, setValue] = React.useState('0');
+    const [AccoutTypeValue, setAccoutTypeValue] = React.useState("1");
 
     const [state, setState] = React.useState(false);
 
     const [ButtonStyle, setButtonStyle] = React.useState("registerButton");
 
     const ButtonLabel = () => {
-        console.log(serverResponse)
         if (PostState === false) {
             return <Typography>Create account</Typography>
         } else {
@@ -174,13 +177,16 @@ export default function CreateBlurAccountForm() {
     }
 
     const handleChange = (event) => {
-        console.log(event)
-        setValue(event.target.value);
+        console.log(AccoutTypeValue)
+        console.log(event.target.value)
+        setAccoutTypeValue(""+event.target.value)
+        setAccoutTypeValue(""+event.target.value)
+        setAccoutTypeValue(""+event.target.value)
+        console.log(AccoutTypeValue)
     };
 
     const handleChange2 = (event) => {
         setState(event.target.checked);
-        console.log(event.target.checked)
     };
 
     const onSubmit = data => {
@@ -194,13 +200,12 @@ export default function CreateBlurAccountForm() {
                 }
             }
         ).then(response => {
-            setResponse(response.data)
-            setPostState(true)
-            setButtonStyle("successIcon")
-            sleep(2000)
-            history.push("/final_step");}
-
-
+                setResponse(response.data)
+                setPostState(true)
+                setButtonStyle("successIcon")
+                sleep(10000)
+                history.push("/final_steps");
+            }
         )
             .catch(error => {
                 setResponse(error.response.data);
@@ -212,107 +217,20 @@ export default function CreateBlurAccountForm() {
 
     };
 
-    const RegisterForm = () => {
-        return(
-        <Container>
-            <h1>Create new Amax Emu account</h1>
-            <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <TextField {...register("username")} id="outlined-basic" label="Login" variant="outlined"
-                                   className={classes.username}
-                                   helperText={errors.username?.message}
-                                   error={!!errors?.username}
-                        />
-                        <FormHelperText>
-                            <ul>
-                                <li>This will be your in-game username</li>
-                                <li>Minimum length is 5</li>
-                            </ul>
-                        </FormHelperText>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField {...register("password")} id="outlined-basic" label="Password" variant="outlined"
-                                   className={classes.textfield}
-                                   helperText={errors.password?.message}
-                                   error={!!errors?.password}
-                                   type="password"
-                        />
-                        <FormHelperText>
-                            <ul>
-                                <li>Password must be at least 8 characters</li>
-                                <li>Should include at least 1 uppercase, 1 lowercase and 1 number</li>
-                            </ul>
-                        </FormHelperText>
-
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField {...register("confirmPassword")} id="outlined-basic" label="Confirm Password"
-                                   variant="outlined" className={classes.textfield}
-                                   helperText={errors.confirmPassword?.message}
-                                   error={!!errors?.confirmPassword}
-                                   type="password"
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <div>
-                            <FormLabel component="legend">Account type</FormLabel>
-                            <RadioGroup {...register("accountType")} aria-label="accounttype" name="accounttype"
-                                        value={value} onChange={handleChange}>
-                                <FormHelperText error>
-                                    {errors.accountType ? errors.accountType.message : " "}
-                                </FormHelperText>
-                                <FormControlLabel className={classes.selectWide} value="1"  onClick={()=> setValue("1")} control={<Radio/>}
-                                                  label={
-                                                      <Typography><h3>Normal account</h3>
-                                                      <ul>
-                                                          <li>Account progression</li>
-                                                          <li>Leaderboards</li>
-                                                          <li>Legendary cars</li>
-                                                      </ul>
-                                                  </Typography>
-}/>
-                                <FormControlLabel className={classes.selectWide} value="0" onClick={()=> setValue("0")} control={<Radio/>}
-                                                  label={<Typography><h3>Fully unlocked account</h3>
-                                                      <ul >
-                                                          <li>All cars and mods unlocked</li>
-                                                          <li>No leaderboards</li>
-                                                      </ul>
-                                                  </Typography>}/>
-                            </RadioGroup>
-
-
-                        </div>
-                    </Grid>
-
-                    <div>
-                        <Typography>
-                            <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]}>
-                                {eula_text}
-                            </ReactMarkdown>
-                        </Typography>
-                    </div>
-                    <Grid item xs={12}>
-                        <FormControlLabel
-                            control={
-                                <Checkbox {...register("acceptEULA")}
-                                          id="acceptEULA"
-                                          checked={state}
-                                          value={state}
-                                          onChange={handleChange2}
-                                          name="acceptEULA"
-                                          color="primary"
-                                />
-                            }
-                            label="I accept all of above, just let me play."
-                            id="acceptEULA"
-                        />
-                        <FormHelperText error>
-                            {errors.acceptEULA ? errors.acceptEULA.message : " "}
-                        </FormHelperText>
-                    </Grid>
-                </Grid>
-                <Button
+    const CreateAccountButton = () => {
+        if (PostState) {
+            return (<Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                disabled
+                className={classes[ButtonStyle]}
+            >
+                <ButtonLabel/>
+            </Button>)
+        } else {
+                return (<Button
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -321,17 +239,149 @@ export default function CreateBlurAccountForm() {
                     className={classes[ButtonStyle]}
                 >
                     <ButtonLabel/>
-                </Button>
-            </form>
-        </Container>
+                </Button>)
+            }
+    }
+
+    const RegisterForm = () => {
+        return (
+            <Container>
+                <h1>Create new Amax Emu account</h1>
+                <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <TextField {...register("username")} id="outlined-basic" label="Login" variant="outlined"
+                                       className={classes.username}
+                                       helperText={errors.username?.message}
+                                       error={!!errors?.username}
+                            />
+                            <FormHelperText>
+                                <ul>
+                                    <li>This will be your in-game username</li>
+                                    <li>Minimum length is 5</li>
+                                </ul>
+                            </FormHelperText>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField {...register("password")} id="outlined-basic" label="Password" variant="outlined"
+                                       className={classes.textfield}
+                                       helperText={errors.password?.message}
+                                       error={!!errors?.password}
+                                       type="password"
+                            />
+                            <FormHelperText>
+                                <ul>
+                                    <li>Password must be at least 8 characters</li>
+                                    <li>Should include at least 1 uppercase, 1 lowercase and 1 number</li>
+                                </ul>
+                            </FormHelperText>
+
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField {...register("confirmPassword")} id="outlined-basic" label="Confirm Password"
+                                       variant="outlined" className={classes.textfield}
+                                       helperText={errors.confirmPassword?.message}
+                                       error={!!errors?.confirmPassword}
+                                       type="password"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <div>
+                                <FormControl component="fieldset">
+                                <FormLabel component="legend">Account type</FormLabel>
+                                <RadioGroup {...register("accountType")} aria-label="accountType" name="accountType"
+                                            value={AccoutTypeValue} onChange={handleChange}>
+
+                                    <FormControlLabel className={classes.selectWide} value="1"
+                                                      control={<Radio/>}
+                                                      label={
+                                                          <Typography><h3>Normal account</h3>
+                                                              <ul>
+                                                                  <li>Account progression</li>
+                                                                  <li>Leaderboards</li>
+                                                                  <li>Legendary cars</li>
+                                                              </ul>
+                                                          </Typography>
+                                                      }/>
+
+
+                                    <FormControlLabel className={classes.selectWide} value="0"
+                                                      control={<Radio/>}
+                                                      label={<Typography><h3>Fully unlocked account</h3>
+                                                          <ul>
+                                                              <li>All cars and mods unlocked</li>
+                                                              <li>No leaderboards</li>
+                                                          </ul>
+                                                      </Typography>}/>
+
+                                    <FormHelperText error>
+                                        {errors.accountType ? errors.accountType.message : " "}
+                                    </FormHelperText>
+
+                                </RadioGroup>
+
+                                </FormControl>
+                            </div>
+                        </Grid>
+
+                        <div className={classes.hiddenClass}>
+                        <FormControl component="fieldset">
+                            <RadioGroup {...register("accountType")} aria-label="temp" name="temp11" value={AccoutTypeValue} onChange={handleChange}>
+                                <FormControlLabel value="0" control={<Radio />} label="temp1" />
+                                <FormControlLabel value="1" control={<Radio />} label="temp2" />
+                                <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
+                            </RadioGroup>
+
+                        </FormControl>
+                        </div>
+
+                        <div>
+                            <Typography>
+                                <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]}>
+                                    {eula_text}
+                                </ReactMarkdown>
+                            </Typography>
+                        </div>
+                        <Grid item xs={12}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox {...register("acceptEULA")}
+                                              id="acceptEULA"
+                                              checked={state}
+                                              value={state}
+                                              onChange={handleChange2}
+                                              name="acceptEULA"
+                                              color="primary"
+                                    />
+                                }
+                                label="I accept all of above, just let me play."
+                                id="acceptEULA"
+                            />
+                            <FormHelperText error>
+                                {errors.acceptEULA ? errors.acceptEULA.message : " "}
+                            </FormHelperText>
+                        </Grid>
+                    </Grid>
+                    <CreateAccountButton/>
+
+                </form>
+            </Container>
         )
     }
 
+    const RegisterChecks = () => {
+        if (user.userData?.amax_account !== undefined) {
+            if (user.userData?.amax_account) {
+                return (<a>You already have an account, why do you need another one?</a>)
+            } else {
+                return (<RegisterForm/>)
+            }
+        } else {
+            return (<a>You need to login with Discord first</a>)
+        }
+    }
+
     return (
-        <>
-        {user.userData?.amax_account
-                ? <a>You already have an account, why do you need another one?</a>
-                :<RegisterForm/>}
-        </>
+        <RegisterChecks/>
     )
 }

@@ -39,7 +39,7 @@ export default function IntroWidget(){
                     In order to play Blur online you need to create Amax Emu account and install Amax Emu files.
                 </p>
             </Typography>
-            <NavLink to={"/register"} style={{color: '#92929F', textDecoration: 'none'}}>
+            <NavLink to={"/how_to_play"} style={{color: '#92929F', textDecoration: 'none'}}>
             <Button className={classes.menuButton} size="large">Let's begin!</Button>
             </NavLink>
         </div>

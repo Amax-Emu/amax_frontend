@@ -3,6 +3,8 @@ import Avatar from "@material-ui/core/Avatar";
 import LevelIcons from "./level_icons/*.png"
 import {createStyles, makeStyles, Theme, withStyles} from '@material-ui/core/styles';
 import PlayerExpBar from "../../appbar/player_stats/expirience_bar";
+import Chip from '@material-ui/core/Chip';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 function GetLevelClass(level: number, legend: number) {
     if (legend > 0) {
@@ -271,8 +273,9 @@ export default function PlayerCard({
                                        playerLegend,
                                        playerCurrentExp,
                                        playerLevelupExp,
-                                       playerPfpUrl
-                                   }: { playerName: string, playerLevel: number, playerLegend: number, playerCurrentExp: number, playerLevelupExp: number, playerPfpUrl: string }) {
+                                       playerPfpUrl,
+                                       playerAccountType
+                                   }: { playerName: string, playerLevel: number, playerLegend: number, playerCurrentExp: number, playerLevelupExp: number, playerPfpUrl: string, playerAccountType: number }) {
     const classes = useStyles();
     const level_class = GetLevelClass(playerLevel, playerLegend)
     const img_src = LevelIcons[level_class]
@@ -292,7 +295,13 @@ export default function PlayerCard({
                             src="https://amax-emu.com/static/img/profile.png"/>
                 </div>
                 <div className={classes.data_container2}>
-                    <a style={{fontWeight: "bold", fontSize: "32px", lineHeight: "37px"}}>{playerName}</a>
+                    <div style={{display: "flex",alignItems: "center"}}>
+                    <a style={{fontWeight: "bold", fontSize: "32px", lineHeight: "32px", marginRight: "0.3em"}}>{playerName}</a>
+                        {playerAccountType === 0
+                            ?(<Chip icon={<LockOpenIcon/>} label="Unlocked account" size="small" color="secondary"/>)
+                            :(<></>)
+                        }
+                    </div>
                     <div className={classes.data_container}>
                         <img className={classes.rank_icon} src={img_src}/>
 
