@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useAuthStore } from "./stores"
-
+const { AMAX_API_URL } = process.env;
 function user_data_getter() {
     const auth = useAuthStore()
 
@@ -8,7 +8,7 @@ function user_data_getter() {
 
     headers["Authorization"] = `Bearer ${auth.user.token}`;
     
-    fetch("http://127.0.0.1:8000/players/@me", {headers,})    
+    fetch(AMAX_API_URL +"/players/@me", {headers,})
     .then((response) => response.json())
     .then((responseData) => {
       console.log(responseData);

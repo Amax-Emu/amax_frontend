@@ -8,7 +8,7 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN yarn install
 COPY . ./
-ARG AMAX_API_URL_VAR=http://127.0.0.1:8000
+ARG AMAX_API_URL_VAR=https://amax-emu.com/api
 ENV AMAX_API_URL ${AMAX_API_URL_VAR}
 RUN parcel build ./src/index.html
 #RUN npm install react-scripts@3.4.1 -g --silent

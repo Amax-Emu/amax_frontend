@@ -7,9 +7,11 @@ import { useTranslation } from 'react-i18next'
 const { AMAX_API_URL } = process.env;
 
 export interface ServerStatus {
+    data: {
     server_status: string,
     total_players: number,
     total_sessions: number
+    }
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -70,7 +72,7 @@ export default function ServerStatus() {
 
     const ServerStatusLabel = () => {
             if (severDataFlag) {
-                if (serverStatusData.server_status) {
+                if (serverStatusData.data.server_status) {
                     return ( t("server_status_widget.offline") )
                 } else {
                     return (t("server_status_widget.online"))
