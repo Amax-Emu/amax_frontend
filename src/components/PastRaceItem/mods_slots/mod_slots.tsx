@@ -31,7 +31,7 @@ function get_mod_icon(mod_id) {
             mod_icon = "battering_ram"
             break;
         case 9:
-            mod_icon = "placeholder" //decoy drop
+            mod_icon = "decoy_drop" //decoy drop
             break;
         case 10:
             mod_icon = "placeholder" //road sweep

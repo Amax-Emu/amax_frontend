@@ -163,6 +163,11 @@ export default function PastRaces() {
         history.push(`/past_races/${page}`)
         auth2().then(() => {})
 
+        setPage(value);
+        setgotDataFlag(false)
+        history.push(`/past_races/${page}`)
+        auth2().then(() => {})
+
     };
 
     const RenderSessions = () => {

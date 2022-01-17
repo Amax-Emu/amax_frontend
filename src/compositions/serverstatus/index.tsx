@@ -73,9 +73,9 @@ export default function ServerStatus() {
     const ServerStatusLabel = () => {
             if (severDataFlag) {
                 if (serverStatusData.data.server_status) {
-                    return ( t("server_status_widget.offline") )
+                    return ( t("server_status_widget.online") )
                 } else {
-                    return (t("server_status_widget.online"))
+                    return (t("server_status_widget.offline"))
                 }
             } else {
                 return ("")
