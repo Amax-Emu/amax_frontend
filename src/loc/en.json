@@ -32,7 +32,8 @@
     "player": "Player",
     "fans": "Fans",
     "driving_score": "Driving score",
-    "legend": "Legend"
+    "legend": "Legend",
+    "value": "Value"
   },
   "general_values_names": {
     "fans": "Fans",
