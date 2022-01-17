@@ -246,12 +246,12 @@ export default function ResponsiveDrawer() {
                     </NavLink>)
                     : <></>
                 }
-
-                <ListItem button key='discord' href={"https://discord.gg/pbt6DzQPGY"}>
+                <a style={{textDecoration: "none",color: "inherit"}} href={"https://discord.gg/pbt6DzQPGY"}>
+                <ListItem button key='discord'>
                     <ListItemIcon><DiscordIcon/></ListItemIcon>
                     <ListItemText primary="Discord server"/>
                 </ListItem>
-
+                </a>
             </List>
 
         </div>
