@@ -34,7 +34,7 @@ function get_mod_icon(mod_id) {
             mod_icon = "decoy_drop" //decoy drop
             break;
         case 10:
-            mod_icon = "placeholder" //road sweep
+            mod_icon = "magnetic_field" //magnetic field
             break;
         case 11:
             mod_icon = "scrambler"
@@ -58,7 +58,7 @@ function get_mod_icon(mod_id) {
             mod_icon = "ecm"
             break;
         case 18:
-            mod_icon = "placeholder" // vampiric
+            mod_icon = "vampiric_wreck" // vampiric
             break;
         case 19:
             mod_icon = "bribe"
