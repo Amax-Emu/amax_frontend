@@ -142,8 +142,8 @@ export default function PastRaces() {
     const [page, setPage] = React.useState(Number(useParams<{pageNumber: string}>().pageNumber));
 
 
-    const auth2 = async () => {
-        let additional_params = "?offset=" + (page - 1) * 10
+    const auth2 = async (page_value:number) => {
+        let additional_params = "?offset=" + (page_value - 1) * 10
 
         const resp = await fetch(AMAX_API_URL + "/data/pastraces" + additional_params, {
 
@@ -159,16 +159,14 @@ export default function PastRaces() {
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
-        setgotDataFlag(false)
-        history.push(`/past_races/${page}`)
-        auth2().then(() => {})
-
-        setPage(value);
-        setgotDataFlag(false)
-        history.push(`/past_races/${page}`)
-        auth2().then(() => {})
-
+        handleChangeStep2(value);
     };
+
+    function handleChangeStep2(page_value:number) {
+        setgotDataFlag(false)
+        history.push(`/past_races/${page_value}`)
+        auth2(page_value).then(() => {})
+    }
 
     const RenderSessions = () => {
         if (gotDataFlag) {
