@@ -5,6 +5,8 @@ import {Typography} from "@material-ui/core";
 import AnimatedLogin from "../../components/animated_login/final_step";
 import {Paper} from "@material-ui/core";
 import DownloadFile from "../../components/file_download/file_download";
+// @ts-ignore
+import GuideImgs from './imgs/*.png'
 import {Grid} from "@mui/material";
 import Button from "@material-ui/core/Button";
 import {DiscordIcon} from "../appbar";
@@ -34,6 +36,14 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: "15px",
             listStylePosition: "outside",
             listStyleType: "decimal"
+        },
+        imgdiv: {
+            maxWidth: "400px",
+            height: "auto",
+            position: "relative",
+        }, image_wrapper: {
+            maxWidth: "100%",
+            maxHeight: "100%",
         },
 
         }
@@ -81,9 +91,20 @@ export default function HowToPlay() {
                           direction="column"
                           justifyContent="center"
                           alignItems="center">
-                        <DownloadFile filename={"Test"} size={"18M"} link={"/file"}/>
+                        <DownloadFile filename={"Blur_12.zip"} size={"26M"} link={"https://cs.amax-emu.com/blur_12.zip"}/>
                     </Grid>
                     <a>{t("how_to_play.patch_step_text3")}</a>
+
+                        <Grid container
+                              direction="column"
+                              justifyContent="center"
+                              alignItems="center">
+                            <div className={classes.imgdiv}>
+                                <img className={classes.image_wrapper} src={GuideImgs['blur_update_files']} alt={"blur_update_files"}/>
+                            </div>
+
+                        </Grid>
+
                     </li>
                         <li className={classes.listItem}>
                     <h2 className={classes.stepHeader}>{t("how_to_play.amax_emu_step_header")}</h2>
@@ -92,8 +113,19 @@ export default function HowToPlay() {
                           direction="column"
                           justifyContent="center"
                           alignItems="center">
-                        <DownloadFile filename={"Amax_emu.zip"} size={"18M"} link={"/file2"}/>
+                        <DownloadFile filename={"amax_emu_files.zip"} size={"1.7M"} link={"https://cs.amax-emu.com/amax_emu_files.zip"}/>
+
                     </Grid>
+                            <Grid container
+                                  direction="column"
+                                  justifyContent="center"
+                                  alignItems="center">
+                                <div className={classes.imgdiv}>
+                                    <img className={classes.image_wrapper} src={GuideImgs['amax_emu_files_prev']} alt={"amax_emu_files_prev"}/>
+                                </div>
+
+                            </Grid>
+
                         </li>
                         <li className={classes.listItem}>
                     <h2 className={classes.stepHeader}>{t("how_to_play.amax_emu_login_step_header")}</h2>

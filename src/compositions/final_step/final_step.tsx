@@ -2,6 +2,7 @@ import * as React from "react";
 import {makeStyles, createStyles, Theme, useTheme} from '@material-ui/core/styles';
 import {Container} from "@material-ui/core";
 import {Typography} from "@material-ui/core";
+import GuideImgs from "../how_to_play/imgs/*.png"
 import AnimatedLogin from "../../components/animated_login/final_step";
 import {Paper} from "@material-ui/core";
 import DownloadFile from "../../components/file_download/file_download";
@@ -13,23 +14,30 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
             root: {
                 padding: "1em",
-            },      DiscordButton: {
+            }, DiscordButton: {
                 backgroundColor: '#7289DA',
             },
             DiscordIcon: {
                 width: "24px",
                 height: "24px",
                 viewBox: "0 0 12 12"
-            },stepHeader: {
+            }, stepHeader: {
                 marginBottom: "0.1em"
-            },listItem: {
+            }, listItem: {
                 marginBottom: "4em"
-            },list_container: {
+            }, list_container: {
                 paddingLeft: "0",
                 marginLeft: "15px",
                 marginRight: "15px",
                 listStylePosition: "outside",
                 listStyleType: "decimal"
+            }, imgdiv: {
+                maxWidth: "400px",
+                height: "auto",
+                position: "relative",
+            }, image_wrapper: {
+                maxWidth: "100%",
+                maxHeight: "100%",
             },
 
         }
@@ -37,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function FinalSteps() {
     const classes = useStyles();
-    const { t, i18n } = useTranslation()
+    const {t, i18n} = useTranslation()
     const user = useUserDataStore()
 
     React.useEffect(() => {
@@ -51,61 +59,76 @@ export default function FinalSteps() {
     const poop = async () => {
         await user.getData()
     }
- return (
-     <Container>
-         <Paper className={classes.root}>
-             <Typography>
+    return (
+        <Container>
+            <Paper className={classes.root}>
+                <Typography>
 
-                 <h1>{t("how_to_play.header")} | Final steps</h1>
-                 <ol className={classes.list_container}>
+                    <h1>{t("how_to_play.header")} | Final steps</h1>
+                    <ol className={classes.list_container}>
 
 
-                     <li className={classes.listItem}>
-                         <h2 className={classes.stepHeader}>{t("how_to_play.blur_download_step_header")}</h2>
-                         <a>{t("how_to_play.blur_download_step_text")}</a>
+                        <li className={classes.listItem}>
+                            <h2 className={classes.stepHeader}>{t("how_to_play.blur_download_step_header")}</h2>
+                            <a>{t("how_to_play.blur_download_step_text")}</a>
 
-                     </li>
+                        </li>
+                        <li className={classes.listItem}>
+                            <h2 className={classes.stepHeader}>{t("how_to_play.patch_step_header")}</h2>
+                            <a>{t("how_to_play.patch_step_text1")}<strong>{t("how_to_play.patch_step_text2")}</strong></a>
+                            <Grid container
+                                  direction="column"
+                                  justifyContent="center"
+                                  alignItems="center">
+                                <DownloadFile filename={"Blur_12.zip"} size={"26M"}
+                                              link={"https://cs.amax-emu.com/blur_12.zip"}/>
+                            </Grid>
+                            <a>{t("how_to_play.patch_step_text3")}</a>
 
-                     <li className={classes.listItem}>
-                         <h2 className={classes.stepHeader}>{t("how_to_play.patch_step_header")}</h2>
-                         <a>{t("how_to_play.patch_step_text1")}<strong>{t("how_to_play.patch_step_text2")}</strong></a>
-                         <Grid container
-                               direction="column"
-                               justifyContent="center"
-                               alignItems="center">
-                             <DownloadFile filename={"Test"} size={"18M"} link={"/file"}/>
-                         </Grid>
-                         <a>{t("how_to_play.patch_step_text3")}</a>
-                     </li>
-                     <li className={classes.listItem}>
-                         <h2 className={classes.stepHeader}>{t("how_to_play.amax_emu_step_header")}</h2>
-                         <a>{t("how_to_play.amax_emu_step_text")}</a>
-                         <Grid container
-                               direction="column"
-                               justifyContent="center"
-                               alignItems="center">
-                             <DownloadFile filename={"Amax_emu.zip"} size={"18M"} link={"/file2"}/>
-                         </Grid>
-                     </li>
-                     <li className={classes.listItem}>
-                         <h2 className={classes.stepHeader}>{t("how_to_play.amax_emu_login_step_header")}</h2>
-                         <a>{t("how_to_play.amax_emu_login_step_text")}</a>
-                         <Grid container
-                               direction="column"
-                               justifyContent="center"
-                               alignItems="center">
-                             <AnimatedLogin/>
-                         </Grid>
-                     </li>
-                     <li className={classes.listItem}>
-                         <h2 className={classes.stepHeader}>{t("how_to_play.play_step_header")}</h2>
-                         <a>{t("how_to_play.play_step_text")}</a>
-                     </li>
-                 </ol>
+                            <Grid container
+                                  direction="column"
+                                  justifyContent="center"
+                                  alignItems="center">
+                                <div className={classes.imgdiv}>
+                                    <img className={classes.image_wrapper} src={GuideImgs['blur_update_files']}
+                                         alt={"blur_update_files"}/>
+                                </div>
 
-             </Typography>
-         </Paper>
-     </Container>
- )
+                            </Grid>
+
+                        </li>
+                        <li className={classes.listItem}>
+                            <h2 className={classes.stepHeader}>{t("how_to_play.amax_emu_step_header")}</h2>
+                            <a>{t("how_to_play.amax_emu_step_text")}</a>
+                            <Grid container
+                                  direction="column"
+                                  justifyContent="center"
+                                  alignItems="center">
+                                <DownloadFile filename={"amax_emu_files.zip"} size={"1.7M"}
+                                              link={"https://cs.amax-emu.com/amax_emu_files.zip"}/>
+
+                            </Grid>
+                            <Grid container
+                                  direction="column"
+                                  justifyContent="center"
+                                  alignItems="center">
+                                <div className={classes.imgdiv}>
+                                    <img className={classes.image_wrapper} src={GuideImgs['amax_emu_files_prev']}
+                                         alt={"amax_emu_files_prev"}/>
+                                </div>
+
+                            </Grid>
+
+                        </li>
+                        <li className={classes.listItem}>
+                            <h2 className={classes.stepHeader}>{t("how_to_play.play_step_header")}</h2>
+                            <a>{t("how_to_play.play_step_text")}</a>
+                        </li>
+                    </ol>
+
+                </Typography>
+            </Paper>
+        </Container>
+    )
 
 }
