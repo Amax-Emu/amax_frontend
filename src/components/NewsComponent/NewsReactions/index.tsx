@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
             reactions_container:{
                 display: "flex",
                 flexDirection: "row",
-                flexWrap: "nowrap",
+                flexWrap: "wrap",
                 alignItems: "center"
 
             },
