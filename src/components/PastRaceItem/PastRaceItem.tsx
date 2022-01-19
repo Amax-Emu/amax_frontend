@@ -391,14 +391,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
         },
         map_image_header: {
-            backgroundPosition: 'center',
-            backgroundSize: 'contain',
+            backgroundPosition: 'right',
+            backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             position: "absolute",
             right: "0px",
             top: "0px",
-            height: "100px",
-            width: "1000px",
+            height: "100%",
+            width: "100%",
             zIndex: 1,
 
         },
@@ -408,7 +408,7 @@ const useStyles = makeStyles((theme: Theme) =>
             position: "absolute",
             left: "0px",
             top: "0px",
-            height: "100px",
+            height: "100%",
             width: "70%",
             zIndex: 2,
 
