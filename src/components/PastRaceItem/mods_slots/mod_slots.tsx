@@ -69,16 +69,16 @@ function get_mod_icon(mod_id) {
         case 21:
             mod_icon = "laser_sight"
             break;
+        // case 22:
+        //     mod_icon = "placeholder" // Advanced radar
+        //     break;
         case 22:
-            mod_icon = "placeholder" // Advanced radar
-            break;
-        case 23:
             mod_icon = "silent_running"
             break;
-        case 24:
+        case 23:
             mod_icon = "last_gasp"
             break;
-        case 25:
+        case 24:
             mod_icon = "mastermine"
             break;
         default:
