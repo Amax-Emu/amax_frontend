@@ -113,7 +113,7 @@ export default function FinalSteps() {
                                   justifyContent="center"
                                   alignItems="center">
                                 <div className={classes.imgdiv}>
-                                    <img className={classes.image_wrapper} src={GuideImgs['amax_emu_files_prev']}
+                                    <img className={classes.image_wrapper} src={GuideImgs['amax_emu_files']}
                                          alt={"amax_emu_files_prev"}/>
                                 </div>
 
