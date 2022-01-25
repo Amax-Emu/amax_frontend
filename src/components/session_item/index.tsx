@@ -17,7 +17,7 @@ function GetGametypeData(game_mode_id:string) {
         return {
             name: t("sessions_widget.gamemode.communityevent"),
             icon: icons.community_events_icon,
-            header_image: headers.community_event_header
+            header_image: headers.community_events_header
         }
     }
         case "team_racing":{
