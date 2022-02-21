@@ -51,5 +51,10 @@
   },
   "scripts": {
     "dev": "AMAX_API_URL=http://127.0.0.1:8000 parcel ./src/index.html --port 3000"
+  },
+  "alias": {
+    "process": {
+      "global": "{}"
+    }
   }
 }

@@ -11,8 +11,6 @@ COPY . ./
 ARG AMAX_API_URL_VAR=https://amax-emu.com/api
 ENV AMAX_API_URL ${AMAX_API_URL_VAR}
 RUN parcel build ./src/index.html
-#RUN npm install react-scripts@3.4.1 -g --silent
-#RUN npm run build
 
 # production environment
 FROM nginx:stable-alpine
