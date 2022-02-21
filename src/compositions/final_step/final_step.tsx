@@ -46,19 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function FinalSteps() {
     const classes = useStyles();
     const {t, i18n} = useTranslation()
-    const user = useUserDataStore()
 
-    React.useEffect(() => {
-        const poop = async () => {
-            await user.getData()
-        }
-        poop().then(() => {
-        })
-    })
-
-    const poop = async () => {
-        await user.getData()
-    }
     return (
         <Container>
             <Paper className={classes.root}>
