@@ -8,14 +8,15 @@ import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            marginRight: "1em",
+            marginRight: "0em",
         },
         formControl: {
             margin: theme.spacing(1),
             minWidth: 120,
+            width: "auto",
         },
         selectEmpty: {
-            marginTop: theme.spacing(2),
+            marginTop: "auto",
         },
     }),
 );

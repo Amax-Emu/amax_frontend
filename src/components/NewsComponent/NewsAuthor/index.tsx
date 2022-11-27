@@ -55,7 +55,7 @@ export default function NewsAuthor({avatar_url,author_name,post_date}:{avatar_ur
             </div>
             <div className="data_container">
             <a className={classes.username}>{author_name}</a>
-            <a className={classes.date_text}>{moment(post_date.timestamp).local().format("M/D/YYYY- h:mm A z")}</a>
+            <a className={classes.date_text}>{moment(post_date).local().format("D/M/YYYY- h:mm A z")}</a>
             </div>
         </div>
     )

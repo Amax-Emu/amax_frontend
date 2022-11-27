@@ -11,7 +11,6 @@ import UserStats from "../../components/appbar/player_stats";
 import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 import TransitionsModal from "../../components/register_modal/index";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import LanguageSelector from "../../components/appbar/language_switcher";
 import {useTranslation} from 'react-i18next'
 import {UserData, useUserDataStore} from "../../stores/userdataStore";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -108,7 +107,7 @@ export default function AmaxAppBar() {
                     <Typography variant="h6" className={classes.title}>
 
                     </Typography>
-                    <LanguageSelector/>
+                    
                     {/* Added a questionmark in front of the . for type safety xoxo */}
                     <PlayerStatsWidgetAppBar/>
 

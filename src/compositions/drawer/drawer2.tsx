@@ -34,7 +34,7 @@ import {useUserDataStore} from "../../stores/userdataStore";
 import {DiscordIcon} from "../appbar";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PlayerBar from "../../components/player_bar";
-import LanguageSelector from "../../components/appbar/language_switcher";
+import LanguageSelector from "./language_switcher";
 import UserStats from "../../components/appbar/player_stats";
 import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 import Button from "@material-ui/core/Button";
@@ -42,7 +42,7 @@ import {useTranslation} from "react-i18next";
 import Avatar from "@material-ui/core/Avatar";
 import PlayerAvatarWidgetAppBar from "../../components/appbar/PlayerAvatarWidget/PlayerAvatarWidget";
 import PlayerStatsWidgetAppBar from "../../components/appbar/PlayerStatsWidget/PlayerStatsWidget";
-
+import LanguageSelector from "./language_switcher";
 
 const {AMAX_API_URL} = process.env;
 
@@ -252,6 +252,9 @@ export default function ResponsiveDrawer() {
                     <ListItemText primary="Discord server"/>
                 </ListItem>
                 </a>
+                <ListItem>
+                <LanguageSelector/>
+                </ListItem>
             </List>
 
         </div>

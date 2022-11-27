@@ -50,7 +50,7 @@
     "zustand": "3.5.10"
   },
   "scripts": {
-    "dev": "AMAX_API_URL=http://127.0.0.1:8000 parcel ./src/index.html --port 3000"
+    "dev": "AMAX_API_URL=https://amax-emu.com/api parcel ./src/index.html --port 3000"
   },
   "alias": {
     "process": {
