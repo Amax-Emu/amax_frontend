@@ -9,6 +9,15 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             marginRight: "0em",
+            "& option": {
+                color: "#000",
+            },
+            "& select": {
+                color: "#fff",
+            },
+            "& label": {
+                color: "#fff"
+            },
         },
         formControl: {
             margin: theme.spacing(1),
