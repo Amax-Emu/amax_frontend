@@ -1,0 +1,55 @@
+name: Amax Frontend deployment [k8s]
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_IMAGE: ghcr.io/aib0t/amax_frontend:prod #${{ env.GITHUB_SHA }}
+  AMAX_API_URL: https://amax-emu.com/api
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: Aib0t
+        password: ${{ secrets.SECRET_GITHUB_TOKEN }} 
+
+     #- name: Pull Docker container if exists
+       #run: docker pull ${{ env.DOCKER_IMAGE }} || true
+       
+    - name: Build, tag, and push image to registry
+      id: build-image
+      run: |
+          docker build -f Dockerfile.prod --build-arg AMAX_API_URL_VAR=${{ env.AMAX_API_URL }} -t ${{ env.DOCKER_IMAGE }} .
+          docker push ${{ env.DOCKER_IMAGE }}    
+
+    - name: Create kube config
+      run: |
+        mkdir -p $HOME/.kube/
+        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+        
+    - name: Install helm
+      run: |
+        curl -LO https://get.helm.sh/helm-v3.8.0-linux-amd64.tar.gz
+        tar -zxvf helm-v3.8.0-linux-amd64.tar.gz
+        mv linux-amd64/helm /usr/local/bin/helm
+        helm version
+        
+    #- name: Lint helm charts
+      #run: helm lint ./helm/vl-api/
+    #- name: Deploy
+      #run: |
+        #helm upgrade --atomic --timeout 2m -f ./helm/vl-api/values.yaml vl-api ./helm/vl-api/ \
+        #--set env.db_user=${{ secrets.DB_USER }} --set env.db_password=${{ secrets.DB_PASSWORD }} --set env.db_host=${{ secrets.DB_HOST }} \
+        #--set env.api_url=${{ env.API_URL }} --set env.cdn_url=${{ env.CDN_URL }}
