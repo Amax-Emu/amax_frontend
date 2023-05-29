@@ -51,4 +51,4 @@ jobs:
       
     - name: Deploy
       run: |
-        helm upgrade --atomic --timeout 2m -f ./helm/amax-frontend/values.yaml amax-frontend ./helm/amax-frontend/ 
+        helm upgrade --atomic --timeout 2m -f ./helm/amax-frontend/values.yaml amax-frontend ./helm/amax-frontend/ --set image.tag=prod --namespace amax
