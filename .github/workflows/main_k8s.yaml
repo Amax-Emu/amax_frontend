@@ -46,10 +46,9 @@ jobs:
         mv linux-amd64/helm /usr/local/bin/helm
         helm version
         
-    #- name: Lint helm charts
-      #run: helm lint ./helm/vl-api/
-    #- name: Deploy
-      #run: |
-        #helm upgrade --atomic --timeout 2m -f ./helm/vl-api/values.yaml vl-api ./helm/vl-api/ \
-        #--set env.db_user=${{ secrets.DB_USER }} --set env.db_password=${{ secrets.DB_PASSWORD }} --set env.db_host=${{ secrets.DB_HOST }} \
-        #--set env.api_url=${{ env.API_URL }} --set env.cdn_url=${{ env.CDN_URL }}
+    - name: Lint helm charts
+      run: helm lint ./helm/amax-frontend/
+      
+    - name: Deploy
+      run: |
+        helm upgrade --atomic --timeout 2m -f ./helm/amax-frontend/values.yaml amax-frontend ./helm/amax-frontend/ 
