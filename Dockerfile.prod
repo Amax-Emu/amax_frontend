@@ -7,9 +7,12 @@ RUN npm install yarn
 COPY package.json ./
 COPY package-lock.json ./
 RUN yarn install
+
 COPY . ./
+
 ARG AMAX_API_URL_VAR=https://amax-emu.com/api
 ENV AMAX_API_URL ${AMAX_API_URL_VAR}
+
 RUN parcel build ./src/index.html
 
 # production environment
