@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_IMAGE: ghcr.io/aib0t/amax_frontend:prod #${{ env.GITHUB_SHA }}
-  AMAX_API_URL: https://k8s.amax-emu.com/api
+  AMAX_API_URL: https://amax-emu.com/api
 
 jobs:
   deploy:
