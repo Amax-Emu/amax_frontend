@@ -48,7 +48,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: k8s.amax-emu.com
+    - host: amax-emu.com
       paths:
         - path: /
           pathType: ImplementationSpecific
