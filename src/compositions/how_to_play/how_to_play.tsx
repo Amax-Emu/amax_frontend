@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
             listStyleType: "decimal"
         },
         imgdiv: {
-            maxWidth: "400px",
+            maxWidth: "800px",
             height: "auto",
             position: "relative",
         }, image_wrapper: {
@@ -53,7 +53,7 @@ export default function HowToPlay() {
     const classes = useStyles();
     const { t, i18n } = useTranslation()
     return (
-        <Container>
+        <Container style={{"marginBottom":"4em"}}>
             <Paper className={classes.root}>
                 <Typography>
 
@@ -65,6 +65,7 @@ export default function HowToPlay() {
                     <h2 className={classes.stepHeader} >{t("how_to_play.login_step_header")}</h2>
                     <a>{t("how_to_play.login_step_text")}</a>
                     <br/>
+                    <br/>
                     <Button href={AMAX_API_URL + "/auth/login"} className={classes.DiscordButton} disableElevation endIcon={<DiscordIcon/>} >{t("appbar.login_discord")}</Button>
                         </li>
 
@@ -72,6 +73,7 @@ export default function HowToPlay() {
 
                             <h2 className={classes.stepHeader} >{t("how_to_play.create_amax_account_header")}</h2>
                             <a>{t("how_to_play.create_amax_account_text")}</a>
+                            <br/>
                             <br/>
                             <NavLink to={"/register"} style={{color: '#92929F', textDecoration: 'none'}}>
                             <Button color="primary" variant="contained" >{t("appbar.create_amax_account")}</Button>
@@ -113,18 +115,19 @@ export default function HowToPlay() {
                           direction="column"
                           justifyContent="center"
                           alignItems="center">
-                        <DownloadFile filename={"amax_emu_files.zip"} size={"1.7M"} link={"https://cs.amax-emu.com/amax_emu_files.zip"}/>
+                        <DownloadFile filename={"amax_client_files.zip"} size={"1.4M"} link={"https://cs.amax-emu.com/amax_client_files.zip"}/>
 
                     </Grid>
                             <Grid container
                                   direction="column"
                                   justifyContent="center"
                                   alignItems="center">
-                                <div className={classes.imgdiv}>
-                                    <img className={classes.image_wrapper} src={GuideImgs['amax_emu_files']} alt={"amax_emu_files_prev"}/>
-                                </div>
 
+                                <div className={classes.imgdiv}>
+                                    <img className={classes.image_wrapper} src={GuideImgs['files_guide2']} alt={"amax_emu_files_prev"}/>
+                                </div>
                             </Grid>
+
 
                         </li>
                         <li className={classes.listItem}>
