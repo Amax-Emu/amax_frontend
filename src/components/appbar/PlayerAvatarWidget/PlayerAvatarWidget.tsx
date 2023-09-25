@@ -94,7 +94,7 @@ export default function PlayerAvatarWidgetAppBar() {
                 return (<>
 
                     <NavLink to={"/register"} style={{color: '#92929F', textDecoration: 'none'}}>
-                        <Button className={classes.CreateAmaxAccButton} size="large">Create Amax Emu account</Button>
+                        <Button className={classes.CreateAmaxAccButton} size="large">{t("appbar.create_amax_account")}</Button>
                     </NavLink>
                     <Avatar variant="square" className={classes.square} src={user.userData.avatarUrl}>
                         username

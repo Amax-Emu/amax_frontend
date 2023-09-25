@@ -1,0 +1,32 @@
+/* BUTTON STYLES
+------------------------*/
+.gps-button {
+    /* background-color: #0edbff; */
+    display: inline-block;
+    /* color: #fff; */
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    
+    animation: glow-effect 1.5s linear infinite alternate;
+  }
+  
+  @keyframes glow-effect {
+    0% {
+      box-shadow: 0 0 35px 15px rgb(159, 204, 255), 0 0 35px rgb(159, 204, 255);
+      /* background-color: #0edbff; */
+    }
+    
+    100% {
+      box-shadow: 0 0 35px rgb(159, 204, 255);
+      /* background-color: #0edbff; */
+    }
+  }
+  
+.gps-button {
+    background: linear-gradient(55deg, #17fff7 15%, #5aefff 37%, #17fff0 40%) center right / 300% 100% no-repeat;
+    transition: all .75s ease-in-out;
+  }
+.gps-button:hover {
+    background-position: center left;
+  }

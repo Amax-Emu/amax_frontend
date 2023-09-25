@@ -118,7 +118,7 @@ export default function LeaderboardsWidget() {
     ];
 
     return (
-        <div>
+        <div style={{"width":"100%"}}>
             <a className={classes.widgetName}>{t("leaderboard_widget.header")}</a>
 
         <div className={classes.root}>

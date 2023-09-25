@@ -89,7 +89,7 @@ export default function NewsPage() {
                 ? discordNewsData.data.map((NewsItemData) =>
                     <DiscordNewsComponent data={NewsItemData}/>
                     )
-                : <div>none</div>        }
+                : <div><CircularProgress /></div>        }
             </Grid>
         </Container>
     )

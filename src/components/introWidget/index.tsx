@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import {createStyles, makeStyles, Theme, useTheme} from '@material-ui/core/styles';
 import { NavLink,useLocation } from 'react-router-dom';
 import {useTranslation} from "react-i18next";
+import './intro_widget.css';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

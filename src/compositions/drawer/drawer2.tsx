@@ -12,14 +12,14 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles, useTheme} from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AmaxAppBar from "../appbar";
-import {NavLink, useLocation} from 'react-router-dom';
-import {MenuItem} from "@material-ui/core";
+import { NavLink, useLocation } from 'react-router-dom';
+import { MenuItem } from "@material-ui/core";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import HistoryIcon from "@material-ui/icons/History";
-import {useEffect} from "react";
+import { useEffect } from "react";
 // @ts-ignore
 import AmaxLogo from "./amax_logo.png"
 import TableChartIcon from "@material-ui/icons/TableChart";
@@ -29,22 +29,22 @@ import Collapse from "@material-ui/core/Collapse";
 import Divider from "@material-ui/core/Divider";
 import HelpIcon from "@material-ui/icons/Help";
 import AnnouncementIcon from "@material-ui/icons/Announcement";
-import {useAuthStore} from "../../stores";
-import {useUserDataStore} from "../../stores/userdataStore";
-import {DiscordIcon} from "../appbar";
+import { useAuthStore } from "../../stores";
+import { useUserDataStore } from "../../stores/userdataStore";
+import { DiscordIcon } from "../appbar";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import PlayerBar from "../../components/player_bar";
 import LanguageSelector from "./language_switcher";
 import UserStats from "../../components/appbar/player_stats";
 import PlayerAvatar from "../../components/appbar/player_avatar/player_avatar";
 import Button from "@material-ui/core/Button";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import Avatar from "@material-ui/core/Avatar";
 import PlayerAvatarWidgetAppBar from "../../components/appbar/PlayerAvatarWidget/PlayerAvatarWidget";
 import PlayerStatsWidgetAppBar from "../../components/appbar/PlayerStatsWidget/PlayerStatsWidget";
 import LanguageSelector from "./language_switcher";
 
-const {AMAX_API_URL} = process.env;
+const { AMAX_API_URL } = process.env;
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -69,7 +69,7 @@ const useStyles = makeStyles(theme => ({
         justifySelf: "center",
         alignItems: "center",
         alignSelf: "center",
-        height: "1.5em"
+        height: "2.7em"
 
     },
     drawer: {
@@ -139,7 +139,7 @@ export default function ResponsiveDrawer() {
     const theme = useTheme();
     const isMobile = window.screen.width < 600
 
-    const {t, i18n} = useTranslation()
+    const { t, i18n } = useTranslation()
 
     const [path, setPath] = React.useState("");
 
@@ -162,32 +162,32 @@ export default function ResponsiveDrawer() {
     const user = useUserDataStore()
 
     const drawer = (
-        <div>
+        <div style={{"height":"100%"}}>
             <List className={classes.menulist}>
-                <NavLink to={"/Dashboard"} style={{color: '#92929F', textDecoration: 'none'}}
-                         activeStyle={{color: '#E5E5E5', textDecoration: 'none',}}>
+                <NavLink to={"/Dashboard"} style={{ color: '#92929F', textDecoration: 'none' }}
+                    activeStyle={{ color: '#E5E5E5', textDecoration: 'none', }}>
                     <ListItem button key='Dashboard' selected={activeRoute("/Dashboard")}
-                              classes={{root: classes.menuitem, selected: classes.selected}}>
-                        <ListItemIcon><DashboardIcon/></ListItemIcon>
-                        <ListItemText primary="Dashboard"/>
+                        classes={{ root: classes.menuitem, selected: classes.selected }}>
+                        <ListItemIcon><DashboardIcon /></ListItemIcon>
+                        <ListItemText primary="Dashboard" />
                     </ListItem>
                 </NavLink>
 
-                <NavLink to={"/past_races/1"} style={{color: '#92929F', textDecoration: 'none'}}
-                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                <NavLink to={"/past_races/1"} style={{ color: '#92929F', textDecoration: 'none' }}
+                    activeStyle={{ color: '#E5E5E5', textDecoration: 'none' }}>
                     <ListItem button key='Games feed' selected={activeRoute("/past_races")}
-                              classes={{root: classes.menuitem, selected: classes.selected}}>
-                        <ListItemIcon><HistoryIcon/></ListItemIcon>
-                        <ListItemText primary="Games feed"/>
+                        classes={{ root: classes.menuitem, selected: classes.selected }}>
+                        <ListItemIcon><HistoryIcon /></ListItemIcon>
+                        <ListItemText primary="Games feed" />
                     </ListItem>
                 </NavLink>
 
-                <NavLink to={"/leaderboards"} style={{color: '#92929F', textDecoration: 'none'}}
-                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                <NavLink to={"/leaderboards"} style={{ color: '#92929F', textDecoration: 'none' }}
+                    activeStyle={{ color: '#E5E5E5', textDecoration: 'none' }}>
                     <ListItem button key='Leaderboards' selected={activeRoute("/leaderboards")}
-                              classes={{root: classes.menuitem, selected: classes.selected}}>
-                        <ListItemIcon><TableChartIcon/></ListItemIcon>
-                        <ListItemText primary="Leaderboards"/>
+                        classes={{ root: classes.menuitem, selected: classes.selected }}>
+                        <ListItemIcon><TableChartIcon /></ListItemIcon>
+                        <ListItemText primary="Leaderboards" />
                     </ListItem>
                 </NavLink>
 
@@ -210,50 +210,60 @@ export default function ResponsiveDrawer() {
 
 
             </List>
-            <Divider variant="middle"/>
+            <Divider variant="middle" />
             <List className={classes.menulist}>
 
 
-                <NavLink to={"/how_to_play"} style={{color: '#92929F', textDecoration: 'none'}}
-                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
-                    <ListItem button key='howtoplay' selected={activeRoute("/how_to_play")}
-                              classes={{root: classes.menuitem, selected: classes.selected}}>
-                        <ListItemIcon><HelpIcon/></ListItemIcon>
-                        <ListItemText primary="How to play"/>
-                    </ListItem>
-                </NavLink>
+                {user.userData?.amax_account
+                    ? <></>
+                    : (<NavLink to={"/how_to_play"} style={{ color: '#92929F', textDecoration: 'none' }}
+                        activeStyle={{ color: '#E5E5E5', textDecoration: 'none' }}>
+                        <ListItem button key='howtoplay' selected={activeRoute("/how_to_play")}
+                            classes={{ root: classes.menuitem, selected: classes.selected }}>
+                            <ListItemIcon><HelpIcon /></ListItemIcon>
+                            <ListItemText primary="How to play" />
+                        </ListItem>
+                    </NavLink>)
 
-                <NavLink to={"/news"} style={{color: '#92929F', textDecoration: 'none'}}
-                         activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                }
+
+                <NavLink to={"/news"} style={{ color: '#92929F', textDecoration: 'none' }}
+                    activeStyle={{ color: '#E5E5E5', textDecoration: 'none' }}>
                     <ListItem button key='news' selected={activeRoute("/news")}
-                              classes={{root: classes.menuitem, selected: classes.selected}}>
-                        <ListItemIcon><AnnouncementIcon/></ListItemIcon>
-                        <ListItemText primary="News"/>
+                        classes={{ root: classes.menuitem, selected: classes.selected }}>
+                        <ListItemIcon><AnnouncementIcon /></ListItemIcon>
+                        <ListItemText primary="News" />
                     </ListItem>
                 </NavLink>
 
                 {user.userData?.amax_account
 
                     ? (<NavLink to={'/profile/' + user.userData?.amax_player_data.stats.playerName}
-                                style={{color: '#92929F', textDecoration: 'none'}}
-                                activeStyle={{color: '#E5E5E5', textDecoration: 'none'}}>
+                        style={{ color: '#92929F', textDecoration: 'none' }}
+                        activeStyle={{ color: '#E5E5E5', textDecoration: 'none' }}>
                         <ListItem button key='profile'
-                                  selected={activeRoute('/profile/' + user.userData?.amax_player_data.stats.playerName)}
-                                  classes={{root: classes.menuitem, selected: classes.selected}}>
-                            <ListItemIcon><AccountBoxIcon/></ListItemIcon>
-                            <ListItemText primary="Profile"/>
+                            selected={activeRoute('/profile/' + user.userData?.amax_player_data.stats.playerName)}
+                            classes={{ root: classes.menuitem, selected: classes.selected }}>
+                            <ListItemIcon><AccountBoxIcon /></ListItemIcon>
+                            <ListItemText primary="Profile" />
                         </ListItem>
                     </NavLink>)
                     : <></>
                 }
-                <a style={{textDecoration: "none",color: "inherit"}} href={"https://discord.gg/pbt6DzQPGY"}>
-                <ListItem button key='discord'>
-                    <ListItemIcon><DiscordIcon/></ListItemIcon>
-                    <ListItemText primary="Discord server"/>
-                </ListItem>
+
+            </List>
+            <Divider variant="middle" />
+            <List className={classes.menulist} style={{"display":"grid","flexDirection":"column","height":"calc(100vh - 29rem)","justifyItems":"center"}}>
+
+                <a style={{ textDecoration: "none", color: "inherit"}} href={"https://discord.gg/pbt6DzQPGY"} target={"_blank"}>
+                    <ListItem button key='discord' style={{"backgroundColor": '#7289DA',"borderRadius":"4px"}}>
+                        <ListItemIcon style={{"minWidth":"0","marginRight":"15px"}}><DiscordIcon /></ListItemIcon>
+                        <ListItemText primary="Discord server" />
+                    </ListItem>
                 </a>
-                <ListItem>
-                <LanguageSelector/>
+
+                <ListItem style={{"alignSelf":"flex-end"}}>
+                    <LanguageSelector />
                 </ListItem>
             </List>
 
@@ -264,10 +274,10 @@ export default function ResponsiveDrawer() {
         if (user.userData?.amax_account !== undefined) {
             if (user.userData?.amax_account === true) {
                 return (<UserStats user_level={user.userData.amax_player_data.leveling.level + 1}
-                                   user_legend={user.userData.amax_player_data.leveling.legend}
-                                   user_exp={user.userData.amax_player_data.leveling.fans}
-                                   user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent}
-                                   user_name={user.userData.amax_player_data.stats.playerName}/>
+                    user_legend={user.userData.amax_player_data.leveling.legend}
+                    user_exp={user.userData.amax_player_data.leveling.fans}
+                    user_exp_percent={user.userData.amax_player_data.leveling.fans_levelup_percent}
+                    user_name={user.userData.amax_player_data.stats.playerName} />
                 )
             } else {
                 return <></>
@@ -279,7 +289,7 @@ export default function ResponsiveDrawer() {
 
     return (
         <div className={classes.root}>
-            <CssBaseline/>
+            <CssBaseline />
 
             {isDesktop ? (
                 <AppBar position="fixed" className={classes.appBar}>
@@ -291,20 +301,20 @@ export default function ResponsiveDrawer() {
                             onClick={handleDrawerToggle}
                             className={classes.menuButton}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
-                        <img className={classes.logoImageMobile} src={AmaxLogo}/>
+                        <img className={classes.logoImageMobile} src={AmaxLogo} />
 
-                        <LanguageSelector/>
 
-                        <PlayerStatsWidgetAppBar/>
 
-                        <PlayerAvatarWidgetAppBar/>
+                        <PlayerStatsWidgetAppBar />
+
+                        <PlayerAvatarWidgetAppBar />
                     </Toolbar>
                 </AppBar>
 
             ) : (
-                <AmaxAppBar/>
+                <AmaxAppBar />
             )}
 
 
@@ -325,7 +335,7 @@ export default function ResponsiveDrawer() {
                         }}
                     >
                         <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
-                            <CloseIcon/>
+                            <CloseIcon />
                         </IconButton>
                         {drawer}
                     </Drawer>
@@ -342,7 +352,7 @@ export default function ResponsiveDrawer() {
                         <div className={classes.toolbar}>
                             <div className={classes.logo}>
                                 <NavLink to={"/"}>
-                                    <img className={classes.logo} src={AmaxLogo}/>
+                                    <img className={classes.logo} src={AmaxLogo} />
                                 </NavLink>
                             </div>
                         </div>
@@ -351,7 +361,7 @@ export default function ResponsiveDrawer() {
                 </Hidden>
             </nav>
             <div className={classes.content}>
-                <div className={classes.toolbar}/>
+                <div className={classes.toolbar} />
 
             </div>
         </div>

@@ -1,12 +1,12 @@
 import * as React from "react"
 import "./sessions_item.css";
 import {useAuthStore} from "../../stores";
-import {MePlayerData} from "../appbar";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import SessionItem from "../../components/session_item";
 import { useTranslation } from 'react-i18next'
-
+import { SilentRunner } from "../../components/general_icons/general_icons";
+import { Paper, Typography } from "@material-ui/core";
 const { AMAX_API_URL } = process.env;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -65,6 +65,8 @@ export interface PlayersList {
     statLegend:   number;
 }
 
+
+
 export default function SessionsWidget() {
     const classes = useStyles();
     const { t, i18n } = useTranslation()
@@ -73,9 +75,23 @@ export default function SessionsWidget() {
 
     const RenderSessions = () => {
         if (dataRequested) {
-            return session_data.data.map(session_data =>
-                <SessionItem key={session_data.sessionId} data = {session_data}/>
-            )
+
+            if (session_data.data.length > 0) {
+                return session_data.data.map(session_data =>
+                    <SessionItem key={session_data.sessionId} data = {session_data}/>
+                )
+            } else {
+                return (
+                    <Paper style={{"display":"grid","justifyItems":"center","marginTop":"15px","backgroundColor":"#304254"}}>
+                <SilentRunner sx={{ fontSize: 40 }}/>
+                <Typography>
+                <a>No sessions!</a>
+                </Typography>
+                </Paper>
+                )
+            }
+
+
         } else {
             return (
                 <div className={classes.spinner}>
@@ -111,9 +127,10 @@ export default function SessionsWidget() {
     return (
             <div className={classes.root}>
             <a className="session_item_name">{t('sessions_widget_header')}</a>
-        <div >
+
             <RenderSessions/>
-        </div>
+
             </div>
+
     )
 }

@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: "24px",
             height: "24px",
             viewBox: "0 0 12 12"
+
         },
         spinner: {
             display: 'flex',

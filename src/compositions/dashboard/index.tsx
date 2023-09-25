@@ -38,11 +38,13 @@ export default function Dashboard() {
                                     height="500"
                                     allowTransparency={true} frameBorder="0"
                                     sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"/>
-                        </div>
-                        : <iframe src="https://discord.com/widget?id=840455397818630175&theme=dark" width="350"
+                        </div >
+                        : <div style={{marginTop: 120}}>
+                        <iframe src="https://discord.com/widget?id=840455397818630175&theme=dark" width="350"
                                   height="500"
                                   allowTransparency={true} frameBorder="0"
                                   sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"/>
+                                  </div >
                     }
 
                 </div>

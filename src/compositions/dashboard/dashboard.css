@@ -28,15 +28,33 @@
 
 .main_widget_container { grid-area: main-widget;
     place-self: center stretch;
+    padding: 1em;
 }
 .column1_container { grid-area: first;
     justify-items: stretch;
     justify-self: center;
 width: 100%;
-margin: 1em;}
+padding: 1em;}
 .column2_container { grid-area: second;
-    justify-self: center;
-    padding: 1em;}
+    padding: 1em;
+
+    justify-content: center;
+    width: 100%;}
 .column3_container { grid-area: third;
-    justify-self: center;
-    padding: 1em;}
+    justify-self: left;
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+}
+
+@media (max-width: 850px) {
+    .column3_container {
+
+        justify-self: center;
+        display: grid;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1em;
+    }
+}

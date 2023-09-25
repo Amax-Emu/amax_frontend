@@ -12,12 +12,18 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            maxWidth: 700,
-            padding: 32,
+            width: "100%",
+            minWidth: "40vw",
+            maxWidth: "700px",
             background: "#2C3845",
-            margin: 4,
+            marginBottom: "1em",
+            marginTop: "1em",
             borderRadius: 4,
-            justifySelf: "center"
+            justifySelf: "center",
+            padding: "1em"
+        },
+        container: {
+            width: "100%",
         },
         menuButton: {
             marginRight: theme.spacing(2),
@@ -46,6 +52,7 @@ export default function DiscordNewsComponent({data}: { data: DiscordNews }) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
+            <div className={classes.container}>
             <Typography>
                 <ReactMarkdown linkTarget="_blank" remarkPlugins={[remarkGfm]}>{data.text}</ReactMarkdown>
             </Typography>
@@ -71,6 +78,7 @@ export default function DiscordNewsComponent({data}: { data: DiscordNews }) {
 
             <NewsAuthor author_name={data.author_name} post_date={data.timestamp} avatar_url={data.author_avatar_url}/>
             <NewsReactions reactions_data={data.reactions}/>
+        </div>
         </div>
     )
 }
