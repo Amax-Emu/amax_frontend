@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
             listStyleType: "decimal"
         },
         imgdiv: {
-            maxWidth: "800px",
+            maxWidth: "500px",
             height: "auto",
             position: "relative",
         }, image_wrapper: {
@@ -124,7 +124,7 @@ export default function HowToPlay() {
                                   alignItems="center">
 
                                 <div className={classes.imgdiv}>
-                                    <img className={classes.image_wrapper} src={GuideImgs['files_guide2']} alt={"amax_emu_files_prev"}/>
+                                    <img className={classes.image_wrapper} src={GuideImgs['amax_client_files']} alt={"amax_emu_files_prev"}/>
                                 </div>
                             </Grid>
 
