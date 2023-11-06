@@ -32,7 +32,7 @@ function GetGametypeData(game_mode_id:string) {
             return {
                 name: t("sessions_widget.gamemode.powered_up_racing"),
                 icon: icons.powered_up_icon,
-                header_image: headers.power_up_racing_header
+                header_image: headers.powered_up_racing_header
             }
         }
 
