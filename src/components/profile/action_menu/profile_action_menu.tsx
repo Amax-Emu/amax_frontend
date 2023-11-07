@@ -14,6 +14,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ChangePasswordForm from "../../../compositions/pasword_change_form/pasword_change_from";
+import { useRef } from "react";
 
 
 const {AMAX_API_URL} = process.env;
@@ -141,6 +142,88 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
     const user = useUserDataStore()
     const auth = useAuthStore()
 
+    const pfpFile = useRef(null) 
+
+    const clickUploadProfilePicture = () => {
+        // `current` points to the mounted file input element
+        pfpFile.current.click();
+    }
+
+    const uploadProfilePicture = () => {
+
+        if (document.getElementById("pfp_uploader") === null) {
+            return;
+        }
+
+        if (document.getElementById("pfp_uploader").length < 1) {
+            return;
+        }
+
+        const selectedFile: File = document.getElementById("pfp_uploader").files[0];        
+        console.log(selectedFile);
+
+        axios.post(AMAX_API_URL + '/players/pfp/upload',   
+        selectedFile, {
+                headers: {
+                    'Authorization': `Bearer ${auth.user.token}`
+                }
+            }
+
+        ).then(response => {
+            console.log(response)
+
+            const response_fake = {
+                success: true,
+                msg: "PFP was updated!"
+            };
+            setResponse(response_fake)
+            main_fn().then(() => {
+            })
+            handleClick()
+            UpdateProfile();
+        }
+    )
+        .catch(error => {
+            setResponse(error.response.data);
+            console.log(error.response)
+            main_fn().then(() => {
+            })
+            handleClick()
+        });
+    }  
+
+    const deleteProfilePicture = () => {
+
+        axios.delete(AMAX_API_URL + '/players/pfp/delete',   
+        {
+                headers: {
+                    'Authorization': `Bearer ${auth.user.token}`
+                }
+            }
+
+        ).then(response => {
+            console.log(response)
+
+            const response_fake = {
+                success: true,
+                msg: "PFP was updated!"
+            };
+            setResponse(response_fake)
+            main_fn().then(() => {
+            })
+            handleClick()
+            UpdateProfile();
+        }
+    )
+        .catch(error => {
+            setResponse(error.response.data);
+            console.log(error.response)
+            main_fn().then(() => {
+            })
+            handleClick()
+        });
+    }
+      
     const handleModalOpen = () => {
         setAccountChangeLoading(false)
         setAccountChangeServerResponse(undefined)
@@ -163,10 +246,10 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
 
     function UpdateProfile() {
         React.useEffect(() => {
-            const poop = async () => {
+            const main_fn = async () => {
                 await user.getData()
             }
-            poop().then(() => {
+            main_fn().then(() => {
             })
         })
     }
@@ -189,7 +272,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
         ).then(response => {
                 console.log(response)
                 setAccountChangeServerResponse(response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
 
             }
@@ -197,7 +280,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
             .catch(error => {
                 console.log(error.response)
                 setAccountChangeServerResponse(error.response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
 
             });
@@ -220,7 +303,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             }
@@ -228,7 +311,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
             .catch(error => {
                 setResponse(error.response.data);
                 console.log(error.response)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             });
@@ -250,7 +333,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             }
@@ -258,7 +341,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
             .catch(error => {
                 setResponse(error.response.data);
                 console.log(error.response)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             });
@@ -280,7 +363,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             }
@@ -288,14 +371,14 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
             .catch(error => {
                 setResponse(error.response.data);
                 console.log(error.response)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             });
 
     };
 
-    const poop = async () => {
+    const main_fn = async () => {
         await user.getData()
     }
 
@@ -314,14 +397,14 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 console.log(error.response)
                 handleClick()
@@ -344,14 +427,14 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
         ).then(response => {
                 console.log(response)
                 setResponse(response.data)
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 handleClick()
             }
         )
             .catch(error => {
                 setResponse(error.response.data);
-                poop().then(() => {
+                main_fn().then(() => {
                 })
                 console.log(error.response)
                 handleClick()
@@ -458,6 +541,15 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
                 <Button color="primary" variant="contained" onClick={handlePasswordModalOpen}>
                     Change password
                 </Button>
+
+                <Button color="primary" variant="contained" onClick={clickUploadProfilePicture}>
+                    Upload profile picture
+                </Button>
+
+                <Button color="primary" variant="contained" onClick={deleteProfilePicture}>
+                    Delete profile picture
+                </Button>
+
                     </>
                 )
             } else {
@@ -529,7 +621,7 @@ export default function ProfileActionMenu({user_name}: { user_name: string }) {
                     </div>
                 </Fade>
             </Modal>
-
+            <input type='file' id='pfp_uploader' ref={pfpFile} onChange={uploadProfilePicture} style={{display: 'none'}}/>
         </Box>
     )
 }
