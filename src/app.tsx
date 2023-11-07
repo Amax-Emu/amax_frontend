@@ -116,10 +116,10 @@ export function App() {
             <Route path="/register" component = {CreateBlurAccountForm} />
             <Route path="/final_steps" component = {FinalSteps} />
             <Route path="/how_to_play" component = {HowToPlay} />
-            <Route path="/profile/:profileName" component = {PlayerProfile} />
-            <Route path="/profile" component = {PersonalPlayerProfile} />
-            <Route path="/past_races" component = {PastRaces} />
-            <Route path="/past_races/:pageNumber" component = {PastRaces} />
+            <Route exact path="/profile/:profileName" component = {PlayerProfile} />
+            <Route exact path="/profile" component = {PersonalPlayerProfile} />
+            <Route exact path="/past_races" component = {PastRaces} />
+            <Route exact path="/past_races/:pageNumber" component = {PastRaces} />
         </Switch>
             </Container>
         </div>

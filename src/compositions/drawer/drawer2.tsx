@@ -151,7 +151,11 @@ export default function ResponsiveDrawer() {
 
     const activeRoute = (route: string) => {
         //return route === path;
-        return path.includes(route)
+        if (route != "/") {
+            return path.includes(route)
+        } else {
+            return route === path 
+        }
     }
 
     function handleDrawerToggle() {
