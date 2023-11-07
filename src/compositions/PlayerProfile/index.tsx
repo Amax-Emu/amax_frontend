@@ -25,6 +25,7 @@ export interface Data {
     status:         number;
     isGameBanned:   boolean;
     accountType:    number;
+    amaxPfpUrl: string;
 }
 
 export interface AmaxPlayerData {
@@ -178,7 +179,7 @@ export default function PlayerProfile () {
                                 playerLevel={targetPlayerData.data.amaxPlayerData.amaxLevelingData.level + 1}
                                 playerLegend={targetPlayerData.data.amaxPlayerData.amaxLevelingData.legend}
                                 playerLevelupExp={targetPlayerData.data.amaxPlayerData.amaxLevelingData.fansNeeded}
-                                playerPfpUrl={"123"}
+                                playerPfpUrl={targetPlayerData.data.amaxPfpUrl}
                                 playerAccountType={targetPlayerData.data.accountType}/>
                         <ProfileActionMenu user_name={targetPlayerData.data.player_name}/>
                         </div>

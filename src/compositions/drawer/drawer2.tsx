@@ -166,7 +166,7 @@ export default function ResponsiveDrawer() {
             <List className={classes.menulist}>
                 <NavLink to={"/Dashboard"} style={{ color: '#92929F', textDecoration: 'none' }}
                     activeStyle={{ color: '#E5E5E5', textDecoration: 'none', }}>
-                    <ListItem button key='Dashboard' selected={activeRoute("/Dashboard")}
+                    <ListItem button key='Dashboard' selected={activeRoute("/Dashboard") || activeRoute("/") }
                         classes={{ root: classes.menuitem, selected: classes.selected }}>
                         <ListItemIcon><DashboardIcon /></ListItemIcon>
                         <ListItemText primary="Dashboard" />

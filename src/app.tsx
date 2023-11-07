@@ -103,24 +103,23 @@ export function App() {
 
                 {/*<a href={AMAX_API_URL + "/auth/login"}>Login with discord</a>*/}
         <Switch>
-            {/* <Route exact path="" component={Dashboard} />
-            <Route exact path="/" component={Dashboard} /> */}
-            <Route exact path="/user" component={get_user_data} />
-            <Route exact path="/log_out" component={LogOut} />
-            <Route exact path="/discord" component={set_discord_token} />
-            <Route exact path="/discord_auth" component={set_discord_token} />
-            <Route exact path="/sessions" component={BigSessions} />
-            <Route exact path="/status_test" component={ServerStatus} />
-            <Route exact path="/leaderboards" component={FullLeaderboard} />
-            <Route exact path="/Dashboard" component = {Dashboard} />
-            <Route exact path="/news" component = {DiscordNews} />
-            <Route exact path="/register" component = {CreateBlurAccountForm} />
-            <Route exact path="/final_steps" component = {FinalSteps} />
-            <Route exact path="/how_to_play" component = {HowToPlay} />
-            <Route exact path="/profile/:profileName" component = {PlayerProfile} />
-            <Route exact path="/profile" component = {PersonalPlayerProfile} />
-            <Route exact path="/past_races" component = {PastRaces} />
-            <Route exact path="/past_races/:pageNumber" component = {PastRaces} />
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/user" component={get_user_data} />
+            <Route path="/log_out" component={LogOut} />
+            <Route path="/discord" component={set_discord_token} />
+            <Route path="/discord_auth" component={set_discord_token} />
+            <Route path="/sessions" component={BigSessions} />
+            <Route path="/status_test" component={ServerStatus} />
+            <Route path="/leaderboards" component={FullLeaderboard} />
+            <Route path="/Dashboard" component = {Dashboard} />
+            <Route path="/news" component = {DiscordNews} />
+            <Route path="/register" component = {CreateBlurAccountForm} />
+            <Route path="/final_steps" component = {FinalSteps} />
+            <Route path="/how_to_play" component = {HowToPlay} />
+            <Route path="/profile/:profileName" component = {PlayerProfile} />
+            <Route path="/profile" component = {PersonalPlayerProfile} />
+            <Route path="/past_races" component = {PastRaces} />
+            <Route path="/past_races/:pageNumber" component = {PastRaces} />
         </Switch>
             </Container>
         </div>

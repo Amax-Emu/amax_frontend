@@ -279,20 +279,18 @@ export default function PlayerCard({
     const classes = useStyles();
     const level_class = GetLevelClass(playerLevel, playerLegend)
     const img_src = LevelIcons[level_class]
-    console.log(playerLevelupExp)
-    console.log(playerCurrentExp)
     const percent = playerLevelupExp / 100
     const percent2 = playerCurrentExp / percent
 
-    console.log(percent2)
+    console.log(playerPfpUrl)
 
     return (
 
         <div className={classes.root}>
             <div className={classes.container}>
                 <div className={classes.avatar_container}>
-                    <Avatar variant="square" className={classes.avatar}
-                            src="https://amax-emu.com/static/img/profile.png"/>
+                    <Avatar variant="rounded" className={classes.avatar}
+                            src={playerPfpUrl}/>
                 </div>
                 <div className={classes.data_container2}>
                     <div style={{display: "flex",alignItems: "center"}}>
