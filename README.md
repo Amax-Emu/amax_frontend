@@ -1,4 +1,4 @@
-# Getting Started with Create React History_app
+# Getting Started with Amax Frontend
 
 This project was bootstrapped with [Create React History_app](https://github.com/facebook/create-react-app).
 
